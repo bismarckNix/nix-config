@@ -10,6 +10,8 @@
     home-manager.inputs.nixpkgs.follows = "nixpkgs";
 
     # Packages
+    areofyl-fetch.url = "github:areofyl/fetch";
+
     freesmlauncher.url = "github:FreesmTeam/FreesmLauncher";
 
     umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
