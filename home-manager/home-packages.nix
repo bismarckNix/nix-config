@@ -6,11 +6,11 @@
     btop
     cava
     cmatrix
-    fetch
     lavat
     pipes
     tty-clock
     unimatrix
+    inputs.areofyl-fetch.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Files
     (nemo-with-extensions.override {
@@ -35,6 +35,7 @@
     onlyoffice-desktopeditors
     vlc
     vscodium
+    qemu
 
     # Utilities
     bc
