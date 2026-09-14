@@ -1,3 +1,5 @@
 {
-  spawn-at-startup = "noctalia";
+  wayland.windowManager.niri.settings = {
+    spawn-at-startup = "noctalia";
+  }; 
 }
