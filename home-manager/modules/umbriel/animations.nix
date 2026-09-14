@@ -5,34 +5,33 @@ in
 	programs.umbriel.settings = {
 		animation = {
 			enabled = true;
-			duration_ms = 150;
+			duration_ms = 50;
 			curve = "easeout";
 			windows_in = {
 				enabled = true;
-				duration_ms = 175;
+				duration_ms = 50;
 				curve = "easeout";
 				style = "popin";
-				shader = "${shaders}/roll-drop.glsl";
 			};
 			windows_out = {
 				enabled = true;
-				duration_ms = 100;
+				duration_ms = 50;
 				curve = "easeout";
 				style = "slide";
 			};
 			windows_move = {
 				enabled = true;
-				duration_ms = 100;
+				duration_ms = 50;
 				curve = "snappy";
 			};
 			workspaces = {
 				enabled = true;
-				duration_ms = 150;
+				duration_ms = 100;
 				curve = "easeout";
 			};
 			overview = {
 				enabled = true;
-				duration_ms = 150;
+				duration_ms = 100;
 				curve = "easeout";
 			};
 			scratchpad = {
