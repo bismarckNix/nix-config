@@ -1,5 +1,6 @@
 {
   imports = [
+    ./niri
     ./umbriel
     ./fastfetch.nix
     ./git.nix
