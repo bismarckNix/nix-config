@@ -18,6 +18,8 @@
 
     kdeconnect.enable = true;
 
+    niri.enable = true;
+
     umbriel.enable = true;
     noctalia ={
       enable = true;
