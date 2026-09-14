@@ -9,7 +9,7 @@
     nvidia = {
       open = true; 
       modesetting.enable = true;
-      package = config.boot.kernelPackages.nvidiaPackages.latest;
+      package = config.boot.kernelPackages.nvidiaPackages.stable;
       nvidiaSettings = true;
     };
 

@@ -533,6 +533,7 @@
           theme_mode = "dark";
           wallpaper_scheme = "m3-rainbow";
         };
+        transition_on_startup = true;
       };
       widget = {
         audio_visualizer = {
