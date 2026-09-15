@@ -13,8 +13,8 @@
 
     // Set the cursor theme
     cursor {
-      xcursor-theme "bibata_modern_classic"
-      xcursor-size 32
+      xcursor-theme "Bibata-Modern-Classic"
+      xcursor-size 24
     }
 
     // Fix cursor jittering bug.
