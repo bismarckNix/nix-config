@@ -9,29 +9,29 @@ in
 			curve = "easeout";
 			windows_in = {
 				enabled = true;
-				duration_ms = 50;
+				duration_ms = 150;
 				curve = "easeout";
 				style = "popin";
 			};
 			windows_out = {
 				enabled = true;
-				duration_ms = 50;
+				duration_ms = 150;
 				curve = "easeout";
 				style = "slide";
 			};
 			windows_move = {
 				enabled = true;
-				duration_ms = 50;
+				duration_ms = 150;
 				curve = "snappy";
 			};
 			workspaces = {
 				enabled = true;
-				duration_ms = 100;
+				duration_ms = 150;
 				curve = "easeout";
 			};
 			overview = {
 				enabled = true;
-				duration_ms = 100;
+				duration_ms = 150;
 				curve = "easeout";
 			};
 			scratchpad = {

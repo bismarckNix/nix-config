@@ -16,8 +16,13 @@ in
     };
     
     desktopManager.plasma6.enable = true;
-    displayManager.sddm.enable = true;
-    displayManager.sddm.wayland.enable = true;
+    displayManager = {
+      defaultSession = "niri";
+      sddm = {
+        enable = true;
+        wayland.enable = true;
+      };
+    };
 
     flatpak.enable = true;
     gvfs.enable = true;
