@@ -11,6 +11,12 @@
     // Customize the screenshot directory.
     screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
+    // Set the cursor theme
+    cursor {
+      xcursor-theme "bibata_modern_classic"
+      xcursor-size 32
+    }
+
     // Fix cursor jittering bug.
     debug {
       disable-cursor-plane
