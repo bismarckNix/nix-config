@@ -5,7 +5,7 @@
       slowdown 1.3
 
       window-open {
-        duration-ms 150
+        duration-ms 200
         curve "linear"
 
         custom-shader r"
