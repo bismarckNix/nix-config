@@ -36,20 +36,19 @@
         xray true
         blur true
       }
+
+      open-maximized true
     }
 
     window-rule {
       // Maximized apps
-      match app-id="Alacritty"
-      match app-id="kitty"
       match app-id="firefox"
-      match app-id="brave-browser"
+      match app-id="zen"
       match app-id="brave-origin"
-      match app-id="clash-verge"
       match app-id="codium"
       match app-id="vesktop"
       match app-id="org.telegram.desktop"
-      match app-id="libreoffice"
+      match app-id="ONLYOFFICE"
       match app-id="com.github.th-ch.youtube-music"
       match app-id="steam"
 
