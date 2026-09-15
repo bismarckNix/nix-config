@@ -2,7 +2,7 @@
   xdg.configFile."niri/cfg/animations.kdl".text = ''
     animations {
       on
-      slowdown 1.0
+      slowdown 1.3
 
       window-open {
         duration-ms 150
