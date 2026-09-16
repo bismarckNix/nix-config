@@ -41,6 +41,7 @@
     bibata-cursors
     brightnessctl
     cacert
+    cargo
     ddcutil
     ffmpeg
     gpu-screen-recorder
