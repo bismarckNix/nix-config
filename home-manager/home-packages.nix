@@ -52,6 +52,7 @@
     mpv
     mpvpaper
     pciutils
+    qimgv
     rustup
     slurp
     sshfs
