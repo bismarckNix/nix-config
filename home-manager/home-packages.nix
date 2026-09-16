@@ -21,7 +21,6 @@
 
     # Browsers
     brave-origin
-    librewolf
     tor-browser
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
@@ -52,6 +51,7 @@
     mpv
     mpvpaper
     pciutils
+    rustup
     slurp
     sshfs
     translate-shell
