@@ -20,6 +20,14 @@
 
     niri.enable = true;
 
+    nix-ld = {
+      enable = true;
+      libraries = with pkgs; [
+        glibc
+        gcc
+      ];
+    };
+
     umbriel.enable = true;
     noctalia ={
       enable = true;
