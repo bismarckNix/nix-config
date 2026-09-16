@@ -43,6 +43,7 @@
     cacert
     ddcutil
     ffmpeg
+    gcc
     gpu-screen-recorder
     grim
     hyprpicker
