@@ -7,6 +7,7 @@
     cava
     cmatrix
     lavat
+    microfetch
     pipes
     tty-clock
     unimatrix
