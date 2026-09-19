@@ -15,16 +15,21 @@ in
     defaultSession = "niri";
     sddm = {
       enable = true;
-      package = pkgs.kdePackages.sddm;
+      wayland.enable = true;
       theme = "lancer";
-      extraPackages = [ theme ];
-      settings.General.GreeterEnvironment = "QT_QUICK_CONTROLS_STYLE=Fusion";
-      setupScript = ''
-        ${pkgs.xrdb}/bin//xrdb - merge - <<EOF
-        Xcursor.theme: Bibata-Modern-Classic
-        Xcursor.size: 24
-        EOF
-      '';
+      extraPackages = [
+        theme
+        pkgs.bibata-cursors
+        pkgs.qt6.qtdeclarative
+        pkgs.kdePackages.qt5compat
+      ];
+      settings.General.GreeterEnvironment = "QSG_RHI_BACKEND=opengl";
+      settings.Theme = {
+        CursorTheme = "Bibata-Modern-Classic";
+        CursorSize  = 24;
+      };
     };
   };
+
+  environment.systemPackages = [ theme ];
 }
