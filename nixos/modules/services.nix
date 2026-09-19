@@ -23,6 +23,7 @@ in
     gnome.gnome-keyring.enable = true;
 
     libinput = {
+      enable = true;
       mouse = {
         accelProfile = "flat";
         accelSpeed = "-0.4";

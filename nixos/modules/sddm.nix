@@ -15,19 +15,15 @@ in
     defaultSession = "niri";
     sddm = {
       enable = true;
-      wayland.enable = true;
+      wayland.enable = false;
       theme = "lancer";
       extraPackages = [
         theme
-        pkgs.bibata-cursors
         pkgs.qt6.qtdeclarative
         pkgs.kdePackages.qt5compat
       ];
-      settings.General.GreeterEnvironment = "QSG_RHI_BACKEND=opengl";
-      settings.Theme = {
-        CursorTheme = "Bibata-Modern-Classic";
-        CursorSize  = 24;
-      };
+      settings.General.GreeterEnvironment = "QSG_RHI_BACKEND=opengl QT_WAYLAND_DISABLE_DPI_SCALING=1";
+      settings.General.InputMethod = "";
     };
   };
 
