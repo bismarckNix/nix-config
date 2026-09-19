@@ -16,18 +16,18 @@ in
     };
     
     desktopManager.plasma6.enable = true;
-    displayManager = {
-      defaultSession = "niri";
-      sddm = {
-        enable = true;
-        wayland.enable = true;
-      };
-    };
 
     flatpak.enable = true;
     gvfs.enable = true;
 
     gnome.gnome-keyring.enable = true;
+
+    libinput = {
+      mouse = {
+        accelProfile = "flat";
+        accelSpeed = "-0.4";
+      };
+    };
     
     printing = {
       enable = true;
