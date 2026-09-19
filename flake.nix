@@ -14,7 +14,7 @@
 
     freesmlauncher.url = "github:FreesmTeam/FreesmLauncher";
 
-    nixvim.url = "github:nix-community/nixvim";
+    lazyvim.url = "github:pfassina/lazyvim-nix";
 
     umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
 
@@ -24,7 +24,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, ... }@inputs: let
+  outputs = { self, nixpkgs, home-manager, lazyvim ... }@inputs: let
   system = "x86_64-linux";
   homeStateVersion = "26.05";
   user = "bismarck";

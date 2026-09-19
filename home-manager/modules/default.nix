@@ -1,11 +1,11 @@
 {
   imports = [
+    ./lazyvim
     ./niri
     ./umbriel
     ./fastfetch.nix
     ./git.nix
     ./kitty.nix
-    ./nixvim.nix
     ./noctalia.nix
     ./starship.nix
     ./tmux.nix
