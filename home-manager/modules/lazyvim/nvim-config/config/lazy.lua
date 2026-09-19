@@ -1,4 +1,6 @@
 return {
   check = { enabled = false },
-  doc = { enabled = false },
+  dev = {
+    fallback = true,
+  },
 }

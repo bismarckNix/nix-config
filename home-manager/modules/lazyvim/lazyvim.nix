@@ -7,20 +7,22 @@
     configFiles = ./nvim-config;
 
     extras = {
-      lang.nix.enable = true;
-      lang.python = {
-        enable = true;
-        installDependencies = true;
-        installRuntimeDependencies = true;
-      };
-      lang.go = {
-        enable = true;
-        installDependencies = true;
-        installRuntimeDependencies = true;
+      lang = {
+        nix.enable = true;
+        python = {
+          enable = true;
+          installDependencies = true;
+          installRuntimeDependencies = true;
+        };
+        go = {
+          enable = true;
+          installDependencies = true;
+          installRuntimeDependencies = true;
+        };
       };
     };
 
-    extraPackages = with pkgs; [ curl nixd alejandra ];
+    extraPackages = with pkgs; [ curl nixd alejandra statix ];
 
     plugins.cord = ''
       return {
@@ -28,12 +30,9 @@
           build = ":Cord update",
           config = function()
             require("cord").setup({
-              timer = { enable = true, interval = 1500 },
-              display = {
-                show_time = true,
-                show_repository = true,
-                show_cursor_position = true,
-              },
+              editor = {
+                client = 'lazyvim',
+              }
             })
           end
         }
