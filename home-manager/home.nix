@@ -2,6 +2,7 @@
   imports = [
     ./modules
     ./home-packages.nix
+    inputs.nixvim.homeModules.default 
     inputs.umbriel.homeModules.default
   ];
 

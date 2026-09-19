@@ -5,6 +5,7 @@
     ./fastfetch.nix
     ./git.nix
     ./kitty.nix
+    ./nixvim.nix
     ./noctalia.nix
     ./starship.nix
     ./tmux.nix

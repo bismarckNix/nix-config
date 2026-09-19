@@ -14,6 +14,8 @@
 
     freesmlauncher.url = "github:FreesmTeam/FreesmLauncher";
 
+    nixvim.url = "github:nix-community/nixvim";
+
     umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
 
     zen-browser = {
