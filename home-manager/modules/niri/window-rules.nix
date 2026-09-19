@@ -45,6 +45,7 @@
       match app-id="firefox"
       match app-id="zen"
       match app-id="brave-origin"
+      match app-id="lazyvim"
       match app-id="codium"
       match app-id="vesktop"
       match app-id="org.telegram.desktop"

@@ -150,7 +150,8 @@
       Mod+E         hotkey-overlay-title="Open Browser: Zen"                 { spawn "zen"; }
       Mod+B         hotkey-overlay-title="Open Browser: Brave Origin"        { spawn "brave-origin"; }
       Mod+Ctrl+E    hotkey-overlay-title="Open File Manager: Nemo"           { spawn "nemo"; }
-      Mod+N         hotkey-overlay-title="Open Code Editor: VSCodium"        { spawn "codium"; }
+      Mod+N         hotkey-overlay-title="Open Code Editor: LazyVim"         { spawn-sh "kitty --class lazyvim nvim"; }
+      Mod+Ctrl+N    hotkey-overlay-title="Open Code Editor: VSCodium"        { spawn "codium"; }
 
       Mod+Z         hotkey-overlay-title="Open Vesktop"                      { spawn "vesktop"; }
       Mod+T         hotkey-overlay-title="Open Telegram Desktop"             { spawn "Telegram"; }
