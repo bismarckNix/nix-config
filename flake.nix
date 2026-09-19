@@ -24,7 +24,7 @@
     };
   };
 
-  outputs = { self, nixpkgs, home-manager, lazyvim ... }@inputs: let
+  outputs = { self, nixpkgs, home-manager, lazyvim, ... }@inputs: let
   system = "x86_64-linux";
   homeStateVersion = "26.05";
   user = "bismarck";
