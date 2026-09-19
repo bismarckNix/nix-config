@@ -19,10 +19,24 @@
           installDependencies = true;
           installRuntimeDependencies = true;
         };
+        rust = {
+          enable = true;
+          installDependencies = true;
+          installRuntimeDependencies = true;
+        };
       };
     };
 
     extraPackages = with pkgs; [ curl nixd alejandra statix ];
+
+    treesitterParsers = with pkgs.vimPlugins.nvim-treesitter-parsers; [
+      git_config
+      gitcommit
+      git_rebase
+      gitignore
+      gitattributes
+      json5
+    ];
 
     plugins.cord = ''
       return {
