@@ -38,19 +38,31 @@
       json5
     ];
 
-    plugins.cord = ''
-      return {
-        { "vyfor/cord.nvim",
-          build = ":Cord update",
-          config = function()
-            require("cord").setup({
-              editor = {
-                client = 'lazyvim',
-              }
-            })
-          end
+    plugins = {
+      cord = ''
+        return {
+          { "vyfor/cord.nvim",
+            build = ":Cord update",
+            config = function()
+              require("cord").setup({
+                editor = {
+                  client = 'lazyvim',
+                }
+              })
+            end
+          }
         }
-      }
-    '';
+      '';
+      image = ''
+        return {
+          { "3rd/image.nvim",
+            build = false,
+            opts = {
+              processor = "magick_cli",
+            }
+          }
+        }
+      '';
+    };
   };
 }
