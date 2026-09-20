@@ -519,7 +519,7 @@
         wallpaper_scheme = "m3-rainbow";
         templates = {
           builtin_ids = [ "btop" "kitty" "niri" "starship" "umbriel" ];
-          community_ids = [ "discord" "telegram" "vscode" "steam" ];
+          community_ids = [ "discord" "telegram" "neovim" "vscode" "steam" ];
         };
       };
       wallpaper = {

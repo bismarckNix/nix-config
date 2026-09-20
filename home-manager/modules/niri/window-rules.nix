@@ -67,6 +67,7 @@
     window-rule {
       // Window blur
       match app-id="kitty"
+      match app-id="lazyvim"
 
       background-effect {
         blur true
