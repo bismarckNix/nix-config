@@ -47,6 +47,9 @@
               require("cord").setup({
                 editor = {
                   client = 'lazyvim',
+                },
+                display = {
+                  theme = 'minecraft',
                 }
               })
             end
