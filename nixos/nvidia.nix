@@ -24,18 +24,19 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
+  systemd.services.nvidia-persistenced.after = [ "systemd-udevd.service" ];
   systemd.services.nvidia-clock-lock = {
-  description = "Lock NVIDIA GPU minimum clocks";
-  wantedBy = [ "multi-user.target" ];
-  after = [ "nvidia-persistenced.service" ];
-  requires = [ "nvidia-persistenced.service" ];
-  path = [ config.hardware.nvidia.package.bin ];
-  serviceConfig = {
-    Type = "oneshot";
-    ExecStart = [
-      "${config.hardware.nvidia.package.bin}/bin/nvidia-smi -lgc 210,999999"
-      "${config.hardware.nvidia.package.bin}/bin/nvidia-smi -lmc 405,999999"
-    ];
+    description = "Lock NVIDIA GPU minimum clocks";
+    wantedBy = [ "multi-user.target" ];
+    after = [ "nvidia-persistenced.service" ];
+    requires = [ "nvidia-persistenced.service" ];
+    path = [ config.hardware.nvidia.package.bin ];
+    serviceConfig = {
+      Type = "oneshot";
+      ExecStart = [
+        "${config.hardware.nvidia.package.bin}/bin/nvidia-smi -lgc 210,999999"
+        "${config.hardware.nvidia.package.bin}/bin/nvidia-smi -lmc 405,999999"
+      ];
     RemainAfterExit = true;
     };
   };
