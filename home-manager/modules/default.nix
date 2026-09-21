@@ -3,6 +3,7 @@
     ./lazyvim
     ./niri
     ./umbriel
+    ./entries.nix
     ./fastfetch.nix
     ./git.nix
     ./kitty.nix
