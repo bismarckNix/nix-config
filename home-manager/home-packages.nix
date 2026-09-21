@@ -27,7 +27,15 @@
 
     # Messengers
     telegram-desktop
-    vesktop
+    (pkgs.symlinkJoin {
+      name = "vesktop";
+      paths = [ pkgs.vesktop ];
+      nativeBuildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/vesktop \
+          --add-flags "--disable-features=WebRtcAllowInputVolumeAdjustment"
+      '';
+    })
 
     # Work
     gimp
@@ -35,7 +43,6 @@
     onlyoffice-desktopeditors
     vlc
     vscodium
-    qemu
 
     # Utilities
     bc
