@@ -41,6 +41,9 @@
     gimp
     obsidian
     onlyoffice-desktopeditors
+    python3
+    rustup
+    uv
     vlc
     vscodium
 
@@ -61,7 +64,6 @@
     mpvpaper
     pciutils
     qimgv
-    rustup
     slurp
     sshfs
     translate-shell
