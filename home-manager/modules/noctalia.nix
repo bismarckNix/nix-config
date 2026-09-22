@@ -568,7 +568,7 @@
           capsule_padding = 2;
         };
         launcher = {
-          custom_image = "~/nix-config/pictures/nixos.png";
+          custom_image = "~/nix-config/pictures/nixos.svg";
           custom_image_colorize = true;
           scale = 1.25;
           actions = {
