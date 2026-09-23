@@ -9,6 +9,7 @@
     ./kitty.nix
     ./noctalia.nix
     ./starship.nix
+    ./superfile.nix
     ./tmux.nix
     ./zsh.nix
   ];

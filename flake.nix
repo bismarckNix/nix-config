@@ -16,6 +16,9 @@
 
     lazyvim.url = "github:pfassina/lazyvim-nix";
 
+    superfile.url = "github:yorukot/superfile";
+    superfile.inputs.nixpkgs.follows = "nixpkgs";
+
     umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
 
     zen-browser = {
@@ -33,7 +36,7 @@
   ];
 
   makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
-    system = system;
+    inherit system;
     specialArgs = {
       inherit inputs stateVersion hostname user;
     };
