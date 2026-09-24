@@ -48,12 +48,15 @@
     vscodium
 
     # Utilities
+    _7zz-rar
     bc
     bibata-cursors
     brightnessctl
     cacert
     ddcutil
     ffmpeg
+    fd
+    fzf
     gcc
     gpu-screen-recorder
     grim
@@ -63,11 +66,15 @@
     mpv
     mpvpaper
     pciutils
+    poppler
     qimgv
+    resvg
+    ripgrep
     slurp
     sshfs
     translate-shell
     wget
+    wl-clipboard
     wl-screenrec
     zbar
     
