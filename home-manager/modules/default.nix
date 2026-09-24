@@ -11,6 +11,8 @@
     ./starship.nix
     ./superfile.nix
     ./tmux.nix
+    ./yazi.nix
+    ./zoxide.nix
     ./zsh.nix
   ];
 }
