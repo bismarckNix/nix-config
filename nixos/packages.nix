@@ -2,6 +2,11 @@
   imports = [ inputs.umbriel.nixosModules.default ];
 
   programs = {
+    appimage = {
+      enable = true;
+      binfmt = true;
+    };
+
     clash-verge = {
       enable = true;
       serviceMode = true;
@@ -29,6 +34,7 @@
     };
 
     umbriel.enable = true;
+
     noctalia ={
       enable = true;
       recommendedServices.enable = true;
