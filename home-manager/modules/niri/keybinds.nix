@@ -149,7 +149,7 @@
       Mod+Ctrl+V    hotkey-overlay-title="Open Proxy Client: Clash Verge"    { spawn "clash-verge"; }
       Mod+E         hotkey-overlay-title="Open Browser: Zen"                 { spawn "zen"; }
       Mod+B         hotkey-overlay-title="Open Browser: Brave Origin"        { spawn "brave-origin"; }
-      Mod+Ctrl+E    hotkey-overlay-title="Open File Manager: Nemo"           { spawn "nemo"; }
+      Mod+Ctrl+E    hotkey-overlay-title="Open File Manager: Yazi"           { spawn-sh "kitty --class yazi yazi"; }
       Mod+N         hotkey-overlay-title="Open Code Editor: LazyVim"         { spawn-sh "kitty --class lazyvim nvim"; }
       Mod+Ctrl+N    hotkey-overlay-title="Open Code Editor: VSCodium"        { spawn "codium"; }
 
