@@ -3,6 +3,7 @@
     ./modules
     ./home-packages.nix
     inputs.umbriel.homeModules.default
+    inputs.catppuccin.homeModules.catppuccin
   ];
 
   home = {

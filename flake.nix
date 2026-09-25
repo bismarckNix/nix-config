@@ -12,6 +12,8 @@
     # Packages
     areofyl-fetch.url = "github:areofyl/fetch";
 
+    catppuccin.url = "github:catppuccin/nix";
+
     freesmlauncher.url = "github:FreesmTeam/FreesmLauncher";
 
     lazyvim.url = "github:pfassina/lazyvim-nix";
