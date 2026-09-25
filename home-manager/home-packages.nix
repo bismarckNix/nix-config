@@ -72,6 +72,7 @@
     ripgrep
     slurp
     sshfs
+    tealdeer
     translate-shell
     wget
     wl-clipboard
