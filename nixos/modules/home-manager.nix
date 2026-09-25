@@ -2,6 +2,6 @@
   imports = [ inputs.home-manager.nixosModules.default ];
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
-    backupFileExtension = "backup";
+    backupFileExtension = "bak";
   };
 }
