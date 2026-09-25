@@ -42,9 +42,9 @@
 
     window-rule {
       // Maximized apps
-      match app-id="firefox"
       match app-id="zen"
       match app-id="brave-origin"
+      match app-id="kitty"
       match app-id="lazyvim"
       match app-id="yazi"
       match app-id="codium"
