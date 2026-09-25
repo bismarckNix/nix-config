@@ -3,15 +3,16 @@
     ./lazyvim
     ./niri
     ./umbriel
-    ./bat.nix
     ./catppuccin.nix
     ./entries.nix
     ./eza.nix
     ./fastfetch.nix
+    ./fzf.nix
     ./git.nix
     ./kitty.nix
     ./lazygit.nix
     ./noctalia.nix
+    ./programs.nix
     ./starship.nix
     ./tldr.nix
     ./yazi.nix

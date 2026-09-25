@@ -3,8 +3,6 @@
 
     # Terminal stuff
     asciiquarium
-    btop
-    cava
     cmatrix
     lavat
     microfetch
@@ -56,7 +54,6 @@
     ddcutil
     ffmpeg
     fd
-    fzf
     gcc
     gpu-screen-recorder
     grim
