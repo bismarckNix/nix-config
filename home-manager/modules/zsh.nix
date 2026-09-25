@@ -35,7 +35,7 @@
     history.path = "${config.home.homeDirectory}/.zsh_history";
 
     initContent = ''
-      fastfetch
+      microfetch
     '';
   };
 }
