@@ -2,8 +2,12 @@
   programs.eza = {
     enable = true;
     enableZshIntegration = true;
-    colros = "auto";
+    colors = "always";
     git = true;
-    icons = "auto";
+    icons = "always";
+    extraOptions = [
+      "--group-directories-first"
+      "--header"
+    ];
   };
 }
