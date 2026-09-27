@@ -9,7 +9,7 @@
     ./net.nix
     ./nh.nix
     ./nix.nix
-    ./sddm.nix
+    ./sddm-lancer.nix
     ./services.nix
     ./timezone.nix
     ./user.nix

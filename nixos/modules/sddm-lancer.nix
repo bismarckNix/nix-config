@@ -24,6 +24,13 @@ in
       ];
       settings.General.GreeterEnvironment = "QSG_RHI_BACKEND=opengl QT_WAYLAND_DISABLE_DPI_SCALING=1";
       settings.General.InputMethod = "";
+
+      setupScript = ''
+        ${pkgs.xrdb}/bin/xrdb -merge - <<EOF
+        Xcursor.theme: Bibata-Modern-Classic
+        Xcursor.size: 24
+        EOF
+      '';
     };
   };
 
