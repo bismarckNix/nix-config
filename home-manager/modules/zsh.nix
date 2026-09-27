@@ -19,6 +19,7 @@
       fl = " cd ~/nix-config";
 
       sw = "nh os switch .";
+      swb = "nh os boot .";
       upd = "nh os switch --update .";
       hms = "nh home switch .";
 
@@ -26,9 +27,6 @@
       ga = "git add .";
       gc = "git commit .";
       gp = "git push";
-
-      ".." = "cd ..";
-      
     };
 
     history.size = 10000;
