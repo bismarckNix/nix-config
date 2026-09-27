@@ -39,7 +39,6 @@
     # Utilities
     _7zz-rar
     bc
-    bibata-cursors
     brightnessctl
     cacert
     ddcutil
@@ -68,8 +67,10 @@
     zbar
 
     # Other
+    kdePackages.breeze
     keepassxc
     pear-desktop
+    papirus-icon-theme
     polkit
     system-config-printer
 

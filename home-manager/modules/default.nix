@@ -15,6 +15,7 @@
     ./onlyoffice.nix
     ./programs.nix
     ./starship.nix
+    ./themes.nix
     ./tldr.nix
     ./vesktop.nix
     ./yazi.nix
