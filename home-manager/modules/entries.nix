@@ -1,7 +1,6 @@
 { config, pkgs, ... }: {
   xdg.dataFile = {
     "icons/lazyvim.svg".source = ../../pictures/lazyvim.svg;
-    "icons/superfile.svg".source = ../../pictures/superfile.svg;
   };
 
   xdg.desktopEntries = {
