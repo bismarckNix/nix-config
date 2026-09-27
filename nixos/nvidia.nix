@@ -1,4 +1,6 @@
 { config, pkgs, lib, ... }: {
+  boot.initrd.kernelModules = [ "nvidia" "nvidia_modeset" "nvidia_uvm" "nvidia_drm" ];
+
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
     intel-gpu-tools.enable = true;
@@ -40,4 +42,6 @@
     RemainAfterExit = true;
     };
   };
+
+  powerManagement.cpuFreqGovernor = "performance";
 }

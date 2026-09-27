@@ -1,6 +1,4 @@
-{ pkgs, stateVersion, hostname, ... }:
-
-{
+{ pkgs, stateVersion, hostname, ... }: {
   imports = [
     ./hardware-configuration.nix
     ./local-packages.nix
@@ -14,6 +12,4 @@
   networking.hostName = hostname;
 
   system.stateVersion = stateVersion;
-
-  powerManagement.cpuFreqGovernor = "performance";
 }
