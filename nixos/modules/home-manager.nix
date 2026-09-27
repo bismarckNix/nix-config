@@ -3,5 +3,6 @@
   home-manager = {
     extraSpecialArgs = { inherit inputs; };
     backupFileExtension = "bak";
+    overwriteBackup = true;
   };
 }
