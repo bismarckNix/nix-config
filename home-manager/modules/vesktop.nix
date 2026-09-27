@@ -36,10 +36,7 @@
       };
 
       themes = {
-        "NotAnotherAnimeTheme.theme" = builtins.fetchurl {
-          url = "https://raw.githubusercontent.com/puckzxz/NotAnotherAnimeTheme/master/NotAnotherAnimeTheme.theme.css";
-          sha256 = "sha256-x6Uv78ubu3uYYkZ8glG1ub6wtVLq98Ph1AGbGHpG5qM";
-        };
+        "NotAnotherAnimeTheme.theme" = ../../css/NotAnotherAnimeTheme.theme.css;
       };
     };
   };
