@@ -8,6 +8,9 @@
           --add-flags "--disable-features=WebRtcAllowInputVolumeAdjustment"
       '';
     });
+    settings = {
+      arRPC = true;
+    };
 
     vencord = {
       settings = {
