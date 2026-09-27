@@ -7,15 +7,13 @@ let
     '';
   });
 in
-{  
+{
   services = {
     avahi = {
       enable = true;
       nssmdns4 = true;
       openFirewall = true;
     };
-    
-    desktopManager.plasma6.enable = true;
 
     flatpak.enable = true;
     gvfs.enable = true;
@@ -29,13 +27,16 @@ in
         accelSpeed = "-0.4";
       };
     };
-    
+
     printing = {
       enable = true;
       drivers = [ pkgs.hplipWithPlugin ];
     };
 
-    xserver.enable = true;
+    xserver = {
+      enable = true;
+      excludePackages = with pkgs; [ xterm ];
+    };
   };
 
   environment.systemPackages = [ hplipPatched ];
