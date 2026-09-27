@@ -24,16 +24,8 @@
     inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Messengers
+    discordo
     telegram-desktop
-    (pkgs.symlinkJoin {
-      name = "vesktop";
-      paths = [ pkgs.vesktop ];
-      nativeBuildInputs = [ pkgs.makeWrapper ];
-      postBuild = ''
-        wrapProgram $out/bin/vesktop \
-          --add-flags "--disable-features=WebRtcAllowInputVolumeAdjustment"
-      '';
-    })
 
     # Work
     gimp
@@ -60,7 +52,7 @@
     hyprpicker
     imagemagick
     jq
-    mpv
+    kdePackages.qt6ct
     mpvpaper
     pciutils
     poppler
@@ -75,7 +67,7 @@
     wl-clipboard
     wl-screenrec
     zbar
-    
+
     # Other
     keepassxc
     pear-desktop
@@ -83,4 +75,6 @@
     system-config-printer
 
   ];
+
+  nixpkgs.overlays = [ inputs.xwayland-satellite.overlays.default ];
 }
