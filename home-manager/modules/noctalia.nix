@@ -518,8 +518,8 @@
         source = "wallpaper";
         wallpaper_scheme = "m3-rainbow";
         templates = {
-          builtin_ids = [ "btop" "kitty" "niri" "starship" "umbriel" ];
-          community_ids = [ "discord" "telegram" "neovim" "vscode" "steam" ];
+          builtin_ids = [ "btop" "cava" "kitty" "niri" "starship" "umbriel" ];
+          community_ids = [ "bat" "discord" "lazygit" "neovim" "pear-desktop" "steam" "telegram" "yazi" "vscode" ];
         };
       };
       wallpaper = {
@@ -596,11 +596,6 @@
           capsule_opacity = 0.0;
           capsule_padding = 0;
           capsule_radius = 3;
-        };
-        session = {
-          actions = {
-            right = "panel-toggle arrifat346afs/systempulse:panel";
-          };
         };
         spacer_long = {
           length = 24;

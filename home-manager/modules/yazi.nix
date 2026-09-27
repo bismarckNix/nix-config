@@ -11,24 +11,6 @@
 			};
 		};
 
-    flavors = {
-      catppuccin-macchiato = pkgs.fetchFromGitHub {
-        owner = "yazi-rs";
-        repo = "flavors";
-        rev = "main";
-        hash = "sha256-NGnfrQdsnQITKCZ0oh6DCxeCR2ozJoPAZetsi3ghHAI";
-      } + "/catppuccin-macchiato.yazi";
-    };
-
-    theme = {
-      flavor = {
-        dark = "catppuccin-macchiato";
-        light = "catppuccin-macchiato";
-      };
-
-      app.overall = { bg = "reset"; };
-    };
-
     plugins = with pkgs.yaziPlugins; {
       inherit lazygit;
       inherit chmod;
