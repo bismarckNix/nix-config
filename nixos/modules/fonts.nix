@@ -10,18 +10,38 @@
     '';
   };
 
-  fonts.packages = with pkgs; [
-    anakron
-    corefonts
-    cozette
-    dina-font
-    fira-code
-    fira-code-symbols
-    nerd-fonts.hack
-    nerd-fonts.departure-mono
-    nerd-fonts.jetbrains-mono
-    proggyfonts
-    unscii
-    vista-fonts
-  ];
+  fonts = {
+    enableDefaultPackages = true;
+    packages = with pkgs; [
+      anakron
+      corefonts
+      cozette
+      dejavu_fonts
+      dina-font
+      fira-code
+      fira-code-symbols
+      freefont_ttf
+      gyre-fonts
+      hack-font
+      inter
+      liberation_ttf
+      nerd-fonts.hack
+      nerd-fonts.departure-mono
+      nerd-fonts.jetbrains-mono
+      noto-fonts
+      noto-fonts-color-emoji
+      oxygenfonts
+      proggyfonts
+      roboto
+      unifont
+      unscii
+      vista-fonts
+    ];
+    fontconfig.defaultFonts = {
+      sansSerif = [ "Noto Sans" ];
+      serif     = [ "Noto Serif" ];
+      monospace = [ "Noto Sans Mono" ];
+      emoji     = [ "Noto Color Emoji" ];
+    };
+  };
 }
