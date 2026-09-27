@@ -12,9 +12,11 @@
     ./kitty.nix
     ./lazygit.nix
     ./noctalia.nix
+    ./onlyoffice.nix
     ./programs.nix
     ./starship.nix
     ./tldr.nix
+    ./vesktop.nix
     ./yazi.nix
     ./zellij.nix
     ./zoxide.nix

@@ -30,7 +30,6 @@
     # Work
     gimp
     obsidian
-    onlyoffice-desktopeditors
     python3
     rustup
     uv
