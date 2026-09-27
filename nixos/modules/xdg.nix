@@ -15,6 +15,7 @@
       defaultApplications = {
         "inode/directory" = "superfile.desktop";
         "image/*" = "qimgv.desktop";
+        "application/pdf" = "onlyoffice-desktopeditors.desktop";
       };
     };
   };
