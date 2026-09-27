@@ -13,6 +13,7 @@
     ./services.nix
     ./timezone.nix
     ./user.nix
+    ./wms.nix
     ./xdg.nix
   ];
 }

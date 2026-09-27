@@ -24,21 +24,12 @@
 
     kdeconnect.enable = true;
 
-    niri.enable = true;
-
     nix-ld = {
       enable = true;
       libraries = with pkgs; [
         glibc
         gcc
       ];
-    };
-
-    umbriel.enable = true;
-
-    noctalia ={
-      enable = true;
-      recommendedServices.enable = true;
     };
   };
 
