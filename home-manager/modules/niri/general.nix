@@ -5,6 +5,10 @@
       skip-at-startup
     }
 
+    environment {
+      QT_QPA_PLATFORMTHEME "qt6ct"
+    }
+
     // Comment out this line to enable client-side decorations.
     prefer-no-csd
 
