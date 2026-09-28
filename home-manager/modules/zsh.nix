@@ -1,7 +1,7 @@
 { config, ... }: {
   programs.zsh = {
     enable = true;
-    
+
     enableCompletion = true;
     oh-my-zsh.enable = true;
     autosuggestion.enable = true;
@@ -27,6 +27,9 @@
       ga = "git add .";
       gc = "git commit .";
       gp = "git push";
+
+      vault-lock = "sudo chattr +i ~/.vault";
+      vault-unlock = "sudo chattr -i ~/.vault";
     };
 
     history.size = 10000;
