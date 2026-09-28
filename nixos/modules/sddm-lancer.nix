@@ -1,5 +1,5 @@
 { pkgs, ... }: let
-  theme = pkgs.stdenvNoCC.mkDerivation {
+  sddm-lancer = pkgs.stdenvNoCC.mkDerivation {
     pname = "lancer";
     version = "2.0.0";
     src = ../lancer;
@@ -18,11 +18,11 @@ in
       wayland.enable = false;
       theme = "lancer";
       extraPackages = [
-        theme
+        sddm-lancer
         pkgs.qt6.qtdeclarative
         pkgs.kdePackages.qt5compat
       ];
-      settings.General.GreeterEnvironment = "QSG_RHI_BACKEND=opengl QT_WAYLAND_DISABLE_DPI_SCALING=1";
+      settings.General.GreeterEnvironment = "QSG_RHI_BACKEND=opengl";
       settings.General.InputMethod = "";
 
       setupScript = ''
@@ -34,5 +34,5 @@ in
     };
   };
 
-  environment.systemPackages = [ theme ];
+  environment.systemPackages = [ sddm-lancer ];
 }
