@@ -5,6 +5,8 @@
       // Set gaps around windows in logical pixels.
       gaps 16
 
+      background-color "#000000"
+
       center-focused-column "never"
 
       // Customize the widths that "switch-preset-column-width" (Mod+R) toggles between.
