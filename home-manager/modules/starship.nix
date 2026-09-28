@@ -6,6 +6,8 @@
 		settings = {
 			"$schema" = "https://starship.rs/config-schema.json";
 			add_newline = true;
+      palette = "catppuccin_macchiato";
+
 			format = "[◖](surface1)[█](surface1)$os$username[](bg:blue fg:surface1)$directory[](fg:blue bg:green)$git_branch$git_status[](fg:green) ";
 			right_format = "[](fg:surface1)$status[](bg:surface1 fg:text)$kubernetes[](bg:surface1 fg:text)$time[](surface1)";
 			os = {
@@ -61,6 +63,35 @@
 				style = "bg:blue";
 				format = "[[  $time ](fg:text bg:surface1)]($style)";
 			};
-		};
+
+      palettes.catppuccin_macchiato = {
+        "base" = "#24273a";
+        "blue" = "#8aadf4";
+        "crust" = "#181926";
+        "flamingo" = "#f0c6c6";
+        "green" = "#a6da95";
+        "lavender" = "#b7bdf8";
+        "mantle" = "#1e2030";
+        "maroon" = "#ee99a0";
+        "mauve" = "#c6a0f6";
+        "overlay0" = "#6e738d";
+        "overlay1" = "#8087a2";
+        "overlay2" = "#939ab7";
+        "peach" = "#f5a97f";
+        "pink" = "#f5bde6";
+        "red" = "#ed8796";
+        "rosewater" = "#f4dbd6";
+        "sapphire" = "#7dc4e4";
+        "sky" = "#91d7e3";
+        "subtext0" = "#a5adcb";
+        "subtext1" = "#b8c0e0";
+        "surface0" = "#363a4f";
+        "surface1" = "#494d64";
+        "surface2" = "#5b6078";
+        "teal" = "#8bd5ca";
+        "text" = "#cad3f5";
+        "yellow" = "#eed49f";
+      };
+	  };
 	};
 }
