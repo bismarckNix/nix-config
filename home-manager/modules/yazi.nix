@@ -15,7 +15,6 @@
       inherit lazygit;
       inherit chmod;
       inherit smart-enter;
-      inherit sudo;
       inherit mount;
       inherit toggle-pane;
       inherit recycle-bin;
@@ -99,58 +98,6 @@
           on   = [ "c" "a" "u" ];
           run  = "plugin compress -phl";
           desc = "Archive selected files (password+header+level)";
-        }
-
-        # Sudo
-        {
-          on = [ "R" "S" "p" ];
-          run = "plugin sudo -- paste";
-          desc = "Sudo paste";
-        }
-        {
-          on = [ "R" "S" "P" ];
-          run = "plugin sudo -- paste --force";
-          desc = "Sudo force paste";
-        }
-        {
-          on = [ "R" "S" "r" ];
-          run = "plugin sudo -- rename";
-          desc = "Sudo rename/bulk-rename";
-        }
-        {
-          on = [ "R" "S" "l" "l" ];
-          run = "plugin sudo -- link";
-          desc = "Sudo link";
-        }
-        {
-          on = [ "R" "S" "l" "r" ];
-          run = "plugin sudo -- link --relative";
-          desc = "Sudo link relative path";
-        }
-        {
-          on = [ "R" "S" "l" "L" ];
-          run = "plugin sudo -- hardlink";
-          desc = "Sudo hardlink";
-        }
-        {
-          on = [ "R" "S" "a" ];
-          run = "plugin sudo -- create";
-          desc = "Sudo create";
-        }
-        {
-          on = [ "R" "S" "d" ];
-          run = "plugin sudo -- remove";
-          desc = "Sudo trash";
-        }
-        {
-          on = [ "R" "S" "D" ];
-          run = "plugin sudo -- remove --permanently";
-          desc = "Sudo delete";
-        }
-        {
-          on = [ "R" "S" "m" ];
-          run = "plugin sudo -- chmod";
-          desc = "Sudo chmod";
         }
 			];
 		};
