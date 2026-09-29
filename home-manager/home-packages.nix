@@ -29,6 +29,7 @@
 
     # Work
     gimp
+    libreoffice
     obsidian
     python3
     rustup
