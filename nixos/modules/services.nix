@@ -1,13 +1,10 @@
-{ pkgs, ... }:
-let
+{ pkgs, ... }: let
   hplipPatched = pkgs.hplip.overrideAttrs (old: {
     postInstall = (old.postInstall or "") + ''
       sed -i 's/URLopener/OpenerDirector/g' $out/share/hplip/base/device.py
       sed -i 's/\.getcode()/.status()/g' $out/share/hplip/base/device.py
     '';
-  });
-in
-{
+  }); in {
   services = {
     avahi = {
       enable = true;

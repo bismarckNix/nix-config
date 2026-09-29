@@ -1,7 +1,6 @@
 { config, ... }: let
   shaders = "${config.home.homeDirectory}/nix-config/home-manager/modules/umbriel/shaders";
-in
-{
+in {
 	programs.umbriel.settings = {
 		animation = {
 			enabled = true;
