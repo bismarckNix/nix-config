@@ -6,6 +6,4 @@
     alsa.support32Bit = true;
     pulse.enable = true;
   };
-
-  imports = [ ../sound-theme ];
 }
