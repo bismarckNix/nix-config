@@ -1,0 +1,7 @@
+[Sound Theme]
+Name=Noctalia Modern Minimal UI
+Comment=Noctalia Modern Minimal UI Sound Theme
+Directories=stereo
+
+[stereo]
+OutputProfile=stereo

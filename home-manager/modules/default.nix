@@ -14,6 +14,7 @@
     ./noctalia.nix
     ./onlyoffice.nix
     ./programs.nix
+    ./sound-theme.nix
     ./starship.nix
     ./themes.nix
     ./tldr.nix

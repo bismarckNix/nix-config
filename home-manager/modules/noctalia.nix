@@ -1,11 +1,14 @@
 {
   programs.noctalia = {
-	enable = true;
+    enable = true;
+    checkConfig = true;
 
-	settings = {
+    settings = {
       audio = {
         enable_overdrive = true;
         enable_sounds = true;
+        sound_theme = "noctalia-modern-minimal-ui-theme";
+        sound_volume = 0.7;
       };
       backdrop = {
         blur_intensity = 0.2;
@@ -19,7 +22,7 @@
           capsule_opacity = 0.7;
           capsule_radius = 3;
           center = [ "workspaces" ];
-          end = [ "tray" "andrewdems/printers:printer" "status" "notifications" "clipboard" "spacer_long" "group:g3" "spacer_long" "group:g2" ];
+          end = [ "tray" "printer" "status" "notifications" "clipboard" "spacer_long" "group:g3" "spacer_long" "group:g2" ];
           margin_ends = 0;
           radius = 0;
           shadow = false;
@@ -201,6 +204,7 @@
       };
       location = {
         address = "Khimki, Russia";
+        transition_duration = 500;
       };
       lockscreen = {
         blur_intensity = 0.2;
@@ -463,6 +467,7 @@
             };
           };
         };
+        niri_overview_type_to_launch_enabled = true;
         panel = {
           borders = false;
           control_center_placement = "floating";
@@ -518,7 +523,7 @@
         source = "wallpaper";
         wallpaper_scheme = "m3-rainbow";
         templates = {
-          builtin_ids = [ "btop" "cava" "kitty" "niri" "starship" "umbriel" ];
+          builtin_ids = [ "btop" "cava" "kitty" "niri" "qt" "umbriel" ];
           community_ids = [ "bat" "discord" "lazygit" "neovim" "pear-desktop" "steam" "telegram" "yazi" "vscode" ];
         };
       };
@@ -543,7 +548,7 @@
         "avivbintangaringga/nix-monitor:nix-monitor" = {
           colorize_glyph = false;
           show_text = false;
-          up_to_date_glyph = "square-rounded-check";
+          up_to_date_glyph = "square-check";
         };
         clipboard = {
           capsule_radius = "auto";
@@ -581,7 +586,7 @@
           capsule_radius = "auto";
           interactive = false;
           scale = 1.15;
-          text = "⏐";
+          text = "│";
           type = "text";
         };
         media = {
@@ -596,6 +601,9 @@
           capsule_opacity = 0.0;
           capsule_padding = 0;
           capsule_radius = 3;
+        };
+        printer = {
+          type = "andrewdems/printers:printer";
         };
         spacer_long = {
           length = 24;
