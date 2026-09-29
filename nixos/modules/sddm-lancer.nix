@@ -1,22 +1,19 @@
 { pkgs, ... }: let
-  sddm-lancer = pkgs.stdenvNoCC.mkDerivation {
-    pname = "lancer";
+  sddm-lancer = pkgs.stdenvNoCC.mkDerivation rec {
+    pname = "sddm-lancer";
     version = "2.0.0";
-    src = ../lancer;
+    src = ../sddm-lancer;
     dontBuild = true;
     installPhase = ''
       mkdir -p $out/share/sddm/themes
-      cp -aR $src $out/share/sddm/themes/lancer
+      cp -aR $src $out/share/sddm/themes/${pname}
     '';
-  };
-in
-{
+  }; in {
   services.displayManager = {
     defaultSession = "niri";
     sddm = {
       enable = true;
-      wayland.enable = false;
-      theme = "lancer";
+      theme = "sddm-lancer";
       extraPackages = [
         sddm-lancer
         pkgs.qt6.qtdeclarative
