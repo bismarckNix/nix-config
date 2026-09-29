@@ -37,6 +37,9 @@
 
     initContent = ''
       microfetch
+      autoload -U add-zsh-hook
+      _ls_on_cd() { eza --icons=always --color=always --group-directories-first; }
+      add-zsh-hook chpwd _ls_on_cd
     '';
   };
 }
