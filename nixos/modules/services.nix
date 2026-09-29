@@ -28,16 +28,22 @@ in
       };
     };
 
+    power-profiles-daemon.enable = true;
+
     printing = {
       enable = true;
       drivers = [ pkgs.hplipWithPlugin ];
     };
+
+    upower.enable = true;
 
     xserver = {
       enable = true;
       excludePackages = with pkgs; [ xterm ];
     };
   };
+
+  systemd.services.avahi-daemon.serviceConfig.ExecStartPre = "+/run/current-system/sw/bin/rm -f /run/avahi-daemon/pid";
 
   environment.systemPackages = [ hplipPatched ];
 }
