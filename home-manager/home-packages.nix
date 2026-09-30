@@ -56,7 +56,7 @@
     mpvpaper
     pastel
     pciutils
-    poppler
+    poppler-utils
     qimgv
     resvg
     ripgrep
