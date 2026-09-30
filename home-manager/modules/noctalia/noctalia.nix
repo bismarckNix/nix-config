@@ -26,7 +26,7 @@
           margin_ends = 0;
           radius = 0;
           shadow = false;
-          start = [ "group:g1" "spacer_long" "avivbintangaringga/nix-monitor:nix-monitor" "media" ];
+          start = [ "group:g1" "spacer_long" "nix-monitor" "media" ];
           dead_zone = {
             actions = {
               middle = "settings-toggle";
@@ -410,6 +410,7 @@
         };
         "avivbintangaringga/nix-monitor" = {
           panel_placement = "floating";
+          type = "avivbintangaringga/nix-monitor:nix-monitor";
           update_command = "nh os switch --update $HOME/nix-config";
         };
         "noctalia/mpvpaper" = {
@@ -545,9 +546,10 @@
           bands = 128;
           width = 1540;
         };
-        "avivbintangaringga/nix-monitor:nix-monitor" = {
+        nix-monitor = {
           colorize_glyph = false;
           show_text = false;
+          type = "avivbintangaringga/nix-monitor:nix-monitor";
           up_to_date_glyph = "square-check";
         };
         clipboard = {
