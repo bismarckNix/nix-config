@@ -24,6 +24,11 @@
           installDependencies = true;
           installRuntimeDependencies = true;
         };
+        markdown = {
+          enable = true;
+          installDependencies = true;
+          installRuntimeDependencies = true;
+        };
       };
     };
 
