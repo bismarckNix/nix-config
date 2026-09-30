@@ -2,6 +2,7 @@
   imports = [
     ./lazyvim
     ./niri
+    ./noctalia
     ./umbriel
     ./catppuccin.nix
     ./entries.nix
@@ -11,10 +12,9 @@
     ./git.nix
     ./kitty.nix
     ./lazygit.nix
-    ./noctalia.nix
+    ./navi.nix
     ./onlyoffice.nix
     ./programs.nix
-    ./sound-theme.nix
     ./starship.nix
     ./themes.nix
     ./tldr.nix
