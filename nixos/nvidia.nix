@@ -28,7 +28,7 @@
 
   systemd.services.nvidia-persistenced.after = [ "systemd-udevd.service" ];
   systemd.services.nvidia-clock-lock = {
-    description = "Lock NVIDIA GPU minimum clocks";
+    description = "Lock NVIDIA GPU minimum clocks (for smooth animations on WMs)";
     wantedBy = [ "multi-user.target" ];
     after = [ "nvidia-persistenced.service" ];
     requires = [ "nvidia-persistenced.service" ];
@@ -36,8 +36,8 @@
     serviceConfig = {
       Type = "oneshot";
       ExecStart = [
-        "${config.hardware.nvidia.package.bin}/bin/nvidia-smi -lgc 210,999999"
-        "${config.hardware.nvidia.package.bin}/bin/nvidia-smi -lmc 405,999999"
+        "${config.hardware.nvidia.package.bin}/bin/nvidia-smi -lgc 1200,999999"
+        "${config.hardware.nvidia.package.bin}/bin/nvidia-smi -lmc 7001,999999"
       ];
     RemainAfterExit = true;
     };
