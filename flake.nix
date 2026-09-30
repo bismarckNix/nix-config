@@ -20,12 +20,7 @@
 
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
 
-    superfile.url = "github:yorukot/superfile";
-    superfile.inputs.nixpkgs.follows = "nixpkgs";
-
     umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
-
-    xwayland-satellite.url = "github:Supreeeme/xwayland-satellite";
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
