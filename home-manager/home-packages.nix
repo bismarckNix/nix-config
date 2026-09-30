@@ -46,6 +46,7 @@
     ffmpeg
     fd
     gcc
+    ghgrab
     gpu-screen-recorder
     grim
     hyprpicker
@@ -53,6 +54,7 @@
     jq
     kdePackages.qt6ct
     mpvpaper
+    pastel
     pciutils
     poppler
     qimgv
@@ -65,6 +67,7 @@
     wget
     wl-clipboard
     wl-screenrec
+    xwayland-satellite
     zbar
 
     # Other
@@ -73,9 +76,8 @@
     pear-desktop
     papirus-icon-theme
     polkit
+    smassh
     system-config-printer
 
   ];
-
-  nixpkgs.overlays = [ inputs.xwayland-satellite.overlays.default ];
 }
