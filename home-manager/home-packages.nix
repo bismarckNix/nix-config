@@ -1,4 +1,18 @@
-{ inputs, pkgs, ... }: {
+{ inputs, pkgs, ... }: let
+  lmmx3 = pkgs.fetchFromGitHub {
+    owner = "Yulljie";
+    repo = "LMMX3";
+    rev = "584ffda";
+    hash = "sha256-01xKuMAPGJjQ+iWfIn7XxP2ioRLLk+cbOSn8pNScjow";
+  };
+  soundfonts = pkgs.symlinkJoin {
+    name = "soundfonts";
+    paths = with pkgs; [
+      soundfont-generaluser
+      soundfont-fluid
+      soundfont-arachno
+    ];
+  }; in {
   home.packages = with pkgs; [
 
     # Terminal stuff
@@ -28,8 +42,22 @@
     telegram-desktop
 
     # Work
-    gimp
+    ardour
+    darktable
+    gimp3
+    (pkgs.symlinkJoin {
+      name = "krita-wayland";
+      paths = [ pkgs.krita ];
+      nativeBuildInputs = [ pkgs.makeWrapper ];
+      postBuild = ''
+        wrapProgram $out/bin/krita \
+          --set-default QT_QPA_PLATFORM wayland
+      '';
+    })
+    inkscape
+    kdePackages.kdenlive
     libreoffice
+    lmms-full
     obsidian
     python3
     rustup
@@ -70,6 +98,14 @@
     xwayland-satellite
     zbar
 
+    # Plugins
+    helm
+    lsp-plugins
+    sfizz
+    surge-xt
+    x42-plugins
+    zynaddsubfx
+
     # Other
     kdePackages.breeze
     keepassxc
@@ -80,4 +116,17 @@
     system-config-printer
 
   ];
+
+  nixpkgs.overlays = [
+    (final: prev: {
+      lmms = prev.lmms.overrideAttrs (old: {
+        postInstall = (old.postInstall or "") + ''
+          rm -rf $out/share/lmms/themes/default
+          cp -r ${lmmx3}/LMMX3 $out/share/lmms/themes/default
+        '';
+      });
+    })
+  ];
+
+  home.file."Projects/lmms/samples/soundfonts".source = "${soundfonts}/share/soundfonts";
 }
