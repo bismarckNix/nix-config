@@ -29,8 +29,9 @@
     }
 
     window-rule {
-      // Fix the Zen browser transparency
+      // Fix the Zen browser and LMMS transparency
       match app-id=r#"zen$"#
+      match app-id=r#"lmms$"#
       opacity 0.99999
       background-effect {
         xray true
