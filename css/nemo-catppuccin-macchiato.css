@@ -1,6 +1,6 @@
 /* nemo-theme.css: Catppuccin Macchiato mauve on #121212 */
 
-/* Palette */
+/* ---------- Palette ---------- */
 @define-color theme_bg_color #121212;
 @define-color theme_base_color #121212;
 @define-color theme_unfocused_bg_color #121212;
@@ -10,46 +10,186 @@
 @define-color theme_selected_bg_color #c6a0f6;
 @define-color theme_selected_fg_color #181926;
 
-/* Surfaces */
+/* Own colors, reused below via @name */
+@define-color surface   #1c1c1c;  /* menus, popups */
+@define-color field     #0b0b0b;  /* entries */
+@define-color divider   #2c2c2c;  /* every border/separator line */
+@define-color muted     #8a8a8a;
+@define-color accent    #c6a0f6;
+@define-color accent_bg alpha(#c6a0f6, 0.25);
+@define-color accent_dark #8c66cc;    /* underline of the active menu bar item */
+@define-color accent_hover #b48cf2;   /* hovered selected sidebar row; try #b48cf2 for darker */
+
+/* ---------- Surfaces ---------- */
 window.nemo-window,
 .nemo-window .view,
 .nemo-window iconview,
 .nemo-window .sidebar,
-.nemo-window .sidebar .view {
-  background-color: #121212;
-  background-image: none;
-}
-
+.nemo-window searchbar,
 .nemo-window menubar,
 .nemo-window toolbar,
-.nemo-window .primary-toolbar,
+.nemo-window box.toolbar,
 .nemo-window .path-bar,
-.nemo-window statusbar,
-.nemo-window statusbar > box,
-.nemo-window statusbar label {
+.nemo-window statusbar {
   background-color: #121212;
   background-image: none;
   color: #e0e0e0;
 }
 
-/* Selection and drag-select */
-.nemo-window .sidebar row:selected {
-  background-color: #c6a0f6;
-  color: #181926;
+.nemo-window searchbar {
+  border: none;
+  box-shadow: none;
+  padding: 4px 8px;
 }
+
+/* ---------- Menu bar (File, Edit, View, Go, Bookmarks, Help) ----------
+   Idle items are plain text. The hovered / open item gets a mauve wash and a
+   darker mauve underline (@accent_dark); the explicit resets also remove the
+   underline drawn by the base theme. */
+.nemo-window menubar {
+  padding: 2px 8px;
+  border: none;
+  box-shadow: none;
+}
+.nemo-window menubar > menuitem {
+  background-color: transparent;
+  background-image: none;
+  color: #d6d6d6;
+  border: none;
+  border-radius: 8px;
+  box-shadow: none;
+  padding: 2px 12px;
+  margin: 3px 1px;
+  min-height: 22px;
+}
+.nemo-window menubar > menuitem:hover {
+  background-color: alpha(@accent, 0.18);
+  color: @accent;
+  box-shadow: inset 0 -2px @accent_dark;
+}
+
+/* ---------- Frame lines ----------
+   Toolbar, statusbar and sidebar all use @divider, so the sidebar's
+   line joins the bars above and below it instead of fading into them. */
+.nemo-window toolbar,
+.nemo-window .primary-toolbar {
+  border: none;
+  border-bottom: 1px solid @divider;
+}
+.nemo-window statusbar {
+  border: none;
+}
+/* Bottom line = bottom edge of the sidebar/view paned, so it touches the sidebar's line */
+.nemo-window paned {
+  border-bottom: 1px solid @divider;
+}
+.nemo-window paned paned {
+  border-bottom: none;   /* nested split-view paned: avoid a doubled line */
+}
+.nemo-window box.toolbar:not(.primary-toolbar) {
+  border: none;
+}
+.nemo-window .sidebar {
+  border: none;
+  border-right: 1px solid @divider;
+}
+/* Hide the paned handle so it doesn't draw a second line next to the sidebar's */
+.nemo-window paned > separator {
+  min-width: 1px;
+  min-height: 1px;
+  background-color: transparent;
+  background-image: none;
+}
+
+/* ---------- Sidebar ---------- */
+/* Selected row: black text AND black icons */
+.nemo-window .sidebar .view:selected,
+.nemo-window .sidebar.view:selected,
+.nemo-window .sidebar row:selected {
+  background-color: @accent;
+  color: #000000;
+  -gtk-icon-effect: none;
+  -gtk-icon-palette: success #000000, warning #000000, error #000000;
+}
+.nemo-window .sidebar .view:hover,
+.nemo-window .sidebar.view:hover,
+.nemo-window .sidebar row:hover {
+  background-color: alpha(white, 0.06);
+}
+.nemo-window .sidebar .view:selected:hover,
+.nemo-window .sidebar.view:selected:hover,
+.nemo-window .sidebar row:selected:hover {
+  background-color: @accent_hover;
+  color: #000000;
+}
+
+/* Disk-usage bar under mounted drives.
+   Nemo draws it itself and reads these two colors from the treeview's style
+   properties (one color pair for all rows, so pick colors that work on both the
+   dark background and the mauve selected row). */
+.nemo-window .sidebar .view,
+.nemo-window .sidebar.view,
+.nemo-window .places-treeview {
+  -NemoPlacesTreeView-disk-full-fg-color: #a6da95;   /* used space */
+  -NemoPlacesTreeView-disk-full-bg-color: #363a4f;   /* track */
+}
+.nemo-window .sidebar .view:focus,
+.nemo-window .sidebar row:focus {
+  outline: none;
+}
+
+/* ---------- Tabs ---------- */
+.nemo-window notebook > header {
+  background-color: #121212;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  padding: 0 6px;
+}
+.nemo-window notebook > header > tabs > tab {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  border-radius: 6px;                 /* fully rounded when idle/hovered */
+  box-shadow: none;
+  color: @muted;
+  padding: 4px 10px;
+  min-height: 24px;
+}
+.nemo-window notebook > header > tabs > tab:hover {
+  background-color: alpha(white, 0.06);
+  color: #e0e0e0;
+}
+.nemo-window notebook > header > tabs > tab:checked {
+  background-color: alpha(#c6a0f6, 0.12);
+  border-radius: 6px 6px 0 0;         /* flat bottom only when selected */
+  color: @accent;
+  box-shadow: inset 0 -2px @accent;
+}
+.nemo-window notebook > header > tabs > tab button {
+  min-width: 16px;
+  min-height: 16px;
+  padding: 0;
+  border-radius: 99px;
+}
+.nemo-window notebook > stack {
+  background-color: #121212;
+}
+
+/* ---------- Selection and drag-select ---------- */
 .nemo-window .nemo-canvas-item:selected,
 .nemo-window iconview:selected,
 .nemo-window .view:selected {
-  background-color: rgba(198, 160, 246, 0.6);
+  background-color: alpha(@accent, 0.6);
   color: #ffffff;
 }
 .nemo-window rubberband,
 .nemo-window .rubberband {
-  background-color: rgba(198, 160, 246, 0.25);
-  border: 1px solid #c6a0f6;
+  background-color: alpha(@accent, 0.25);
+  border: 1px solid @accent;
 }
 
-/* Flat buttons (toolbar, bottom-left three, etc.) */
+/* ---------- Buttons (flat, Nautilus-style) ---------- */
 .nemo-window button {
   background-color: transparent;
   background-image: none;
@@ -58,92 +198,71 @@ window.nemo-window,
   color: #e0e0e0;
 }
 .nemo-window button:hover {
-  background-color: rgba(255, 255, 255, 0.08);
+  background-color: alpha(white, 0.08);
 }
 .nemo-window button:checked,
 .nemo-window button:active {
-  background-color: rgba(198, 160, 246, 0.25);
-  color: #c6a0f6;
+  background-color: @accent_bg;
+  color: @accent;
 }
 
-/* Path bar buttons */
+/* ---------- Path bar: segments join into one pill ---------- */
 .nemo-window .path-bar button {
-  background-color: rgba(255, 255, 255, 0.06);
-  border: none;
+  background-color: alpha(white, 0.06);
+  border-radius: 0;
+  box-shadow: inset -1px 0 #121212;   /* 1px seam between segments */
+}
+.nemo-window .path-bar button:first-child {
+  border-radius: 6px 0 0 6px;
+}
+.nemo-window .path-bar button:last-child {
+  border-radius: 0 6px 6px 0;
+  box-shadow: none;
+}
+.nemo-window .path-bar button:only-child {
   border-radius: 6px;
-  color: #e0e0e0;
+  box-shadow: none;
 }
 .nemo-window .path-bar button:hover {
-  background-color: rgba(255, 255, 255, 0.12);
+  background-color: alpha(white, 0.12);
 }
 .nemo-window .path-bar button:checked {
-  background-color: rgba(198, 160, 246, 0.25);
-  color: #c6a0f6;
+  background-color: @accent_bg;
+  color: @accent;
 }
 
-/* Location entry (Ctrl+L or "/") and search bar */
-.nemo-window entry,
-.nemo-window toolbar entry,
-.nemo-window searchbar entry,
-.nemo-window entry.search {
-  background-color: #0b0b0b;
+/* ---------- Entries (location bar, search bar) ---------- */
+.nemo-window entry {
+  background-color: @field;
   background-image: none;
   color: #e0e0e0;
-  caret-color: #c6a0f6;
+  caret-color: @accent;
   border: none;
   border-radius: 8px;
   min-height: 30px;
   padding: 0 10px;
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+  box-shadow: inset 0 0 0 1px alpha(white, 0.08);
 }
 .nemo-window entry:focus {
-  box-shadow: inset 0 0 0 2px #c6a0f6;
+  box-shadow: inset 0 0 0 2px @accent;
 }
 .nemo-window entry selection {
-  background-color: rgba(198, 160, 246, 0.4);
+  background-color: alpha(@accent, 0.4);
   color: #ffffff;
 }
 .nemo-window entry image {
-  color: #8a8a8a;
+  color: @muted;
 }
 .nemo-window entry image:hover {
-  color: #c6a0f6;
+  color: @accent;
 }
 .nemo-window entry placeholder {
   color: #6a6a6a;
 }
 
-/* Search bar container */
-.nemo-window searchbar,
-.nemo-window .search-bar {
-  background-color: #121212;
-  background-image: none;
-  border: none;
-  box-shadow: none;
-  padding: 4px 8px;
-}
-
-/* Popups */
-menu,
-popover.background,
-tooltip.background {
-  background-color: #1c1c1c;
-  background-image: none;
-  color: #e0e0e0;
-  border: 1px solid #2c2c2c;
-}
-menuitem:hover,
-modelbutton:hover {
-  background-color: rgba(198, 160, 246, 0.25);
-  color: #c6a0f6;
-}
-menu separator {
-  background-color: #2c2c2c;
-}
-
-/* Zoom slider, GNOME style */
+/* ---------- Zoom slider (GNOME style) ---------- */
 .nemo-window scale trough {
-  background-color: rgba(255, 255, 255, 0.15);
+  background-color: alpha(white, 0.15);
   background-image: none;
   border: none;
   border-radius: 99px;
@@ -151,7 +270,7 @@ menu separator {
   min-width: 4px;
 }
 .nemo-window scale highlight {
-  background-color: #c6a0f6;
+  background-color: @accent;
   background-image: none;
   border: none;
   border-radius: 99px;
@@ -164,9 +283,159 @@ menu separator {
   min-width: 14px;
   min-height: 14px;
   margin: -5px 0;
-  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 1px 3px alpha(black, 0.4);
 }
 .nemo-window scale slider:hover,
 .nemo-window scale slider:active {
-  background-color: #c6a0f6;
+  background-color: @accent;
+}
+
+/* ---------- Popup menus (not scoped to .nemo-window on purpose) ---------- */
+window.popup,
+window.popup.background {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+}
+window.popup decoration {
+  background-color: transparent;
+  border: none;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px alpha(black, 0.35), 0 0 0 1px alpha(white, 0.05);
+}
+
+menu,
+.menu,
+.context-menu,
+popover.background,
+popover.background > contents,
+tooltip.background {
+  background-color: @surface;
+  background-image: none;
+  color: #e0e0e0;
+  border: none;
+  border-radius: 10px;
+}
+menu,
+.menu,
+.context-menu {
+  padding: 4px;
+}
+menu menuitem,
+modelbutton {
+  background-color: transparent;
+  color: inherit;
+  border-radius: 6px;
+  padding: 6px 10px;
+  margin: 1px 0;
+}
+menu menuitem:hover,
+modelbutton:hover {
+  background-color: alpha(@accent, 0.2);
+  color: @accent;
+}
+menu menuitem:disabled,
+menu menuitem:disabled label {
+  color: #6a6a6a;
+}
+menu menuitem label,
+menu menuitem accelerator {
+  color: inherit;
+}
+menu separator {
+  background-color: @divider;
+  margin: 4px 0;
+}
+
+/* ---------- Type-ahead find popup ----------
+   Nemo builds it as a plain toplevel GtkWindow (no .popup class guaranteed)
+   whose only child is a GtkFrame, so we match "window > frame". */
+/* The box around the popup is its own toplevel window (classes: just "background").
+   Make that window and its decoration transparent so only the rounded frame shows.
+   If you get black corners, your setup has no alpha visual: set border-radius: 0 on the frame. */
+window.background:not(.nemo-window):not(.csd):not(.ssd):not(.solid-csd):not(.popup):not(.tooltip),
+window.background:not(.nemo-window):not(.csd):not(.ssd):not(.solid-csd):not(.popup):not(.tooltip) > decoration {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+}
+window > frame {
+  background-color: @surface;
+  background-image: none;
+  border: 1px solid @divider;
+  border-radius: 10px;
+  padding: 6px;
+}
+window > frame > border {
+  border: none;
+  background: none;
+}
+window > frame box,
+window > frame grid {
+  background-color: transparent;
+  background-image: none;
+}
+window > frame entry {
+  background-color: @field;
+  background-image: none;
+  color: #e0e0e0;
+  caret-color: @accent;
+  border: none;
+  border-radius: 999px;
+  min-height: 30px;
+  padding: 0 12px;
+  box-shadow: inset 0 0 0 1px alpha(white, 0.08);
+}
+window > frame entry:focus {
+  box-shadow: inset 0 0 0 2px @accent;
+}
+window > frame entry selection {
+  background-color: alpha(@accent, 0.4);
+  color: #ffffff;
+}
+window > frame entry image {
+  color: @muted;
+}
+
+
+/* =====================================================================
+   Newer rules live down here on purpose: if GTK ever rejects one of them,
+   everything above it is unaffected. Run `nemo 2>&1 | grep -i "parsing error"`
+   to see which line it is.
+   ===================================================== */
+
+/* Roomier rows for the TREE sidebar only. The places sidebar has the class
+   .places-treeview and is left at its default size on purpose. GTK3 sizes
+   treeview rows from the "cell" node. If the tree rows don't grow (or the
+   places sidebar still changes), check the class names with:
+   GTK_DEBUG=interactive nemo */
+.nemo-window .sidebar.view:not(.places-treeview),
+.nemo-window .sidebar .view:not(.places-treeview) {
+  font-size: 1.05em;
+  padding: 6px 0;
+}
+.nemo-window .sidebar.view.cell:not(.places-treeview),
+.nemo-window .sidebar .view.cell:not(.places-treeview) {
+  min-height: 34px;
+  padding: 4px 10px;
+}
+
+/* Force symbolic icon variants so every sidebar icon (Favorites star
+   included) is a single-color shape that follows the text color instead of
+   the icon theme's own colors. Delete this line to get colored icons back. */
+.nemo-window .sidebar.view,
+.nemo-window .sidebar .view,
+.nemo-window .places-treeview {
+  -gtk-icon-style: symbolic;
+  -gtk-icon-effect: none;
+}
+
+/* ---------- Main panel: selected icons get a soft rounded background ----------
+   (Nautilus style). List view rows keep the full-width highlight above. */
+.nemo-window .nemo-canvas-item:selected,
+.nemo-window iconview:selected {
+  background-color: alpha(@accent, 0.28);
+  color: #ffffff;
+  border-radius: 12px;
 }
