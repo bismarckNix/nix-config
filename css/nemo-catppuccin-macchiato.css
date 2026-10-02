@@ -1,0 +1,172 @@
+/* nemo-theme.css: Catppuccin Macchiato mauve on #121212 */
+
+/* Palette */
+@define-color theme_bg_color #121212;
+@define-color theme_base_color #121212;
+@define-color theme_unfocused_bg_color #121212;
+@define-color theme_unfocused_base_color #121212;
+@define-color theme_fg_color #e0e0e0;
+@define-color theme_text_color #e0e0e0;
+@define-color theme_selected_bg_color #c6a0f6;
+@define-color theme_selected_fg_color #181926;
+
+/* Surfaces */
+window.nemo-window,
+.nemo-window .view,
+.nemo-window iconview,
+.nemo-window .sidebar,
+.nemo-window .sidebar .view {
+  background-color: #121212;
+  background-image: none;
+}
+
+.nemo-window menubar,
+.nemo-window toolbar,
+.nemo-window .primary-toolbar,
+.nemo-window .path-bar,
+.nemo-window statusbar,
+.nemo-window statusbar > box,
+.nemo-window statusbar label {
+  background-color: #121212;
+  background-image: none;
+  color: #e0e0e0;
+}
+
+/* Selection and drag-select */
+.nemo-window .sidebar row:selected {
+  background-color: #c6a0f6;
+  color: #181926;
+}
+.nemo-window .nemo-canvas-item:selected,
+.nemo-window iconview:selected,
+.nemo-window .view:selected {
+  background-color: rgba(198, 160, 246, 0.6);
+  color: #ffffff;
+}
+.nemo-window rubberband,
+.nemo-window .rubberband {
+  background-color: rgba(198, 160, 246, 0.25);
+  border: 1px solid #c6a0f6;
+}
+
+/* Flat buttons (toolbar, bottom-left three, etc.) */
+.nemo-window button {
+  background-color: transparent;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  color: #e0e0e0;
+}
+.nemo-window button:hover {
+  background-color: rgba(255, 255, 255, 0.08);
+}
+.nemo-window button:checked,
+.nemo-window button:active {
+  background-color: rgba(198, 160, 246, 0.25);
+  color: #c6a0f6;
+}
+
+/* Path bar buttons */
+.nemo-window .path-bar button {
+  background-color: rgba(255, 255, 255, 0.06);
+  border: none;
+  border-radius: 6px;
+  color: #e0e0e0;
+}
+.nemo-window .path-bar button:hover {
+  background-color: rgba(255, 255, 255, 0.12);
+}
+.nemo-window .path-bar button:checked {
+  background-color: rgba(198, 160, 246, 0.25);
+  color: #c6a0f6;
+}
+
+/* Location entry (Ctrl+L or "/") and search bar */
+.nemo-window entry,
+.nemo-window toolbar entry,
+.nemo-window searchbar entry,
+.nemo-window entry.search {
+  background-color: #0b0b0b;
+  background-image: none;
+  color: #e0e0e0;
+  caret-color: #c6a0f6;
+  border: none;
+  border-radius: 8px;
+  min-height: 30px;
+  padding: 0 10px;
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, 0.08);
+}
+.nemo-window entry:focus {
+  box-shadow: inset 0 0 0 2px #c6a0f6;
+}
+.nemo-window entry selection {
+  background-color: rgba(198, 160, 246, 0.4);
+  color: #ffffff;
+}
+.nemo-window entry image {
+  color: #8a8a8a;
+}
+.nemo-window entry image:hover {
+  color: #c6a0f6;
+}
+.nemo-window entry placeholder {
+  color: #6a6a6a;
+}
+
+/* Search bar container */
+.nemo-window searchbar,
+.nemo-window .search-bar {
+  background-color: #121212;
+  background-image: none;
+  border: none;
+  box-shadow: none;
+  padding: 4px 8px;
+}
+
+/* Popups */
+menu,
+popover.background,
+tooltip.background {
+  background-color: #1c1c1c;
+  background-image: none;
+  color: #e0e0e0;
+  border: 1px solid #2c2c2c;
+}
+menuitem:hover,
+modelbutton:hover {
+  background-color: rgba(198, 160, 246, 0.25);
+  color: #c6a0f6;
+}
+menu separator {
+  background-color: #2c2c2c;
+}
+
+/* Zoom slider, GNOME style */
+.nemo-window scale trough {
+  background-color: rgba(255, 255, 255, 0.15);
+  background-image: none;
+  border: none;
+  border-radius: 99px;
+  min-height: 4px;
+  min-width: 4px;
+}
+.nemo-window scale highlight {
+  background-color: #c6a0f6;
+  background-image: none;
+  border: none;
+  border-radius: 99px;
+}
+.nemo-window scale slider {
+  background-color: #e0e0e0;
+  background-image: none;
+  border: none;
+  border-radius: 50%;
+  min-width: 14px;
+  min-height: 14px;
+  margin: -5px 0;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+}
+.nemo-window scale slider:hover,
+.nemo-window scale slider:active {
+  background-color: #c6a0f6;
+}

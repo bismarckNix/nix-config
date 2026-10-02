@@ -8,7 +8,7 @@
   soundfonts = pkgs.symlinkJoin {
     name = "soundfonts";
     paths = with pkgs; [
-      soundfont-generaluser
+      soundfont-generaluser-gs
       soundfont-fluid
       soundfont-arachno
     ];
@@ -81,11 +81,11 @@
     imagemagick
     jq
     kdePackages.qt6ct
+    loupe
     mpvpaper
     pastel
     pciutils
     poppler-utils
-    qimgv
     resvg
     ripgrep
     slurp
@@ -107,10 +107,9 @@
     zynaddsubfx
 
     # Other
-    kdePackages.breeze
+    catppuccin-gtk
     keepassxc
     pear-desktop
-    papirus-icon-theme
     polkit
     smassh
     system-config-printer
