@@ -5,7 +5,7 @@
     defaultUserShell = pkgs.zsh;
     users.${user} = {
       isNormalUser = true;
-      extraGroups = [ "audio" "wheel" "networkmanager" "lp" ];
+      extraGroups = [ "audio" "video" "wheel" "networkmanager" "lp" ];
     };
     users.root.hashedPassword = "!";
   };

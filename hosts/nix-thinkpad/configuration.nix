@@ -7,6 +7,7 @@
     ../../nixos/modules
     ../../nixos/intel.nix
     ../../nixos/fingerprint.nix
+    ../../nixos/thinkpad-leds.nix
   ];
 
   environment.systemPackages = [ pkgs.home-manager ];
