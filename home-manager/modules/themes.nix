@@ -14,6 +14,7 @@
       @import url("file://${config.xdg.configHome}/gtk-3.0/nemo-theme.css");
     '';
     gtk4.extraConfig.gtk-application-prefer-dark-theme = true;
+    gtk4.extraCss = builtins.readFile ../../css/gtk4-catppuccin-macchiato.css;
   };
   qt = {
     enable = true;
