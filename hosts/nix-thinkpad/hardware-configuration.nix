@@ -9,7 +9,11 @@
     initrd = {
       availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
       kernelModules = [ ];
-      luks.devices."CRYPTROOT".device = "/dev/disk/by-uuid/9cb8a81a-444f-4d06-a422-173b6765de2e";
+      luks.devices."CRYPTROOT" = {
+        device = "/dev/disk/by-uuid/9cb8a81a-444f-4d06-a422-173b6765de2e";
+        allowDiscards = true;
+        bypassWorkqueues = true;
+      };
     };
     kernelModules = [ ];
     extraModulePackages = [ ];
