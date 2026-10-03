@@ -29,6 +29,7 @@
       libraries = with pkgs; [
         glibc
         gcc
+        libGL
       ];
     };
   };
