@@ -15,6 +15,13 @@
     // Customize the screenshot directory.
     screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
 
+    switch-events {
+    // Lock the screen on lid close
+      lid-close {
+        spawn "noctalia" "msg" "session" "lock"
+      }
+    }
+
     // Set the cursor theme
     cursor {
       xcursor-theme "Bibata-Modern-Classic"

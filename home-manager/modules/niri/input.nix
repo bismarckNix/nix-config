@@ -14,6 +14,19 @@
       // Comment out this line to enable pointer acceleration.
         accel-profile "flat"
       }
+
+      touchpad {
+      // Enable tap-to-click
+        tap
+      // Enable tap-and-drag
+        drag true
+      }
+
+      trackpoint {
+      // Use middle button for scrolling
+        scroll-method "on-button-down"
+        scroll-button 273
+      }
     }
   '';
 }
