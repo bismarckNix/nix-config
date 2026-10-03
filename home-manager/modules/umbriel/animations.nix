@@ -1,64 +1,52 @@
-{ config, ... }: let
-  shaders = "${config.home.homeDirectory}/nix-config/home-manager/modules/umbriel/shaders";
-in {
+{ config, ... }: {
+  xdg.configFile."umbriel/shaders".source = ./community-shaders;
 	programs.umbriel.settings = {
+    include = {
+      files = [
+        "shaders/accent-pulse/effect.toml"
+        "shaders/vhs/effect.toml"
+        "shaders/wobbly-move/effect.toml"
+        "shaders/vhs-ripple/effect.toml"
+      ];
+    };
 		animation = {
 			enabled = true;
-			duration_ms = 50;
-			curve = "easeout";
+
 			windows_in = {
 				enabled = true;
-				duration_ms = 150;
-				curve = "easeout";
-				style = "popin";
+        effect = "vhs";
+				duration_ms = 350;
+				curve = "linear";
 			};
 			windows_out = {
 				enabled = true;
-				duration_ms = 150;
-				curve = "easeout";
-				style = "slide";
+        effect = "vhs";
+				duration_ms = 300;
+				curve = "linear";
 			};
 			windows_move = {
 				enabled = true;
-				duration_ms = 150;
-				curve = "snappy";
+        effect = "wobbly-move";
+				duration_ms = 300;
+				curve = "easeout";
 			};
+      windows_drag = {
+        physics = true;
+      };
 			workspaces = {
 				enabled = true;
-				duration_ms = 150;
+        effect = "vhs-ripple";
+				duration_ms = 600;
 				curve = "easeout";
 			};
 			overview = {
 				enabled = true;
-				duration_ms = 150;
-				curve = "easeout";
-			};
-			scratchpad = {
-				enabled = false;
-				duration_ms = 150;
-				curve = "easeout";
-				dim = 0.5;
-				blur = false;
-				scale = 0.0;
-				maximize = false;
-				fullscreen = false;
-			};
-			border = {
-				enabled = true;
-				duration_ms = 250;
-				shader = "${shaders}/border-pulse.glsl";
-			};
-			dim_unfocused = {
-				enabled = false;
-				duration_ms = 250;
-				curve = "easeout";
-				dim = 0.0;
-			};
-			layers = {
-				enabled = false;
 				duration_ms = 250;
 				curve = "easeout";
 			};
-		};
+    };
+    effects = {
+      border = "accent-pulse";
+    };
 	};
 }
