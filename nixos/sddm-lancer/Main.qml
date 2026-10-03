@@ -557,9 +557,24 @@ Rectangle {
                             id: charModel
                         }
 
+                        // Clipping viewport: dots never leave the box
+                        Item {
+                            id: charViewport
+                            anchors.centerIn: parent
+                            // Snap the visible width to a whole number of dots
+                            // (dot 12*s + spacing 6*s = 18*s pitch) so a dot can
+                            // never rest half-cut at the left edge.
+                            readonly property real pad: 4 * s   // room for the pop overshoot (< spacing)
+                            readonly property real dotPitch: 18 * s
+                            readonly property int maxDots: Math.max(1, Math.floor((parent.width - 40 * s - 2 * pad + 6 * s) / dotPitch + 0.001))
+                            readonly property real rowMax: maxDots * dotPitch - 6 * s
+                            width: rowMax + 2 * pad
+                            height: 28 * s
+                            clip: true
+
                         ListView {
                             id: charRow
-                            anchors.centerIn: parent
+                            anchors.verticalCenter: parent.verticalCenter
                             height: 12 * s
                             orientation: ListView.Horizontal
                             interactive: false
@@ -567,6 +582,15 @@ Rectangle {
                             spacing: 6 * s
                             width: contentWidth
                             model: charModel
+
+                            // Centered while it fits; once it overflows, pin the newest
+                            // dot to the right edge and slide everything left smoothly.
+                            x: charViewport.pad + (contentWidth <= charViewport.rowMax
+                               ? (charViewport.rowMax - contentWidth) / 2
+                               : charViewport.rowMax - contentWidth)
+                            Behavior on x {
+                                NumberAnimation { duration: 200; easing.type: Easing.OutCubic }
+                            }
 
                             add: Transition {
                                 ParallelAnimation {
@@ -686,6 +710,8 @@ Rectangle {
                                     }
                                 }
                             }
+                        }
+
                         }
 
                         TextInput {
