@@ -16,6 +16,11 @@
 
     freesmlauncher.url = "github:FreesmTeam/FreesmLauncher";
 
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.1.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     lazyvim.url = "github:pfassina/lazyvim-nix";
 
     millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
@@ -34,6 +39,7 @@
   user = "bismarck";
   hosts = [
     { hostname = "nixos"; stateVersion = "26.05"; }
+    { hostname = "nix-thinkpad"; stateVersion = "26.05"; }
   ];
 
   makeSystem = { hostname, stateVersion }: nixpkgs.lib.nixosSystem {
