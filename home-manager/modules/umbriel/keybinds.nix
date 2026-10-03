@@ -19,14 +19,25 @@
 
 			# Window actions
 			"Mod+Q" = "window-close";
-			"Mod+A" = "window-focus-left";
-			"Mod+W" = "window-focus-up";
-			"Mod+S" = "window-focus-down";
-			"Mod+D" = "window-focus-right";
-			"Mod+Ctrl+A" = "column-move-left";
-			"Mod+Ctrl+W" = "window-move-up";
-			"Mod+Ctrl+S" = "window-move-down";
-			"Mod+Ctrl+D" = "column-move-right";
+
+			"Mod+Left" = "window-focus-left";
+			"Mod+Down" = "window-focus-down";
+			"Mod+Up" = "window-focus-up";
+			"Mod+Right" = "window-focus-right";
+			"Mod+H" = "window-focus-left";
+			"Mod+J" = "window-focus-down";
+			"Mod+K" = "window-focus-up";
+			"Mod+L" = "window-focus-right";
+
+			"Mod+Ctrl+Left" = "column-move-left";
+			"Mod+Ctrl+Down" = "window-move-down";
+			"Mod+Ctrl+Up" = "window-move-up";
+			"Mod+Ctrl+Right" = "column-move-right";
+			"Mod+Ctrl+H" = "column-move-left";
+			"Mod+Ctrl+J" = "window-move-down";
+			"Mod+Ctrl+K" = "window-move-up";
+			"Mod+Ctrl+L" = "column-move-right";
+
 			"Mod+V" = "window-toggle-floating";
 			"Mod+P" = "window-toggle-pinned";
 			"Mod+C" = "column-center";
@@ -38,12 +49,12 @@
 			"Mod+F" = "window-toggle-maximize";
 			"Mod+M" = "window-toggle-maximize-to-edges";
 			"Mod+Shift+F" = "window-toggle-fullscreen";
-			"Mod+R" = "window-cycle-width";
-			"Mod+Ctrl+R" = "window-cycle-width-back";
-			"Mod+Minus" = "window-modify-width:-0.1";
-			"Mod+Equal" = "window-modify-width:+0.1";
-			"Mod+Shift+Minus" = "window-modify-height:-0.1";
-			"Mod+Shift+Equal" = "window-modify-height:+0.1";
+			"Mod+R" = "window-cycle-primary-extent";
+			"Mod+Ctrl+R" = "window-cycle-primary-extent-back";
+			"Mod+Minus" = "window-modify-width-right:-0.1";
+			"Mod+Equal" = "window-modify-width-right:0.1";
+			"Mod+Shift+Minus" = "window-modify-height-down:0.1";
+			"Mod+Shift+Equal" = "window-modify-height-up:0.1";
 
 			# Workspaces
 			"Mod+Comma" = "workspace-previous";
@@ -69,8 +80,16 @@
 			"Mod+Ctrl+8" = "window-move-to-workspace:8";
 			"Mod+Ctrl+9" = "window-move-to-workspace:9";
 
+      # F keys
+      "F1" = "spawn:noctalia msg volume-mute";
+      "F2" = "spawn:noctalia msg volume-down";
+      "F3" = "spawn:noctalia msg volume-up";
+      "F4" = "spawn:noctalia msg mic-mute";
+      "F5" = "spawn:noctalia msg brightness-down";
+      "F6" = "spawn:noctalia msg brightness-up";
+
 			# Noctalia
-			"Mod+Grave" = "spawn:noctalia msg panel-toggle launcher";
+			"Mod+D" = "spawn:noctalia msg panel-toggle launcher";
 			"Alt+Tab" = "spawn:noctalia msg window-switcher";
 			"Mod+Shift+A" = "spawn:noctalia msg screenshot-fullscreen";
 			"Mod+Shift+S" = "spawn:noctalia msg screenshot-region";
@@ -83,21 +102,19 @@
 
 			# Dev
 			"Mod+Return" = "spawn:kitty";
-			"Mod+Ctrl+F" = "spawn:nemo";
-			"Mod+N" = "spawn:codium";
+			"Mod+A" = "spawn:nemo";
+      "Mod+Ctrl+E" = "spawn:kitty --class yazi yazi";
+			"Mod+N" = "spawn:kitty --class lazyvim nvim";
 
 			# Proxy
 			"Mod+Shift+V" = "spawn:clash-verge";
-			"Mod+Ctrl+V" = "spawn:pkill clash-verge";
 
 			# Browsers
 			"Mod+E" = "spawn:zen";
-			"Mod+T" = "spawn:librewolf";
 			"Mod+B" = "spawn:brave-origin";
 
 			# Media
 			"Mod+Z" = "spawn:vesktop";
-			"Mod+Alt+Z" = "spawn:discord";
 			"Mod+Ctrl+T" = "spawn:Telegram";
 			"Mod+Shift+C" = "spawn:pear-desktop";
 
