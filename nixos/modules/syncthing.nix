@@ -9,10 +9,6 @@
     overrideDevices = true;
     overrideFolders = true;
 
-    devices = {
-      nixos.id = "O7F23NA-DZW7S4Y-3XYKUTR-PU3FSVW-FSSFZMR-YH63SAD-DN33T3I-APHREAJ";
-      nix-thinkpad.id = "EWEAMBW-GGBIQBJ-RU5GJG7-R3RMLNZ-XV246DC-NPBLAU3-AB6FRHY-KIHIDAH";
-    };
 
     settings = {
       urAccepted = -1;
@@ -20,6 +16,11 @@
       globalAnnounceEnabled = false;
       localAnnounceEnabled = true;
       natEnabled = false;
+
+      devices = {
+        nixos.id = "O7F23NA-DZW7S4Y-3XYKUTR-PU3FSVW-FSSFZMR-YH63SAD-DN33T3I-APHREAJ";
+        nix-thinkpad.id = "EWEAMBW-GGBIQBJ-RU5GJG7-R3RMLNZ-XV246DC-NPBLAU3-AB6FRHY-KIHIDAH";
+      };
 
       folders = {
         "vault" = {
