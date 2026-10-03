@@ -8,7 +8,7 @@
       Mod+Shift+Slash                                                          { show-hotkey-overlay; }
 
       Mod+Return        hotkey-overlay-title="Open Terminal: Kitty"            { spawn "kitty"; }
-      Mod+Shift+D       hotkey-overlay-title="Run Application Launcher"        { spawn-sh "noctalia msg panel-toggle launcher"; }
+      Mod+D             hotkey-overlay-title="Run Application Launcher"        { spawn-sh "noctalia msg panel-toggle launcher"; }
       Super+Shift+L     hotkey-overlay-title="Lock the Screen"                 { spawn-sh "noctalia msg session lock"; }
       Mod+Space         hotkey-overlay-title="Switch Keyboard Layout"          { switch-layout "next"; }
 
@@ -16,8 +16,7 @@
       Mod+Shift+A       hotkey-overlay-title="Screenshot screen"               { screenshot-screen; }
       Mod+Shift+W       hotkey-overlay-title="Screenshot window"               { screenshot-window; }
       Mod+Shift+Q       hotkey-overlay-title="Record Screen"                   { spawn-sh "noctalia msg plugin noctalia/screen_recorder:service all toggle"; }
-    
-      Mod+Shift+E                                                              { quit; }
+
       Ctrl+Alt+Delete                                                          { quit; }
 
     // ###################################################################################################################
@@ -33,19 +32,19 @@
       Mod+Down                              { focus-window-down; }
       Mod+Up                                { focus-window-up; }
       Mod+Right                             { focus-column-right; }
-      Mod+A                                 { focus-column-left; }
-      Mod+S                                 { focus-window-down; }
-      Mod+W                                 { focus-window-up; }
-      Mod+D                                 { focus-column-right; }
+      Mod+H                                 { focus-column-left; }
+      Mod+J                                 { focus-window-down; }
+      Mod+K                                 { focus-window-up; }
+      Mod+L                                 { focus-column-right; }
 
       Mod+Ctrl+Left                         { move-column-left; }
       Mod+Ctrl+Down                         { move-window-down; }
       Mod+Ctrl+Up                           { move-window-up; }
       Mod+Ctrl+Right                        { move-column-right; }
-      Mod+Ctrl+A                            { move-column-left; }
-      Mod+Ctrl+S                            { move-window-down; }
-      Mod+Ctrl+W                            { move-window-up; }
-      Mod+Ctrl+D                            { move-column-right; }
+      Mod+Ctrl+H                            { move-column-left; }
+      Mod+Ctrl+J                            { move-window-down; }
+      Mod+Ctrl+K                            { move-window-up; }
+      Mod+Ctrl+L                            { move-column-right; }
 
       Mod+Shift+WheelScrollDown             { focus-column-right; }
       Mod+Shift+WheelScrollUp               { focus-column-left; }
@@ -57,10 +56,10 @@
       Mod+Alt+Right                         { focus-column-last; }
       Mod+Ctrl+Alt+Left                     { move-column-to-first; }
       Mod+Ctrl+Alt+Right                    { move-column-to-last; }
-      Mod+Alt+A                             { focus-column-first; }
-      Mod+Alt+D                             { focus-column-last; }
-      Mod+Ctrl+Alt+A                        { move-column-to-first; }
-      Mod+Ctrl+Alt+D                        { move-column-to-last; }
+      Mod+Alt+H                             { focus-column-first; }
+      Mod+Alt+L                             { focus-column-last; }
+      Mod+Ctrl+Alt+H                        { move-column-to-first; }
+      Mod+Ctrl+Alt+L                        { move-column-to-last; }
 
       Mod+C                                 { center-column; }
       Mod+Ctrl+C                            { center-visible-columns; }
@@ -94,7 +93,7 @@
       Mod+Shift+F        { fullscreen-window; }
       Mod+Ctrl+F         { expand-column-to-available-width; }
 
-      Mod+Alt+W          { toggle-column-tabbed-display; }
+      Mod+W              { toggle-column-tabbed-display; }
 
     // ###################################################################################################################
     // Workspaces
@@ -138,26 +137,40 @@
       Mod+Ctrl+WheelScrollUp     cooldown-ms=150   { move-column-to-workspace-up; }
 
     // ###################################################################################################################
+    // F Keys
+    // ###################################################################################################################
+
+      F1   hotkey-overlay-title="Mute Audio"        repeat=false   { spawn-sh "noctalia msg volume-mute"; }
+      F2   hotkey-overlay-title="Lower Volume"                     { spawn-sh "noctalia msg volume-down"; }
+      F3   hotkey-overlay-title="Raise Volume"                     { spawn-sh "noctalia msg volume-up"; }
+      F4   hotkey-overlay-title="Mute Microphone"   repeat=false   { spawn-sh "noctalia msg mic-mute"; }
+
+      F5   hotkey-overlay-title="Lower Brightness"                 { spawn-sh "noctalia msg brightness-down"; }
+      F6   hotkey-overlay-title="Raise Brightness"                 { spawn-sh "noctalia msg brightness-up"; }
+
+    // ###################################################################################################################
     // Custom
     // ###################################################################################################################
 
-      Mod+X         hotkey-overlay-title="Mute Microphone"   repeat=false    { spawn-sh "noctalia msg mic-mute"; }
-      Mod+Shift+Z   hotkey-overlay-title="Toggle Do Not Disturb Mode"        { spawn-sh "noctalia msg notification-dnd-toggle"; }
-      Mod+Shift+X   hotkey-overlay-title="Dissmis Notifications"             { spawn-sh "noctalia msg notification-clear-active"; }
-      Mod+Shift+G   hotkey-overlay-title="Open Clipboard"                    { spawn-sh "noctalia msg panel-toggle clipboard"; }
+      Mod+X         hotkey-overlay-title="Mute Microphone"   repeat=false     { spawn-sh "noctalia msg mic-mute"; }
+      Mod+Ctrl+Z    hotkey-overlay-title="Toggle Do Not Disturb Mode"         { spawn-sh "noctalia msg notification-dnd-toggle"; }
+      Mod+Ctrl+X    hotkey-overlay-title="Dissmis Notifications"              { spawn-sh "noctalia msg notification-clear-active"; }
+      Mod+Ctrl+G    hotkey-overlay-title="Open Clipboard"                     { spawn-sh "noctalia msg panel-toggle clipboard"; }
+      Mod+P         hotkey-overlay-title="Open Session Manager"               { spawn-sh "noctalia msg panel-toggle session"; }
 
-      Mod+Ctrl+V    hotkey-overlay-title="Open Proxy Client: Clash Verge"    { spawn "clash-verge"; }
-      Mod+E         hotkey-overlay-title="Open Browser: Zen"                 { spawn "zen"; }
-      Mod+B         hotkey-overlay-title="Open Browser: Brave Origin"        { spawn "brave-origin"; }
-      Mod+Ctrl+E    hotkey-overlay-title="Open File Manager: Yazi"           { spawn-sh "kitty --class yazi yazi"; }
-      Mod+N         hotkey-overlay-title="Open Code Editor: LazyVim"         { spawn-sh "kitty --class lazyvim nvim"; }
-      Mod+Ctrl+N    hotkey-overlay-title="Open Code Editor: VSCodium"        { spawn "codium"; }
+      Mod+Shift+V   hotkey-overlay-title="Open Proxy Client: Clash Verge"     { spawn "clash-verge"; }
+      Mod+E         hotkey-overlay-title="Open Browser: Zen"                  { spawn "zen"; }
+      Mod+B         hotkey-overlay-title="Open Browser: Brave Origin"         { spawn "brave-origin"; }
+      Mod+Shift+E   hotkey-overlay-title="Open File Manager: Yazi"            { spawn-sh "kitty --class yazi yazi"; }
+      Mod+Ctrl+E    hotkey-overlay-title="Open File Manager: Nemo"            { spawn "nemo"; }
+      Mod+N         hotkey-overlay-title="Open Code Editor: LazyVim"          { spawn-sh "kitty --class lazyvim nvim"; }
+      Mod+Shift+N   hotkey-overlay-title="Open Code Editor: VSCodium"         { spawn "codium"; }
 
-      Mod+Z         hotkey-overlay-title="Open Vesktop"                      { spawn "vesktop"; }
-      Mod+T         hotkey-overlay-title="Open Telegram Desktop"             { spawn "Telegram"; }
-      Mod+Ctrl+B    hotkey-overlay-title="Open Music Player: Pear Desktop"   { spawn "pear-desktop"; }
-      Mod+Y         hotkey-overlay-title="Open Steam"                        { spawn "steam"; }
-      Mod+G         hotkey-overlay-title="Open FreesmLauncher"               { spawn "freesmlauncher"; }
+      Mod+Z         hotkey-overlay-title="Open Vesktop"                       { spawn "vesktop"; }
+      Mod+T         hotkey-overlay-title="Open Telegram Desktop"              { spawn "Telegram"; }
+      Mod+Shift+B   hotkey-overlay-title="Open Music Player: Pear Desktop"    { spawn "pear-desktop"; }
+      Mod+Y         hotkey-overlay-title="Open Steam"                         { spawn "steam"; }
+      Mod+G         hotkey-overlay-title="Open FreesmLauncher"                { spawn "freesmlauncher"; }
     }
   '';
 }
