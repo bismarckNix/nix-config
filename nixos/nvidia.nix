@@ -3,11 +3,10 @@
 
   hardware = {
     cpu.intel.updateMicrocode = lib.mkDefault config.hardware.enableRedistributableFirmware;
-    intel-gpu-tools.enable = true;
 
     graphics = {
       enable = true;
-      extraPackages = with pkgs; [ nvidia-vaapi-driver libva-vdpau-driver ];
+      extraPackages = with pkgs; [ nvidia-vaapi-driver ];
       enable32Bit = true;
     };
 
@@ -15,9 +14,7 @@
       open = true; 
       modesetting.enable = true;
       powerManagement.enable = true;
-      powerManagement.finegrained = false;
       package = config.boot.kernelPackages.nvidiaPackages.latest;
-      nvidiaSettings = true;
       nvidiaPersistenced = true;
     };
 
@@ -32,7 +29,6 @@
     wantedBy = [ "multi-user.target" ];
     after = [ "nvidia-persistenced.service" ];
     requires = [ "nvidia-persistenced.service" ];
-    path = [ config.hardware.nvidia.package.bin ];
     serviceConfig = {
       Type = "oneshot";
       ExecStart = [
