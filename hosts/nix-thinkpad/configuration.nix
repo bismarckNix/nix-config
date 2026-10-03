@@ -6,6 +6,7 @@
     ../../nixos/packages.nix
     ../../nixos/modules
     ../../nixos/intel.nix
+    ../../nixos/fingerprint.nix
   ];
 
   environment.systemPackages = [ pkgs.home-manager ];
