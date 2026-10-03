@@ -7,5 +7,6 @@
       isNormalUser = true;
       extraGroups = [ "audio" "wheel" "networkmanager" "lp" ];
     };
+    users.root.hashedPassword = "!";
   };
 }
