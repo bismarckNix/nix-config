@@ -111,6 +111,7 @@
     keepassxc
     pear-desktop
     polkit
+    sbctl
     smassh
     system-config-printer
 
