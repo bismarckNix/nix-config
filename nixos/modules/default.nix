@@ -10,6 +10,7 @@
     ./nix.nix
     ./sddm-lancer.nix
     ./services.nix
+    ./syncthing.nix
     ./timezone.nix
     ./user.nix
     ./wms.nix
