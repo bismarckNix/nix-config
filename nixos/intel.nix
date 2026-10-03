@@ -11,6 +11,7 @@
   };
 
   services.thermald.enable = true;
+  powerManagement.powertop.enable = true;
 
   boot.initrd.kernelModules = [ "i915" ];
 }
