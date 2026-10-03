@@ -11,8 +11,10 @@
     sessionVariables = {
       TERMINAL = "kitty";
       EDITOR = "nvim";
-      LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
       GTK_USE_PORTAL = "1";
+      NIXOS_OZONE_WL = "1";
+      XCURSOR_THEME = "Bibata-Modern-Classic";
+      XCURSOR_SIZE = "24";
     };
 
     systemPackages = [ pkgs.bibata-cursors ];
