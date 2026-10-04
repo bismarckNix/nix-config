@@ -7,13 +7,16 @@
         pkgs.xdg-desktop-portal-gnome
       ];
       config = {
-        niri."org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+        niri = {
+          default = [ "gnome" "gtk" ];
+          "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+        };
       };
     };
     mime = {
       enable = true;
       defaultApplications = {
-        "inode/directory" = "superfile.desktop";
+        "inode/directory" = "yazi.desktop";
         "image/*" = "org.gnome.Loupe.desktop";
         "application/pdf" = "onlyoffice-desktopeditors.desktop";
       };
