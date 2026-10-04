@@ -1,4 +1,4 @@
-{ inputs, pkgs, ... }: {
+{ inputs, options, pkgs, ... }: {
   imports = [ inputs.umbriel.nixosModules.default ];
 
   programs = {
@@ -26,11 +26,7 @@
 
     nix-ld = {
       enable = true;
-      libraries = with pkgs; [
-        glibc
-        gcc
-        libGL
-      ];
+      libraries = options.programs.nix-ld.libraries.default ++ [ pkgs.libGL ];
     };
   };
 
