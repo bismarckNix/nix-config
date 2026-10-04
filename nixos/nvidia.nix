@@ -39,7 +39,7 @@
     };
   };
 
-  LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
+  environment.sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
 
   powerManagement.cpuFreqGovernor = "performance";
 }
