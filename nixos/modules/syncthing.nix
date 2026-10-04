@@ -8,7 +8,7 @@
 
     overrideDevices = true;
     overrideFolders = true;
-
+    openDefaultPorts = true;
 
     settings = {
       urAccepted = -1;
