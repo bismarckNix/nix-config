@@ -5,6 +5,5 @@
     kdePackages.kdenlive
     universal-android-debloater
     qemu
-    inputs.freesmlauncher.packages.${pkgs.stdenv.hostPlatform.system}.default
   ];
 }
