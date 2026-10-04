@@ -5,8 +5,6 @@
       for pkg in ${pkgs.lib.concatMapStringsSep " " (p: "'${p}'") (config.fonts.packages ++ [ pkgs.corefonts ])}; do
         cp -rn $pkg/share/fonts/* ${config.users.users.${user}.home}/.local/share/fonts/ 2>/dev/null || true
       done
-      find ${config.users.users.${user}.home}/.local/share/fonts -type d -exec chmod 755 {} \;
-      find ${config.users.users.${user}.home}/.local/share/fonts -type f -exec chmod 644 {} \;
     '';
   };
 
