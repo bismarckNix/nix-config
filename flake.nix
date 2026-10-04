@@ -6,26 +6,46 @@
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
 
     # Home manager
-    home-manager.url = "github:nix-community/home-manager";
-    home-manager.inputs.nixpkgs.follows = "nixpkgs";
-
-    # Packages
-    areofyl-fetch.url = "github:areofyl/fetch";
-
-    catppuccin.url = "github:catppuccin/nix";
-
-    freesmlauncher.url = "github:FreesmTeam/FreesmLauncher";
-
-    lanzaboote = {
-      url = "github:nix-community/lanzaboote/v1.1.0";
+    home-manager = {
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    lazyvim.url = "github:pfassina/lazyvim-nix";
+    # Packages
+    areofyl-fetch = {
+      url = "github:areofyl/fetch";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    millennium.url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+    catppuccin = {
+      url = "github:catppuccin/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
-    umbriel.url = "git+https://github.com/noctalia-dev/umbriel";
+    freesmlauncher = {
+      url = "github:FreesmTeam/FreesmLauncher";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lanzaboote = {
+      url = "github:nix-community/lanzaboote/v1.2.0";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    lazyvim = {
+      url = "github:pfassina/lazyvim-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    millennium = {
+      url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
+    umbriel = {
+      url = "github:noctalia-dev/umbriel";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
 
     zen-browser = {
       url = "github:youwen5/zen-browser-flake";
@@ -48,10 +68,7 @@
       inherit inputs stateVersion hostname user;
     };
 
-    modules = [
-      ./hosts/${hostname}/configuration.nix
-      home-manager.nixosModules.home-manager
-    ];
+    modules = [ ./hosts/${hostname}/configuration.nix ];
   };
 
   in {
