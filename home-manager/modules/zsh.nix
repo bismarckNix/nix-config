@@ -21,7 +21,7 @@
       sw = "nh os switch .";
       swb = "nh os boot .";
       upd = "nh os switch --update .";
-      hms = "nh home switch .";
+      hms = "nh home switch -b bak .";
 
       gs = "git status";
       ga = "git add .";
