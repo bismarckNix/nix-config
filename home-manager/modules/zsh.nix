@@ -8,7 +8,6 @@
     syntaxHighlighting.enable = true;
 
     shellAliases = {
-      t = "tmux";
       ff = "fastfetch";
       um = "unimatrix -s=95";
       lv = "lavat -r 1";
