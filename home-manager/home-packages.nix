@@ -65,12 +65,16 @@
     vlc
     vscodium
 
+    # Games
+    inputs.freesmlauncher.packages.${pkgs.stdenv.hostPlatform.system}.default
+
     # Utilities
     _7zz-rar
     bc
     brightnessctl
     cacert
     ddcutil
+    entr
     ffmpeg
     fd
     gcc
