@@ -125,6 +125,7 @@
       Mod+Ctrl+Page_Down                           { move-column-to-workspace-down; }
       Mod+Ctrl+Page_Up                             { move-column-to-workspace-up; }
       Mod+Ctrl+U                                   { move-column-to-workspace-down; }
+      Mod+Ctrl+I                                   { move-column-to-workspace-up; }
 
       Mod+Shift+Page_Down                          { move-workspace-down; }
       Mod+Shift+Page_Up                            { move-workspace-up; }
@@ -154,7 +155,7 @@
 
       Mod+X         hotkey-overlay-title="Mute Microphone"   repeat=false     { spawn-sh "noctalia msg mic-mute"; }
       Mod+Ctrl+Z    hotkey-overlay-title="Toggle Do Not Disturb Mode"         { spawn-sh "noctalia msg notification-dnd-toggle"; }
-      Mod+Ctrl+X    hotkey-overlay-title="Dissmis Notifications"              { spawn-sh "noctalia msg notification-clear-active"; }
+      Mod+Ctrl+X    hotkey-overlay-title="Dismiss Notifications"              { spawn-sh "noctalia msg notification-clear-active"; }
       Mod+Ctrl+G    hotkey-overlay-title="Open Clipboard"                     { spawn-sh "noctalia msg panel-toggle clipboard"; }
       Mod+P         hotkey-overlay-title="Open Session Manager"               { spawn-sh "noctalia msg panel-toggle session"; }
 

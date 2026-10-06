@@ -68,35 +68,40 @@
     # Games
     inputs.freesmlauncher.packages.${pkgs.stdenv.hostPlatform.system}.default
 
+    # Tools
+    duf
+    dust
+    entr
+    ffmpeg
+    fd
+    ghgrab
+    pastel
+    ripgrep
+    sd
+    tealdeer
+    wget
+    xh
+
     # Utilities
     _7zz-rar
     bc
     brightnessctl
     cacert
     ddcutil
-    entr
-    ffmpeg
-    fd
     gcc
-    ghgrab
     gpu-screen-recorder
     grim
     hyprpicker
     imagemagick
     jq
     kdePackages.qt6ct
-    loupe
     mpvpaper
-    pastel
     pciutils
     poppler-utils
     resvg
-    ripgrep
     slurp
     sshfs
-    tealdeer
     translate-shell
-    wget
     wl-clipboard
     wl-screenrec
     xwayland-satellite
@@ -111,11 +116,10 @@
     zynaddsubfx
 
     # Other
-    catppuccin-gtk
     keepassxc
+    kew
+    loupe
     pear-desktop
-    polkit
-    sbctl
     smassh
     system-config-printer
 

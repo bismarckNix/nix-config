@@ -23,11 +23,13 @@
       }
 
       trackpoint {
+      // Change the trackpoint speed
+        accel-speed 0.2
+      // Comment out this line to enable trackpoint acceleration
+        accel-profile "flat"
       // Use middle button for scrolling
         scroll-method "on-button-down"
         scroll-button 273
-      // Comment out this line to enable trackpoint acceleration
-        accel-profile "flat"
       }
     }
   '';

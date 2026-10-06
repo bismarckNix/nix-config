@@ -1,5 +1,6 @@
 { pkgs, user, ... }: {
   programs.zsh.enable = true;
+  security.sudo.enable = true;
 
   users = {
     defaultUserShell = pkgs.zsh;

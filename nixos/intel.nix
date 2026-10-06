@@ -10,6 +10,8 @@
     extraPackages32 = with pkgs.pkgsi686Linux; [ intel-media-driver ];
   };
 
+  environment.sessionVariables.LIBVA_DRIVER_NAME = "iHD";
+
   services.thermald.enable = true;
   powerManagement.powertop.enable = true;
 
