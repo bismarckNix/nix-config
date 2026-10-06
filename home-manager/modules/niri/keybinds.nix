@@ -138,16 +138,23 @@
       Mod+Ctrl+WheelScrollUp     cooldown-ms=150   { move-column-to-workspace-up; }
 
     // ###################################################################################################################
-    // F Keys
+    // XF86 Keys
     // ###################################################################################################################
 
-      F1   hotkey-overlay-title="Mute Audio"        repeat=false   { spawn-sh "noctalia msg volume-mute"; }
-      F2   hotkey-overlay-title="Lower Volume"                     { spawn-sh "noctalia msg volume-down"; }
-      F3   hotkey-overlay-title="Raise Volume"                     { spawn-sh "noctalia msg volume-up"; }
-      F4   hotkey-overlay-title="Mute Microphone"   repeat=false   { spawn-sh "noctalia msg mic-mute"; }
+      XF86AudioMute             hotkey-overlay-title="Mute Audio"       allow-when-locked=true repeat=false   { spawn-sh "noctalia msg volume-mute"; }
+      XF86AudioLowerVolume      hotkey-overlay-title="Lower Volume"     allow-when-locked=true                { spawn-sh "noctalia msg volume-down"; }
+      XF86AudioRaiseVolume      hotkey-overlay-title="Raise Volume"     allow-when-locked=true                { spawn-sh "noctalia msg volume-up"; }
+      XF86AudioMicMute          hotkey-overlay-title="Mute Microphone"  allow-when-locked=true repeat=false   { spawn-sh "noctalia msg mic-mute"; }
 
-      F5   hotkey-overlay-title="Lower Brightness"                 { spawn-sh "noctalia msg brightness-down"; }
-      F6   hotkey-overlay-title="Raise Brightness"                 { spawn-sh "noctalia msg brightness-up"; }
+      XF86MonBrightnessDown     hotkey-overlay-title="Lower Brightness" allow-when-locked=true                { spawn-sh "noctalia msg brightness-down"; }
+      XF86MonBrightnessUp       hotkey-overlay-title="Raise Brightness" allow-when-locked=true                { spawn-sh "noctalia msg brightness-up"; }
+      XF86Display               hotkey-overlay-title="Turn Off Display" allow-when-locked=true repeat=false   { spawn-sh "noctalia msg dpms-off"; }
+      XF86WLAN                  hotkey-overlay-title="Toggle Wi-FI"     allow-when-locked=true repeat=false   { spawn-sh "noctalia msg wifi-toggle"; }
+
+      XF86NotificationCenter    hotkey-overlay-title="Open Notification Center"                               { spawn-sh "noctalia msg panel-toggle control-center notifications"; }
+      XF86PickupPhone           hotkey-overlay-title="Accept Latest Notification"                             { spawn-sh "noctalia msg notification-invoke-latest"; }
+      XF86HangupPhone           hotkey-overlay-title="Dismiss Notifications"                                  { spawn-sh "noctalia msg notification-clear-active"; }
+      XF86Favorites             hotkey-overlay-title="Open Screen Time"                                       { spawn-sh "noctalia msg panel-toggle control-center screen-time"; }
 
     // ###################################################################################################################
     // Custom

@@ -80,13 +80,13 @@
 			"Mod+Ctrl+8" = "window-move-to-workspace:8";
 			"Mod+Ctrl+9" = "window-move-to-workspace:9";
 
-      # F keys
-      "F1" = "spawn:noctalia msg volume-mute";
-      "F2" = "spawn:noctalia msg volume-down";
-      "F3" = "spawn:noctalia msg volume-up";
-      "F4" = "spawn:noctalia msg mic-mute";
-      "F5" = "spawn:noctalia msg brightness-down";
-      "F6" = "spawn:noctalia msg brightness-up";
+      # XF86 keys
+      "XF86AudioMute" = "spawn:noctalia msg volume-mute";
+      "XF86AudioLowerVolume" = "spawn:noctalia msg volume-down";
+      "XF86AudioRaiseVolume" = "spawn:noctalia msg volume-up";
+      "XF86AudioMicMute" = "spawn:noctalia msg mic-mute";
+      "XF86MonBrightnessDown" = "spawn:noctalia msg brightness-down";
+      "XF86MonBrightnessUp" = "spawn:noctalia msg brightness-up";
 
 			# Noctalia
 			"Mod+D" = "spawn:noctalia msg panel-toggle launcher";
