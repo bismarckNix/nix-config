@@ -32,7 +32,8 @@ in {
     after = [ "pipewire-pulse.service" ];
     serviceConfig = {
       ExecStart = "${ledSync}";
-      Restart = "on-failure";
+      Restart = "always";
+      RestartSec = 2;
     };
   };
 }
