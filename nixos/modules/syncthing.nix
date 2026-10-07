@@ -37,6 +37,20 @@
             };
           };
         };
+        "projects" = {
+          path = "/home/${user}/Projects";
+          devices = [ "nixos" "nix-thinkpad" ];
+          type = "sendreceive";
+          fsWatcherEnabled = true;
+            fsWatcherDelayS = 10;
+            versioning = {
+              type = "staggered";
+              params = {
+                cleanInterval = "3600";
+                maxAge = "15768000";
+            };
+          };
+        };
       };
     };
   };
