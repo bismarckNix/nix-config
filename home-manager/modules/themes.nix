@@ -19,6 +19,7 @@
   qt = {
     enable = true;
     platformTheme.name = "qtct";
+    style.package = pkgs.adwaita-qt6;
     qt6ctSettings = {
       Appearance = {
         custom_palette = true;
