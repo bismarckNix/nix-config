@@ -157,14 +157,33 @@
       XF86Favorites             hotkey-overlay-title="Open Screen Time"                                       { spawn-sh "noctalia msg panel-toggle control-center screen-time"; }
 
     // ###################################################################################################################
-    // Custom
+    // Noctalia
     // ###################################################################################################################
 
-      Mod+X         hotkey-overlay-title="Mute Microphone"   repeat=false     { spawn-sh "noctalia msg mic-mute"; }
-      Mod+Ctrl+Z    hotkey-overlay-title="Toggle Do Not Disturb Mode"         { spawn-sh "noctalia msg notification-dnd-toggle"; }
-      Mod+Ctrl+X    hotkey-overlay-title="Dismiss Notifications"              { spawn-sh "noctalia msg notification-clear-active"; }
-      Mod+Ctrl+G    hotkey-overlay-title="Open Clipboard"                     { spawn-sh "noctalia msg panel-toggle clipboard"; }
-      Mod+P         hotkey-overlay-title="Open Session Manager"               { spawn-sh "noctalia msg panel-toggle session"; }
+      Mod+X        hotkey-overlay-title="Mute Microphone"   repeat=false     { spawn-sh "noctalia msg mic-mute"; }
+      Mod+Ctrl+Z   hotkey-overlay-title="Toggle Do Not Disturb Mode"         { spawn-sh "noctalia msg notification-dnd-toggle"; }
+      Mod+Ctrl+X   hotkey-overlay-title="Dismiss Notifications"              { spawn-sh "noctalia msg notification-clear-active"; }
+
+      Mod+Ctrl+G   hotkey-overlay-title="Open Clipboard"                     { spawn-sh "noctalia msg panel-toggle clipboard"; }
+      Mod+P        hotkey-overlay-title="Open Session Manager"               { spawn-sh "noctalia msg panel-toggle session"; }
+      Mod+Ctrl+T   hotkey-overlay-title="Toggle Caffeine"                    { spawn-sh "noctalia msg caffeine-toggle"; }
+      Mod+Ctrl+W   hotkey-overlay-title="Toggle Bluetooth"                   { spawn-sh "noctalia msg bluetooth-toggle"; }
+      Mod+Ctrl+N   hotkey-overlay-title="Toggle Night Light"                 { spawn-sh "noctalia msg nightlight-toggle"; }
+
+      Mod+Ctrl+O   hotkey-overlay-title="Keyboard Backlight: Off"            { spawn-sh "noctalia msg keyboard-backlight-set 0"; }
+      Mod+Ctrl+D   hotkey-overlay-title="Keyboard Backlight: Dim"            { spawn-sh "noctalia msg keyboard-backlight-set 50"; }
+      Mod+Ctrl+B   hotkey-overlay-title="Keyboard Backlight: Bright"         { spawn-sh "noctalia msg keyboard-backlight-set 100"; }
+
+      Mod+Alt+Z    hotkey-overlay-title="Open Control Center"                { spawn-sh "noctalia msg panel-toggle control-center"; }
+      Mod+Alt+M    hotkey-overlay-title="Open Media"                         { spawn-sh "noctalia msg panel-toggle control-center media"; }
+      Mod+Alt+S    hotkey-overlay-title="Open System Monitor"                { spawn-sh "noctalia msg panel-toggle control-center system"; }
+      Mod+Alt+P    hotkey-overlay-title="Open Power Monitor"                 { spawn-sh "noctalia msg panel-toggle control-center power"; }
+      Mod+Alt+W    hotkey-overlay-title="Open Weather"                       { spawn-sh "noctalia msg panel-toggle control-center weather"; }
+      Mod+Alt+C    hotkey-overlay-title="Open Calendar"                      { spawn-sh "noctalia msg panel-toggle control-center calendar"; }
+
+    // ###################################################################################################################
+    // Apps
+    // ###################################################################################################################
 
       Mod+Shift+V   hotkey-overlay-title="Open Proxy Client: Clash Verge"     { spawn "clash-verge"; }
       Mod+E         hotkey-overlay-title="Open Browser: Zen"                  { spawn "zen"; }
