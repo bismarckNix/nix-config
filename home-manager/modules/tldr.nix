@@ -1,7 +1,7 @@
 { pkgs, ... }: {
   services.tldr-update = {
     enable = true;
-    package = pkgs.tldr;
+    package = pkgs.tealdeer;
     period = "weekly";
   };
 }
