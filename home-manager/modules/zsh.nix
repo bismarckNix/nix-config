@@ -23,8 +23,8 @@
       hms = "nh home switch -b bak .";
 
       gs = "git status";
-      ga = "git add .";
-      gc = "git commit .";
+      ga = "git add";
+      gc = "git commit";
       gp = "git push";
 
       vault-lock = "sudo chattr +i ~/.vault";
