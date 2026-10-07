@@ -154,7 +154,7 @@ Rectangle {
                     let d = new Date();
                     hText.text = Qt.formatTime(d, "hh");
                     mText.text = Qt.formatTime(d, "mm");
-                    dateChipText.text = Qt.formatDate(d, "dddd, MMM d").toUpperCase();
+                    dateChipText.text = Qt.formatDate(d, "dddd, MMM dd").toUpperCase();
                 }
             }
 
@@ -181,6 +181,7 @@ Rectangle {
             }
 
             Rectangle {
+                anchors.horizontalCenter: parent.horizontalCenter
                 width: 160 * s
                 height: 36 * s
                 radius: 8 * s
@@ -189,7 +190,7 @@ Rectangle {
                 Text {
                     id: dateChipText
                     anchors.centerIn: parent
-                    text: Qt.formatDate(new Date(), "dddd, MMM d").toUpperCase()
+                    text: Qt.formatDate(new Date(), "dddd, MMM dd").toUpperCase()
                     font.family: root.monospace
                     font.pixelSize: 11 * s
                     font.bold: true
