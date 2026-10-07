@@ -69,9 +69,7 @@
     };
 
     modules = [ ./hosts/${hostname}/configuration.nix ];
-  };
-
-  in {
+  }; in {
     nixosConfigurations = nixpkgs.lib.foldl' (configs: host:
       configs // {
         "${host.hostname}" = makeSystem {
@@ -85,9 +83,7 @@
         inherit inputs homeStateVersion user;
       };
 
-      modules = [
-        ./home-manager/home.nix
-      ];
+      modules = [ ./home-manager/home.nix ];
     };
   };
 }
