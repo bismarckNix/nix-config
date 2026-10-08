@@ -12,6 +12,7 @@
     ./fzf.nix
     ./git.nix
     ./kitty.nix
+    ./lazydocker.nix
     ./lazygit.nix
     ./navi.nix
     ./onlyoffice.nix

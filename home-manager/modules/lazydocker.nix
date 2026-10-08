@@ -1,0 +1,24 @@
+{
+  programs.lazydocker = {
+    enable = true;
+    settings = {
+      gui = {
+        theme = {
+          activeBorderColor = [
+            "#c6a0f6"
+            "bold"
+          ];
+          inactiveBorderColor = [
+            "#a5adcb"
+          ];
+          optionsTextColor = [
+            "#8aadf4"
+          ];
+          selectedLineBgColor = [
+            "#363a4f"
+          ];
+        };
+      };
+    };
+  };
+}
