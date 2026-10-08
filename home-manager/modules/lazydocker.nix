@@ -3,6 +3,7 @@
     enable = true;
     settings = {
       gui = {
+        returnImmediately = true;
         theme = {
           activeBorderColor = [
             "#c6a0f6"
