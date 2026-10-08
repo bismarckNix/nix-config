@@ -6,9 +6,11 @@
         pkgs.xdg-desktop-portal-termfilechooser
         pkgs.xdg-desktop-portal-gnome
       ];
-      config.common = {
-        default = [ "gnome" "gtk" ];
-        "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+      config = {
+        niri = {
+          default = [ "gnome" "gtk" ];
+          "org.freedesktop.impl.portal.FileChooser" = "termfilechooser";
+        };
       };
     };
     mime = {
