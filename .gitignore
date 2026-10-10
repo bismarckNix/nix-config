@@ -1,0 +1,6 @@
+# sops / age private material
+key.txt
+keys.txt
+*.agekey
+secrets/*.dec.yaml
+secrets/*.dec
