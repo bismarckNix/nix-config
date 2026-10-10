@@ -63,6 +63,7 @@
 
         "zen.view.compact.hide-tabbar" = true;
         "zen.view.compact.hide-toolbar" = true;
+        "zen.view.experimental-no-window-controls" = true;
       };
 
       pinsForce = true;
