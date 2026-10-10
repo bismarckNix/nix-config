@@ -8,7 +8,7 @@ Clash Verge Rev settings:
     Primary Text: #CAD3F5
     Secondary Text: #A5ADCB
     Info Color: #8AADF4
-    Warning Color: #ED8796
-    Error Color: #EED49F
+    Warning Color: #EED49F
+    Error Color:  #ED8796
     Success Color: #A6DA95
   Layout Settings: Collapse Navigation Bar
