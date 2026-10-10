@@ -11,6 +11,7 @@
     ./nix.nix
     ./sddm-lancer.nix
     ./services.nix
+    ./sops.nix
     ./syncthing.nix
     ./timezone.nix
     ./user.nix

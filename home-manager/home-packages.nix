@@ -77,6 +77,7 @@
     pastel
     ripgrep
     sd
+    sops
     tealdeer
     wget
     xh
