@@ -23,6 +23,7 @@
     ./vesktop.nix
     ./yazi.nix
     ./zellij.nix
+    ./zen.nix
     ./zoxide.nix
     ./zsh.nix
   ];

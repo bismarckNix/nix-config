@@ -35,7 +35,6 @@
     # Browsers
     brave-origin
     tor-browser
-    inputs.zen-browser.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Messengers
     discordo

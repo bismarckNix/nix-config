@@ -23,14 +23,14 @@
     window-rule {
       // Floating windows
       // Open the Zen picture-in-picture player as floating by default.
-      match app-id=r#"zen$"# title="^Picture-in-Picture$"
+      match app-id=r#"zen-beta$"# title="^Picture-in-Picture$"
 
       open-floating true
     }
 
     window-rule {
       // Fix the Zen browser and LMMS transparency
-      match app-id=r#"zen$"#
+      match app-id="zen-beta"
       match app-id=r#"lmms$"#
       opacity 0.99999
       background-effect {
@@ -43,7 +43,7 @@
 
     window-rule {
       // Maximized apps
-      match app-id="zen"
+      match app-id="zen-beta"
       match app-id="brave-origin"
       match app-id="kitty"
       match app-id="lazyvim"
