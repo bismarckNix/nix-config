@@ -359,7 +359,7 @@
         custom_palette = "catpuccin-mc";
         mode = "dark";
         source = "wallpaper";
-        wallpaper_scheme = "m3-rainbow";
+        wallpaper_scheme = "m3-fruit-salad";
         templates = {
           builtin_ids = [ "btop" "cava" "kitty" "niri" "qt" "umbriel" ];
           community_ids = [ "bat" "discord" "lazygit" "neovim" "pear-desktop" "steam" "telegram" "yazi" "vscode" ];
@@ -374,7 +374,7 @@
           palette_source = "wallpaper";
           path = "~/nix-config/pictures/nixos-wallpaper.png";
           theme_mode = "dark";
-          wallpaper_scheme = "m3-rainbow";
+          wallpaper_scheme = "m3-fruit-salad";
         };
         transition_on_startup = true;
       };
