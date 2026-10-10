@@ -1,4 +1,6 @@
-{
+{ inputs, ... }: {
+  imports = [ inputs.umbriel.nixosModules.default ];
+
   programs = {
     niri.enable = true;
 

@@ -1,6 +1,4 @@
 { inputs, options, pkgs, ... }: {
-  imports = [ inputs.umbriel.nixosModules.default ];
-
   programs = {
     appimage = {
       enable = true;
