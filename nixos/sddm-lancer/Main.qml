@@ -1,5 +1,6 @@
 import QtQuick
 import QtQuick.Window
+import QtQuick.Shapes
 import Qt5Compat.GraphicalEffects
 import SddmComponents 2.0
 
@@ -30,6 +31,10 @@ Rectangle {
     property real ui2: 0
     property string errorMessage: ""
 
+    property string pendingAction: ""
+    property real progress: 0
+    readonly property int countdown: Math.ceil(progress * 3)
+
     FontLoader {
         id: customFont
         source: "font/GoogleSans-VariableFont_GRAD,opsz,wght.ttf"
@@ -50,6 +55,48 @@ Rectangle {
         }
         for (let i = matchLen; i < str.length; i++) {
             charModel.append({ char: str[i] });
+        }
+    }
+
+    function runAction(name) {
+        if (root.isQuickshell) return;
+        if (name === "poweroff") sddm.powerOff();
+        else if (name === "reboot") sddm.reboot();
+        else if (name === "suspend") sddm.suspend();
+    }
+
+    function cancelAction() {
+        actionAnim.stop();
+        pendingAction = "";
+        progress = 0;
+    }
+
+    function confirmAction() {
+        var a = pendingAction;
+        cancelAction();
+        if (a !== "") runAction(a);
+    }
+
+    function requestAction(name) {
+        if (pendingAction === name) {
+            confirmAction();
+            return;
+        }
+        pendingAction = name;
+        actionAnim.restart();
+    }
+
+    NumberAnimation {
+        id: actionAnim
+        target: root
+        property: "progress"
+        from: 1; to: 0
+        duration: 3000
+        easing.type: Easing.Linear
+        onFinished: {
+            var a = root.pendingAction;
+            root.cancelAction();
+            root.runAction(a);
         }
     }
 
@@ -131,7 +178,54 @@ Rectangle {
         anchors.fill: parent
         cursorShape: Qt.ArrowCursor
         z: -1
-        onClicked: pwd.forceActiveFocus()
+        onClicked: {
+            root.cancelAction();
+            pwd.forceActiveFocus();
+        }
+    }
+
+    component CountdownRing: Shape {
+        id: ring
+        property real value: 0
+        property real gap: 4 * root.s
+        property real strokeW: 2.5 * root.s
+        property real cornerR: 8 * root.s + gap
+        property color ringColor: "#7658C3"
+        Behavior on ringColor { ColorAnimation { duration: 150 } }
+
+        anchors.fill: parent
+        anchors.margins: -gap
+        visible: value > 0
+        preferredRendererType: Shape.CurveRenderer
+
+        readonly property real w: width
+        readonly property real h: height
+        readonly property real r: cornerR
+        readonly property real perimeter: 2 * (w - 2 * r) + 2 * (h - 2 * r) + 2 * Math.PI * r
+
+        ShapePath {
+            strokeColor: ring.ringColor
+            strokeWidth: ring.strokeW
+            fillColor: "transparent"
+            capStyle: ShapePath.RoundCap
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [ (ring.perimeter * ring.value) / ring.strokeW,
+                           ring.perimeter / ring.strokeW ]
+            dashOffset: 0
+
+            PathSvg {
+                path: "M " + (ring.w / 2) + " 0 " +
+                      "L " + ring.r + " 0 " +
+                      "A " + ring.r + " " + ring.r + " 0 0 0 0 " + ring.r + " " +
+                      "L 0 " + (ring.h - ring.r) + " " +
+                      "A " + ring.r + " " + ring.r + " 0 0 0 " + ring.r + " " + ring.h + " " +
+                      "L " + (ring.w - ring.r) + " " + ring.h + " " +
+                      "A " + ring.r + " " + ring.r + " 0 0 0 " + ring.w + " " + (ring.h - ring.r) + " " +
+                      "L " + ring.w + " " + ring.r + " " +
+                      "A " + ring.r + " " + ring.r + " 0 0 0 " + (ring.w - ring.r) + " 0 " +
+                      "Z"
+            }
+        }
     }
 
     Row {
@@ -217,11 +311,13 @@ Rectangle {
                 columns: 2
                 spacing: 8 * s
 
+                // ---------------- POWER ----------------
                 Rectangle {
                     id: powerTile
+                    readonly property bool hot: powerMouse.containsMouse || root.pendingAction === "poweroff"
                     width: 180 * s; height: 70 * s; radius: 8 * s
-                    color: powerMouse.pressed ? "#7658C3" : (powerMouse.containsMouse ? "#A597DC" : "#121212")
-                    scale: powerMouse.pressed ? 0.95 : (powerMouse.containsMouse ? 1.03 : 1.0)
+                    color: powerMouse.pressed ? "#7658C3" : (hot ? "#A597DC" : "#121212")
+                    scale: powerMouse.pressed ? 0.95 : (hot ? 1.03 : 1.0)
                     Behavior on color { ColorAnimation { duration: 150 } }
                     Behavior on scale { NumberAnimation { duration: 200; easing.type: Easing.OutBack } }
 
@@ -235,6 +331,11 @@ Rectangle {
                             width: 48 * s; height: 48 * s; radius: 8 * s
                             color: "#202020"
                             anchors.verticalCenter: parent.verticalCenter
+
+                            CountdownRing {
+                                value: root.pendingAction === "poweroff" ? root.progress : 0
+                                ringColor: powerMouse.pressed ? "#A597DC" : "#5C3DAB"
+                            }
 
                             Image {
                                 id: powerIcon
@@ -262,14 +363,14 @@ Rectangle {
                                 font.family: root.sansFont
                                 font.pixelSize: 12 * s
                                 font.bold: true
-                                color: powerMouse.containsMouse ? "#202020" : "#A597DC"
+                                color: powerTile.hot ? "#202020" : "#A597DC"
                                 Behavior on color { ColorAnimation { duration: 150 } }
                             }
                             Text {
-                                text: "SHUT DOWN"
+                                text: root.pendingAction === "poweroff" ? "IN " + root.countdown + "s · CLICK" : "SHUT DOWN"
                                 font.family: root.sansFont
                                 font.pixelSize: 9 * s
-                                color: powerMouse.containsMouse ? "#121212" : "#9886DD"
+                                color: powerTile.hot ? "#121212" : "#9886DD"
                                 Behavior on color { ColorAnimation { duration: 150 } }
                             }
                         }
@@ -280,10 +381,11 @@ Rectangle {
                         anchors.fill: parent
                         hoverEnabled: true
                         cursorShape: Qt.PointingHandCursor
-                        onClicked: if (!root.isQuickshell) sddm.powerOff();
+                        onClicked: root.requestAction("poweroff")
                     }
                 }
 
+                // ---------------- SESSION ----------------
                 Rectangle {
                     id: sessionTile
                     width: 180 * s; height: 70 * s; radius: 8 * s
@@ -350,6 +452,7 @@ Rectangle {
                         hoverEnabled: true
                         cursorShape: Qt.PointingHandCursor
                         onClicked: {
+                            root.cancelAction();
                             if (!root.isQuickshell && typeof sessionModel !== "undefined" && sessionModel.rowCount() > 0) {
                                 root.sessionIndex = (root.sessionIndex + 1) % sessionModel.rowCount();
                             }
@@ -357,11 +460,13 @@ Rectangle {
                     }
                 }
 
+                // ---------------- REBOOT ----------------
                 Rectangle {
                     id: rebootTile
+                    readonly property bool hot: rebootMouse.containsMouse || root.pendingAction === "reboot"
                     width: 180 * s; height: 70 * s; radius: 8 * s
-                    color: rebootMouse.pressed ? "#7658C3" : (rebootMouse.containsMouse ? "#A597DC" : "#121212")
-                    scale: rebootMouse.pressed ? 0.95 : (rebootMouse.containsMouse ? 1.03 : 1.0)
+                    color: rebootMouse.pressed ? "#7658C3" : (hot ? "#A597DC" : "#121212")
+                    scale: rebootMouse.pressed ? 0.95 : (hot ? 1.03 : 1.0)
                     Behavior on color { ColorAnimation { duration: 150 } }
                     Behavior on scale { NumberAnimation { duration: 200; easing.type: Easing.OutBack } }
 
@@ -375,6 +480,11 @@ Rectangle {
                             width: 48 * s; height: 48 * s; radius: 8 * s
                             color: "#202020"
                             anchors.verticalCenter: parent.verticalCenter
+
+                            CountdownRing {
+                                value: root.pendingAction === "reboot" ? root.progress : 0
+                                ringColor: rebootMouse.pressed ? "#A597DC" : "#5C3DAB"
+                            }
 
                             Image {
                                 id: rebootIcon
@@ -402,14 +512,14 @@ Rectangle {
                                 font.family: root.sansFont
                                 font.pixelSize: 12 * s
                                 font.bold: true
-                                color: rebootMouse.containsMouse ? "#202020" : "#A597DC"
+                                color: rebootTile.hot ? "#202020" : "#A597DC"
                                 Behavior on color { ColorAnimation { duration: 150 } }
                             }
                             Text {
-                                text: "RESTART"
+                                text: root.pendingAction === "reboot" ? "IN " + root.countdown + "s · CLICK" : "RESTART"
                                 font.family: root.sansFont
                                 font.pixelSize: 9 * s
-                                color: rebootMouse.containsMouse ? "#121212" : "#9886DD"
+                                color: rebootTile.hot ? "#121212" : "#9886DD"
                                 Behavior on color { ColorAnimation { duration: 150 } }
                             }
                         }
@@ -420,15 +530,17 @@ Rectangle {
                         anchors.fill: parent
                         hoverEnabled: true
                         cursorShape: Qt.PointingHandCursor
-                        onClicked: if (!root.isQuickshell) sddm.reboot();
+                        onClicked: root.requestAction("reboot")
                     }
                 }
 
+                // ---------------- SUSPEND ----------------
                 Rectangle {
                     id: suspendTile
+                    readonly property bool hot: suspendMouse.containsMouse || root.pendingAction === "suspend"
                     width: 180 * s; height: 70 * s; radius: 8 * s
-                    color: suspendMouse.pressed ? "#7658C3" : (suspendMouse.containsMouse ? "#A597DC" : "#121212")
-                    scale: suspendMouse.pressed ? 0.95 : (suspendMouse.containsMouse ? 1.03 : 1.0)
+                    color: suspendMouse.pressed ? "#7658C3" : (hot ? "#A597DC" : "#121212")
+                    scale: suspendMouse.pressed ? 0.95 : (hot ? 1.03 : 1.0)
                     Behavior on color { ColorAnimation { duration: 150 } }
                     Behavior on scale { NumberAnimation { duration: 200; easing.type: Easing.OutBack } }
 
@@ -442,6 +554,11 @@ Rectangle {
                             width: 48 * s; height: 48 * s; radius: 8 * s
                             color: "#202020"
                             anchors.verticalCenter: parent.verticalCenter
+
+                            CountdownRing {
+                                value: root.pendingAction === "suspend" ? root.progress : 0
+                                ringColor: suspendMouse.pressed ? "#A597DC" : "#5C3DAB"
+                            }
 
                             Image {
                                 id: suspendIcon
@@ -469,14 +586,14 @@ Rectangle {
                                 font.family: root.sansFont
                                 font.pixelSize: 12 * s
                                 font.bold: true
-                                color: suspendMouse.containsMouse ? "#202020" : "#A597DC"
+                                color: suspendTile.hot ? "#202020" : "#A597DC"
                                 Behavior on color { ColorAnimation { duration: 150 } }
                             }
                             Text {
-                                text: "SUSPEND"
+                                text: root.pendingAction === "suspend" ? "IN " + root.countdown + "s · CLICK" : "SUSPEND"
                                 font.family: root.sansFont
                                 font.pixelSize: 9 * s
-                                color: suspendMouse.containsMouse ? "#121212" : "#9886DD"
+                                color: suspendTile.hot ? "#121212" : "#9886DD"
                                 Behavior on color { ColorAnimation { duration: 150 } }
                             }
                         }
@@ -487,7 +604,7 @@ Rectangle {
                         anchors.fill: parent
                         hoverEnabled: true
                         cursorShape: Qt.PointingHandCursor
-                        onClicked: if (!root.isQuickshell) sddm.suspend();
+                        onClicked: root.requestAction("suspend")
                     }
                 }
             }
@@ -561,7 +678,7 @@ Rectangle {
                         Item {
                             id: charViewport
                             anchors.centerIn: parent
-                            readonly property real pad: 4 * s   // room for the pop overshoot (< spacing)
+                            readonly property real pad: 4 * s
                             readonly property real dotPitch: 18 * s
                             readonly property int maxDots: Math.max(1, Math.floor((parent.width - 40 * s - 2 * pad + 6 * s) / dotPitch + 0.001))
                             readonly property real rowMax: maxDots * dotPitch - 6 * s
@@ -569,144 +686,143 @@ Rectangle {
                             height: 28 * s
                             clip: true
 
-                        ListView {
-                            id: charRow
-                            anchors.verticalCenter: parent.verticalCenter
-                            height: 12 * s
-                            orientation: ListView.Horizontal
-                            interactive: false
-                            boundsBehavior: Flickable.StopAtBounds
-                            spacing: 6 * s
-                            width: contentWidth
-                            model: charModel
-
-                            x: charViewport.pad + (contentWidth <= charViewport.rowMax
-                               ? (charViewport.rowMax - contentWidth) / 2
-                               : charViewport.rowMax - contentWidth)
-                            Behavior on x {
-                                NumberAnimation { duration: 200; easing.type: Easing.OutCubic }
-                            }
-
-                            add: Transition {
-                                ParallelAnimation {
-                                    NumberAnimation {
-                                        property: "scale"
-                                        from: 0.60
-                                        to: 1.0
-                                        duration: 240
-                                        easing.type: Easing.OutBack
-                                        easing.overshoot: 1.35
-                                    }
-                                    NumberAnimation {
-                                        property: "y"
-                                        from: 3.5 * s
-                                        to: 0
-                                        duration: 220
-                                        easing.type: Easing.OutBack
-                                        easing.overshoot: 1.25
-                                    }
-                                    NumberAnimation {
-                                        property: "rotation"
-                                        from: -9
-                                        to: 0
-                                        duration: 220
-                                        easing.type: Easing.OutCubic
-                                    }
-                                    NumberAnimation {
-                                        property: "opacity"
-                                        from: 0
-                                        to: 1
-                                        duration: 150
-                                        easing.type: Easing.OutQuad
-                                    }
-                                }
-                            }
-
-                            remove: Transition {
-                                ParallelAnimation {
-                                    NumberAnimation {
-                                        property: "scale"
-                                        to: 0.0
-                                        duration: 130
-                                        easing.type: Easing.InCubic
-                                    }
-                                    NumberAnimation {
-                                        property: "y"
-                                        to: 2 * s
-                                        duration: 130
-                                        easing.type: Easing.InCubic
-                                    }
-                                    NumberAnimation {
-                                        property: "rotation"
-                                        to: 6
-                                        duration: 130
-                                        easing.type: Easing.InCubic
-                                    }
-                                    NumberAnimation {
-                                        property: "opacity"
-                                        to: 0
-                                        duration: 100
-                                        easing.type: Easing.InQuad
-                                    }
-                                }
-                            }
-
-                            displaced: Transition {
-                                NumberAnimation {
-                                    properties: "x,y"
-                                    duration: 160
-                                    easing.type: Easing.OutCubic
-                                }
-                            }
-
-                            delegate: Item {
-                                id: charSlot
-                                required property int index
-                                required property string char
-
-                                width: 12 * s
+                            ListView {
+                                id: charRow
+                                anchors.verticalCenter: parent.verticalCenter
                                 height: 12 * s
-                                transformOrigin: Item.Center
+                                orientation: ListView.Horizontal
+                                interactive: false
+                                boundsBehavior: Flickable.StopAtBounds
+                                spacing: 6 * s
+                                width: contentWidth
+                                model: charModel
 
-                                Rectangle {
-                                    id: charShape
-                                    anchors.centerIn: parent
-                                    width: 12 * s
-                                    height: 12 * s
-                                    radius: Math.round(width * 0.24)
-                                    color: "#A597DC"
-                                    antialiasing: true
+                                x: charViewport.pad + (contentWidth <= charViewport.rowMax
+                                   ? (charViewport.rowMax - contentWidth) / 2
+                                   : charViewport.rowMax - contentWidth)
+                                Behavior on x {
+                                    NumberAnimation { duration: 200; easing.type: Easing.OutCubic }
+                                }
 
-                                    property real dotPop: 1.0
-                                    scale: dotPop
-
-                                    Component.onCompleted: {
-                                        dotPop = 0.82
-                                        dotPopAnim.restart()
-                                    }
-
-                                    SequentialAnimation {
-                                        id: dotPopAnim
+                                add: Transition {
+                                    ParallelAnimation {
                                         NumberAnimation {
-                                            target: charShape
-                                            property: "dotPop"
-                                            to: 1.11
-                                            duration: 110
+                                            property: "scale"
+                                            from: 0.60
+                                            to: 1.0
+                                            duration: 240
+                                            easing.type: Easing.OutBack
+                                            easing.overshoot: 1.35
+                                        }
+                                        NumberAnimation {
+                                            property: "y"
+                                            from: 3.5 * s
+                                            to: 0
+                                            duration: 220
                                             easing.type: Easing.OutBack
                                             easing.overshoot: 1.25
                                         }
                                         NumberAnimation {
-                                            target: charShape
-                                            property: "dotPop"
-                                            to: 1.0
-                                            duration: 170
+                                            property: "rotation"
+                                            from: -9
+                                            to: 0
+                                            duration: 220
                                             easing.type: Easing.OutCubic
+                                        }
+                                        NumberAnimation {
+                                            property: "opacity"
+                                            from: 0
+                                            to: 1
+                                            duration: 150
+                                            easing.type: Easing.OutQuad
+                                        }
+                                    }
+                                }
+
+                                remove: Transition {
+                                    ParallelAnimation {
+                                        NumberAnimation {
+                                            property: "scale"
+                                            to: 0.0
+                                            duration: 130
+                                            easing.type: Easing.InCubic
+                                        }
+                                        NumberAnimation {
+                                            property: "y"
+                                            to: 2 * s
+                                            duration: 130
+                                            easing.type: Easing.InCubic
+                                        }
+                                        NumberAnimation {
+                                            property: "rotation"
+                                            to: 6
+                                            duration: 130
+                                            easing.type: Easing.InCubic
+                                        }
+                                        NumberAnimation {
+                                            property: "opacity"
+                                            to: 0
+                                            duration: 100
+                                            easing.type: Easing.InQuad
+                                        }
+                                    }
+                                }
+
+                                displaced: Transition {
+                                    NumberAnimation {
+                                        properties: "x,y"
+                                        duration: 160
+                                        easing.type: Easing.OutCubic
+                                    }
+                                }
+
+                                delegate: Item {
+                                    id: charSlot
+                                    required property int index
+                                    required property string char
+
+                                    width: 12 * s
+                                    height: 12 * s
+                                    transformOrigin: Item.Center
+
+                                    Rectangle {
+                                        id: charShape
+                                        anchors.centerIn: parent
+                                        width: 12 * s
+                                        height: 12 * s
+                                        radius: Math.round(width * 0.24)
+                                        color: "#A597DC"
+                                        antialiasing: true
+
+                                        property real dotPop: 1.0
+                                        scale: dotPop
+
+                                        Component.onCompleted: {
+                                            dotPop = 0.82
+                                            dotPopAnim.restart()
+                                        }
+
+                                        SequentialAnimation {
+                                            id: dotPopAnim
+                                            NumberAnimation {
+                                                target: charShape
+                                                property: "dotPop"
+                                                to: 1.11
+                                                duration: 110
+                                                easing.type: Easing.OutBack
+                                                easing.overshoot: 1.25
+                                            }
+                                            NumberAnimation {
+                                                target: charShape
+                                                property: "dotPop"
+                                                to: 1.0
+                                                duration: 170
+                                                easing.type: Easing.OutCubic
+                                            }
                                         }
                                     }
                                 }
                             }
-                        }
-
                         }
 
                         TextInput {
@@ -729,6 +845,20 @@ Rectangle {
 
                             onTextChanged: root.syncModel()
 
+                            Keys.priority: Keys.BeforeItem
+                            Keys.onPressed: (event) => {
+                                if (root.pendingAction === "") return;
+                                if ([Qt.Key_Shift, Qt.Key_Control, Qt.Key_Alt, Qt.Key_Meta, Qt.Key_CapsLock].indexOf(event.key) !== -1) return;
+                                if (event.key === Qt.Key_Space
+                                        || event.key === Qt.Key_Return
+                                        || event.key === Qt.Key_Enter) {
+                                    root.confirmAction();
+                                    event.accepted = true;
+                                } else {
+                                    root.cancelAction();
+                                }
+                            }
+
                             Text {
                                 anchors.centerIn: parent
                                 text: root.errorMessage !== "" ? root.errorMessage : "PASSWORD REQUIRED"
@@ -745,6 +875,7 @@ Rectangle {
                                 anchors.fill: parent
                                 cursorShape: Qt.IBeamCursor
                                 onClicked: {
+                                    root.cancelAction();
                                     pwd.wasClicked = true;
                                     pwd.forceActiveFocus();
                                 }
@@ -789,6 +920,7 @@ Rectangle {
                                 hoverEnabled: true
                                 cursorShape: Qt.PointingHandCursor
                                 onClicked: {
+                                    root.cancelAction();
                                     if (!root.isQuickshell && typeof userModel !== "undefined" && userModel.rowCount() > 0) {
                                         root.userIndex = (root.userIndex + 1) % userModel.rowCount();
                                     }
@@ -841,7 +973,10 @@ Rectangle {
                                     anchors.fill: parent
                                     hoverEnabled: true
                                     cursorShape: Qt.PointingHandCursor
-                                    onClicked: pwd.accepted()
+                                    onClicked: {
+                                        root.cancelAction();
+                                        pwd.accepted();
+                                    }
                                 }
                             }
                         }
@@ -851,4 +986,3 @@ Rectangle {
         }
     }
 }
-
