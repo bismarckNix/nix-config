@@ -1,6 +1,7 @@
 keys:
   - &nixos age17ajltenmqpqmt0c4gzjpqu7n3ju7tfpfxntc5pdjmwdaw2p0j5eskm3jga
+  - &nix-thinkpad age1zzua4rf90krgqcasw7lrqhf8gnugh8gxz8khfxp3wwljzgpqp54s67rq8u
 creation_rules:
   - path_regex: secrets/[^/]+\.yaml$
     key_groups:
-      - age: [*nixos]
+      - age: [*nixos, *nix-thinkpad]
