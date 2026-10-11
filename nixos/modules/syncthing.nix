@@ -20,12 +20,13 @@
       devices = {
         nixos.id = "O7F23NA-DZW7S4Y-3XYKUTR-PU3FSVW-FSSFZMR-YH63SAD-DN33T3I-APHREAJ";
         nix-thinkpad.id = "EWEAMBW-GGBIQBJ-RU5GJG7-R3RMLNZ-XV246DC-NPBLAU3-AB6FRHY-KIHIDAH";
+        RMX3636.id = "3XRUSX5-FYRHF4M-YL2TI2L-UE2UJ3G-SC4REUL-COS73I6-5OU27LY-C2IYSQW";
       };
 
       folders = {
         "vault" = {
           path = "/home/${user}/.synced-vault";
-          devices = [ "nixos" "nix-thinkpad" ];
+          devices = [ "nixos" "nix-thinkpad" "RMX3636" ];
           type = "sendreceive";
           fsWatcherEnabled = true;
             fsWatcherDelayS = 10;
