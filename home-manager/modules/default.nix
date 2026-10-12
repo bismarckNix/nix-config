@@ -4,6 +4,7 @@
     ./niri
     ./noctalia
     ./umbriel
+    ./artcraft.nix
     ./catppuccin.nix
     ./entries.nix
     ./eza.nix
