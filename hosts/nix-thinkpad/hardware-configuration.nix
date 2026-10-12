@@ -7,7 +7,7 @@
       availableKernelModules = [ "xhci_pci" "thunderbolt" "nvme" "usb_storage" "sd_mod" "sdhci_pci" ];
       kernelModules = [ ];
       luks.devices."CRYPTROOT" = {
-        device = "/dev/disk/by-uuid/9cb8a81a-444f-4d06-a422-173b6765de2e";
+        device = "/dev/disk/by-uuid/2df2b008-a735-412d-aea6-66e33ea36636";
         allowDiscards = true;
         bypassWorkqueues = true;
       };
