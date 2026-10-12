@@ -60,6 +60,7 @@
     obsidian
     python3
     rustup
+    tutanota-desktop
     uv
     vlc
     vscodium
