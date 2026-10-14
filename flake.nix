@@ -18,7 +18,8 @@
     };
 
     artcraft = {
-      url = "github:bismarckNix/artcraft-flake";
+      url = "git+file:///home/bismarck/flakes/artcraft-flake";
+      flake = true;
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
