@@ -12,9 +12,10 @@
       Super+Shift+L     hotkey-overlay-title="Lock the Screen"                 { spawn-sh "noctalia msg session lock"; }
       Mod+Space         hotkey-overlay-title="Switch Keyboard Layout"          { switch-layout "next"; }
 
-      Mod+Shift+S       hotkey-overlay-title="Screenshot region"               { screenshot; }
-      Mod+Shift+A       hotkey-overlay-title="Screenshot screen"               { screenshot-screen; }
-      Mod+Shift+W       hotkey-overlay-title="Screenshot window"               { screenshot-window; }
+      Print             hotkey-overlay-title="Screenshot Region"               { screenshot; }
+      Mod+Shift+S       hotkey-overlay-title="Screenshot Region"               { screenshot; }
+      Mod+Shift+A       hotkey-overlay-title="Screenshot Screen"               { screenshot-screen; }
+      Mod+Shift+W       hotkey-overlay-title="Screenshot Window"               { screenshot-window; }
       Mod+Shift+Q       hotkey-overlay-title="Record Screen"                   { spawn-sh "noctalia msg plugin noctalia/screen_recorder:service all toggle"; }
 
       Ctrl+Alt+Delete                                                          { quit; }
