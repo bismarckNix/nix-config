@@ -187,11 +187,11 @@
 
       Mod+Shift+V   hotkey-overlay-title="Open Proxy Client: Clash Verge"     { spawn "clash-verge"; }
       Mod+E         hotkey-overlay-title="Open Browser: Zen Beta"             { spawn "zen-beta"; }
-      Mod+B         hotkey-overlay-title="Open Browser: Brave Origin"         { spawn "brave-origin"; }
       Mod+A         hotkey-overlay-title="Open File Manager: Nemo"            { spawn "nemo"; }
       Mod+Shift+E   hotkey-overlay-title="Open File Manager: Yazi"            { spawn-sh "kitty --class yazi yazi"; }
       Mod+N         hotkey-overlay-title="Open Code Editor: LazyVim"          { spawn-sh "kitty --class lazyvim nvim"; }
       Mod+Shift+N   hotkey-overlay-title="Open Code Editor: VSCodium"         { spawn "codium"; }
+      Mod+B         hotkey-overlay-title="Open ArtCraft Launcher"             { spawn "craft-launcher"; }
 
       Mod+Z         hotkey-overlay-title="Open Vesktop"                       { spawn "vesktop"; }
       Mod+T         hotkey-overlay-title="Open Telegram Desktop"              { spawn "Telegram"; }
