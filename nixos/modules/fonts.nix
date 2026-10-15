@@ -1,23 +1,8 @@
 { config, pkgs, user, ... }: {
-  system.activationScripts.onlyofficeFonts = let
-    home = config.users.users.${user}.home;
-    dest = "${home}/.local/share/fonts/nixos";
-  in {
-    text = ''
-      rm -rf '${dest}'
-      install -d -o ${user} -g users '${home}/.local/share/fonts' '${dest}'
-      for pkg in ${pkgs.lib.concatMapStringsSep " " (p: "'${p}'") (config.fonts.packages ++ [ pkgs.corefonts ])}; do
-        cp -rL --no-preserve=mode,ownership $pkg/share/fonts/* '${dest}/' 2>/dev/null || true
-      done
-      chown -R ${user}:users '${dest}'
-    '';
-  };
-
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
       anakron
-      corefonts
       cozette
       dejavu_fonts
       dina-font
@@ -37,9 +22,9 @@
       oxygenfonts
       proggyfonts
       roboto
+      times-newer-roman
       unifont
       unscii
-      vista-fonts
     ];
     fontconfig.defaultFonts = {
       sansSerif = [ "Noto Sans" ];
