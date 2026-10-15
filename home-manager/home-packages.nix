@@ -33,7 +33,6 @@
     xarchiver
 
     # Browsers
-    brave-origin
     tor-browser
 
     # Messengers
