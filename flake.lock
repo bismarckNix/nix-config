@@ -28,11 +28,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792003731,
-        "narHash": "sha256-hszkQ8hpMHz+7GTJ+kXlwHeuNaheUdREOwa9ycFgqSE=",
+        "lastModified": 1792006024,
+        "narHash": "sha256-GQvkguCvr3nVtLYyq3ZEz3niXu7srn70MFt3kiK0Zmc=",
         "ref": "refs/heads/master",
-        "rev": "32af9d8e3d9dc39581ed6f0c5dc52bd3a8c33207",
-        "revCount": 21,
+        "rev": "fc1a605c282d6b14be1e3e982235add071a9a842",
+        "revCount": 22,
         "type": "git",
         "url": "file:///home/bismarck/flakes/artcraft-flake"
       },
