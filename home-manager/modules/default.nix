@@ -16,7 +16,6 @@
     ./lazydocker.nix
     ./lazygit.nix
     ./navi.nix
-    ./onlyoffice.nix
     ./programs.nix
     ./starship.nix
     ./themes.nix

@@ -18,7 +18,6 @@
       defaultApplications = {
         "inode/directory" = "yazi.desktop";
         "image/*" = "org.gnome.Loupe.desktop";
-        "application/pdf" = "onlyoffice-desktopeditors.desktop";
       };
     };
   };
