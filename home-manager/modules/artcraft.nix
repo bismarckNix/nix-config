@@ -16,5 +16,21 @@
         appearance.appearanceMode = "dark";
       };
     };
+
+    wordcraft = {
+      uiSettings = {
+        theme = "dark";
+        window.monitor = [
+          "1280.0"
+          "720.0"
+        ];
+      };
+    };
+
+    gridcraft = {
+      uiSettings = {
+        dark = true;
+      };
+    };
   };
 }
