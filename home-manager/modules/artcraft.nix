@@ -27,6 +27,12 @@
       };
     };
 
+    deckcraft = {
+      uiSettings = {
+        brightness = "dark";
+      };
+    };
+
     gridcraft = {
       uiSettings = {
         dark = true;
