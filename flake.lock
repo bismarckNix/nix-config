@@ -28,11 +28,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792078615,
-        "narHash": "sha256-Hbm1UPPTvfg8RnY3sdiXD0anM927D2iiZEhQYbvc8IY=",
-        "ref": "refs/heads/dev",
-        "rev": "34c7fff6679b116557aa2bd51c9c7ee548ccc824",
-        "revCount": 32,
+        "lastModified": 1792156716,
+        "narHash": "sha256-rwJR3TF7GsGmAuaEjmX5YcdYYsB3kxFiVp9dauUrdJg=",
+        "ref": "refs/heads/master",
+        "rev": "18250e3174ba0c2b64b60d25e78aa39bbd7c9da5",
+        "revCount": 40,
         "type": "git",
         "url": "file:///home/bismarck/flakes/artcraft-flake"
       },
@@ -160,11 +160,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792000010,
-        "narHash": "sha256-4jtkwQlReQdXsKJJfB9yT7nIf0TlwgZOk2XtxjUgDS8=",
+        "lastModified": 1792098797,
+        "narHash": "sha256-u4DIIZgznEGzByxXrxWCXK19VcMtTBmi/M9gZ7Jk9bM=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "5a9d300bd619c03857521b50c8877a19dbad7078",
+        "rev": "640725978b99076e18e069f6e7d2959124584f8f",
         "type": "github"
       },
       "original": {
@@ -445,11 +445,11 @@
         "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel"
       },
       "locked": {
-        "lastModified": 1792067303,
-        "narHash": "sha256-ZuQc2usFxFicR15coJY1YZK4pq8Jg1TJbpuMSWWThVo=",
+        "lastModified": 1792154935,
+        "narHash": "sha256-gzJplsRdXQLosa6joO3jFHN18GivNcYHc1zsw/z2bCo=",
         "owner": "noctalia-dev",
         "repo": "umbriel",
-        "rev": "297a787801e3b933cfa871521a4b586a98caef7f",
+        "rev": "5cea311e7e7d6eba3ea41f5c4ca826971340f7cc",
         "type": "github"
       },
       "original": {
