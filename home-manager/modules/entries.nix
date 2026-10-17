@@ -4,10 +4,18 @@
   };
 
   xdg.desktopEntries = {
+    kew = {
+      name = "kew";
+      genericName = "Music Player";
+      comment = "Music for the Shell";
+      exec = "kitty --class kew kew %F";
+      icon = "kew";
+      categories = [ "Audio" "Music" "Player" "AudioVideo" "ConsoleOnly" ];
+    };
     nvim = {
       name = "LazyVim";
       genericName = "Text Editor";
-      comment = "Neovim with LazyVim in Kitty";
+      comment = "Neovim config for the lazy";
       exec = "kitty --class lazyvim nvim %F";
       icon = "${config.xdg.dataHome}/icons/lazyvim.svg";
       terminal = false;

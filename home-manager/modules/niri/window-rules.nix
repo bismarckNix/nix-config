@@ -46,6 +46,7 @@
       match app-id="zen-beta"
       match app-id="brave-origin"
       match app-id="kitty"
+      match app-id="kew"
       match app-id="lazyvim"
       match app-id="yazi"
       match app-id="codium"
@@ -69,6 +70,7 @@
     window-rule {
       // Window blur
       match app-id="kitty"
+      match app-id="kew"
       match app-id="lazyvim"
       match app-id="yazi"
 
