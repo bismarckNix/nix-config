@@ -52,6 +52,20 @@
             };
           };
         };
+        "music" = {
+          path = "/home/${user}/Music";
+          devices = [ "nixos" "nix-thinkpad" "RMX3636" ];
+          type = "sendreceive";
+          fsWatcherEnabled = true;
+            fsWatcherDelayS = 10;
+            versioning = {
+              type = "staggered";
+              params = {
+                cleanInterval = "3600";
+                maxAge = "15768000";
+            };
+          };
+        };
       };
     };
   };
