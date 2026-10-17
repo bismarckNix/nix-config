@@ -16,6 +16,7 @@
     ./lazydocker.nix
     ./lazygit.nix
     ./navi.nix
+    ./nuclear.nix
     ./programs.nix
     ./starship.nix
     ./themes.nix
