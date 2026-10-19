@@ -4,6 +4,11 @@
   programs.artcraft = {
     fullSuite.enable = true;
 
+    craft-launcher = {
+      trayIcon = false;
+      notifyUpdates = true;
+    };
+
     photocraft = {
       xwayland = true;
       settings = {
