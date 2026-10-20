@@ -28,11 +28,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792184242,
-        "narHash": "sha256-A/kAJGolf9XEvkrhgFcdTMM9mNGe5qUBngsBvKjGXNw=",
+        "lastModified": 1792317932,
+        "narHash": "sha256-n58tKuUiNyhnCMODy91bolvgfhK8NpFAvixMqJFKAKg=",
         "ref": "refs/heads/master",
-        "rev": "18c4413e1b5906344f70f391dc407e7a983c5455",
-        "revCount": 41,
+        "rev": "1d993d3d462a3ecf0f63a3987f3a0b34716784d1",
+        "revCount": 53,
         "type": "git",
         "url": "file:///home/bismarck/flakes/artcraft-flake"
       },
@@ -343,23 +343,6 @@
         "type": "github"
       }
     },
-    "nuclear": {
-      "inputs": {
-        "nixpkgs": [
-          "nixpkgs"
-        ]
-      },
-      "locked": {
-        "lastModified": 1792236585,
-        "narHash": "sha256-thUck04YtgVWK1ehClPZY3f3r65tKQD47kravKtgxYQ=",
-        "path": "/home/bismarck/flakes/nuclear-flake",
-        "type": "path"
-      },
-      "original": {
-        "path": "/home/bismarck/flakes/nuclear-flake",
-        "type": "path"
-      }
-    },
     "pre-commit": {
       "inputs": {
         "flake-compat": "flake-compat",
@@ -393,7 +376,6 @@
         "lazyvim": "lazyvim",
         "millennium": "millennium",
         "nixpkgs": "nixpkgs",
-        "nuclear": "nuclear",
         "sops-nix": "sops-nix",
         "umbriel": "umbriel",
         "zen-browser": "zen-browser"
@@ -463,11 +445,11 @@
         "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel"
       },
       "locked": {
-        "lastModified": 1792232911,
-        "narHash": "sha256-qkAEMcMDQd0UxqAPqbdBr3zU3/s6DGEW1OGLJiRXQwo=",
+        "lastModified": 1792351859,
+        "narHash": "sha256-LQnPegvx8AtDadr5gyFKLEBmP8yR4TZfeUio61KKGUw=",
         "owner": "noctalia-dev",
         "repo": "umbriel",
-        "rev": "fb6aa4c75a3afce9cde9bbb43627945c44fc55e2",
+        "rev": "5139ef31ebd6051b780e7dcc7100e52e8c7f0765",
         "type": "github"
       },
       "original": {
@@ -505,11 +487,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1792192561,
-        "narHash": "sha256-XNE80BcOYerOY/+2bfmVk1Sik7FYq7ID9mbtXTeqDN0=",
+        "lastModified": 1792271801,
+        "narHash": "sha256-LYN8miMEew9CxgRrF/RCnAyOe6476dQM/JzELnFQef0=",
         "owner": "0xc000022070",
         "repo": "zen-browser-flake",
-        "rev": "733154388e22e459c7e6dd14e6522069bbf25971",
+        "rev": "e1b9b3578ebb388b56012cd9ddd80e19681d2d39",
         "type": "github"
       },
       "original": {
