@@ -74,6 +74,7 @@
     ffmpeg
     fd
     ghgrab
+    kid3-qt
     pastel
     ripgrep
     sd
@@ -105,6 +106,7 @@
     wl-clipboard
     wl-screenrec
     xwayland-satellite
+    yt-dlp
     zbar
 
     # Plugins
