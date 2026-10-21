@@ -68,6 +68,7 @@
 
       pinsForce = true;
       pins = {
+        # Essentials
         "NixOS Packages" = {
           id = "UUID-1";
           url = "https://search.nixos.org/packages";
@@ -103,6 +104,28 @@
           url = "https://claude.ai";
           isEssential = true;
           position = 106;
+        };
+
+        # Space
+        "Cobalt" = {
+          id = "6f1c2a4e-3b7d-4c59-9a1e-0d8b5e2f7a31";
+          isGroup = true;
+          isFolderCollapsed = false;
+          position = 200;
+        };
+        "cobalt (canine)" = {
+          id = "a2d94c18-7e03-4f6b-b5c2-1e9f3d6a8b42";
+          url = "https://cobalt.canine.tools";
+          folderParentId = "6f1c2a4e-3b7d-4c59-9a1e-0d8b5e2f7a31";
+          position = 201;
+          editedTitle = true;
+        };
+        "cobalt (meowing)" = {
+          id = "c85e1f93-4a2b-4d7c-8e06-7b3a9d1c5f24";
+          url = "https://cobalt.meowing.de";
+          folderParentId = "6f1c2a4e-3b7d-4c59-9a1e-0d8b5e2f7a31";
+          position = 202;
+          editedTitle = true;
         };
       };
 
