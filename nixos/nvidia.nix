@@ -23,21 +23,21 @@
 
   services.xserver.videoDrivers = [ "nvidia" ];
 
-  systemd.services.nvidia-persistenced.after = [ "systemd-udevd.service" ];
-  systemd.services.nvidia-clock-lock = {
-    description = "Lock NVIDIA GPU minimum clocks (for smooth animations on WMs)";
-    wantedBy = [ "multi-user.target" ];
-    after = [ "nvidia-persistenced.service" ];
-    requires = [ "nvidia-persistenced.service" ];
-    serviceConfig = {
-      Type = "oneshot";
-      ExecStart = [
-        "${config.hardware.nvidia.package.bin}/bin/nvidia-smi -lgc 1200,999999"
-        "${config.hardware.nvidia.package.bin}/bin/nvidia-smi -lmc 7001,999999"
-      ];
-    RemainAfterExit = true;
-    };
-  };
+  # systemd.services.nvidia-persistenced.after = [ "systemd-udevd.service" ];
+  # systemd.services.nvidia-clock-lock = {
+  #   description = "Lock NVIDIA GPU minimum clocks (for smooth animations on WMs)";
+  #   wantedBy = [ "multi-user.target" ];
+  #   after = [ "nvidia-persistenced.service" ];
+  #   requires = [ "nvidia-persistenced.service" ];
+  #   serviceConfig = {
+  #     Type = "oneshot";
+  #     ExecStart = [
+  #       "${config.hardware.nvidia.package.bin}/bin/nvidia-smi -lgc 1200,999999"
+  #       "${config.hardware.nvidia.package.bin}/bin/nvidia-smi -lmc 7001,999999"
+  #     ];
+  #   RemainAfterExit = true;
+  #   };
+  # };
 
   environment.sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
 }
