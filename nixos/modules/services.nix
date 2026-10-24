@@ -37,6 +37,11 @@
       drivers = [ pkgs.hplipWithPlugin ];
     };
 
+    smartd = {
+      enable = true;
+      notifications.wall.enable = true;
+    };
+
     upower.enable = true;
 
     xserver = {
