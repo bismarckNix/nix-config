@@ -12,6 +12,8 @@
       openFirewall = true;
     };
 
+    clamav.daemon.enable = true;
+
     flatpak.enable = true;
 
     fwupd.enable = true;
