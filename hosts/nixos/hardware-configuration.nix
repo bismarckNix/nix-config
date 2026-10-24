@@ -8,16 +8,24 @@
     extraModulePackages = [ ];
   };
 
-  fileSystems."/" =
-    { device = "/dev/disk/by-label/NIXROOT";
+  fileSystems = {
+    "/" = {
+      device = "/dev/disk/by-label/NIXROOT";
       fsType = "ext4";
     };
 
-  fileSystems."/boot" =
-    { device = "/dev/disk/by-label/NIXBOOT";
+    "/mnt/data" = {
+      device = "dev/disk/by-label/DATA";
+      fsType = "ext4";
+      options = [ "defaults" "nofail" ];
+    };
+
+    "/boot" = {
+      device = "/dev/disk/by-label/NIXBOOT";
       fsType = "vfat";
       options = [ "fmask=0022" "dmask=0022" ];
     };
+  };
 
   swapDevices = [{
     device = "/.swapfile";
