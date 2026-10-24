@@ -10,11 +10,7 @@
     };
 
     consoleLogLevel = 3;
-    initrd = {
-      verbose = false;
-      systemd.enable = true;
-      systemd.services.plymouth-start.after = [ "systemd-modules-load.service" ];
-    };
+    initrd.systemd.services.plymouth-start.after = [ "systemd-modules-load.service" ];
     kernelParams = [
       "quiet"
       "splash"
