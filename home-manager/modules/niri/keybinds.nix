@@ -196,7 +196,7 @@
 
       Mod+Z         hotkey-overlay-title="Open Vesktop"                       { spawn "vesktop"; }
       Mod+T         hotkey-overlay-title="Open Telegram Desktop"              { spawn "Telegram"; }
-      Mod+Shift+B   hotkey-overlay-title="Open Music Player: Pear Desktop"    { spawn "pear-desktop"; }
+      Mod+Shift+B   hotkey-overlay-title="Open Music Player: Riff"            { spawn "riff"; }
       Mod+Y         hotkey-overlay-title="Open Steam"                         { spawn "steam"; }
       Mod+G         hotkey-overlay-title="Open FreesmLauncher"                { spawn "freesmlauncher"; }
     }

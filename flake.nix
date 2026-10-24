@@ -48,8 +48,8 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nuclear = {
-      url = "path:///home/bismarck/flakes/nuclear-flake";
+    riff = {
+      url = "github:rootscripts/riff";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 

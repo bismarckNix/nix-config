@@ -124,7 +124,16 @@
     pear-desktop
     smassh
     system-config-printer
-
+    (inputs.riff.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+      npmDeps = pkgs.fetchNpmDeps {
+        inherit (old) src;
+        name = "${old.pname}-${old.version}-npm-deps";
+        patches = old.patches or [ ];
+        postPatch = old.postPatch or "";
+        sourceRoot = old.sourceRoot or null;
+        hash = "sha256-wEOyBWcBdSBBc2eWSnwKN0x8dohAezhNydKwRxhPFzM=";
+      };
+    }))
   ];
 
   nixpkgs.overlays = [
