@@ -18,5 +18,6 @@
     ./user.nix
     ./wms.nix
     ./xdg.nix
+    ./zapret.nix
   ];
 }
