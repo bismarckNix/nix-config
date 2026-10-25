@@ -137,6 +137,7 @@
           searxng = {
             name = "SearXNG";
             urls = [{ template = "https://127.0.0.1:8888/search?q={searchTerms}"; }];
+            icon = ../../pictures/searxng.svg;
             definedAliases = [ "@sx" ];
           };
           brave = {
