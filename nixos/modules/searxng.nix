@@ -22,8 +22,8 @@
 
       search = {
         safe_search = 0;
-        autocomplete = "brave";
-        autocomplete_min = 2;
+        autocomplete = "duckduckgo";
+        autocomplete_min = 3;
         default_lang = "auto";
         formats = [ "html" ];
         favicon_resolver = "duckduckgo";
@@ -44,11 +44,17 @@
       };
 
       engines = [
-        { name = "brave";      disabled = false; weight = 2; }
-        { name = "google";     disabled = false; }
-        { name = "bing";       disabled = false; }
-        { name = "mojeek";     disabled = false; }
-        { name = "duckduckgo"; disabled = false;  }
+        { name = "brave";          disabled = false; weight = 2.0; }
+        { name = "duckduckgo";     disabled = false; weight = 1.0; }
+        { name = "wikipedia";      disabled = false; }
+        { name = "yep";            disabled = false; weight = 0.5; }
+        { name = "mwmbl";          disabled = false; weight = 0.5; }
+
+        { name = "nixos wiki";        disabled = false; }
+        { name = "arch linux wiki";   disabled = false; }
+        { name = "github";            disabled = false; }
+        { name = "stackoverflow";     disabled = false; }
+        { name = "mdn";               disabled = false; }
       ];
 
       faviconsSettings = {
