@@ -53,7 +53,7 @@
       match app-id="vesktop"
       match app-id="org.telegram.desktop"
       match app-id="ONLYOFFICE"
-      match app-id="com.github.th-ch.youtube-music"
+      match app-id="riff"
       match app-id="steam"
 
       open-maximized true
