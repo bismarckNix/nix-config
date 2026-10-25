@@ -19,6 +19,7 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
           installation_mode = "force_installed";
         };
+        Certificates.Install = [ "${../../certs/caddy-root.crt}" ];
       };
 
       AutofillAddressEnabled = true;
@@ -131,8 +132,13 @@
 
       search = {
         force = true;
-        default = "brave";
+        default = "searxng";
         engines = {
+          searxng = {
+            name = "SearXNG";
+            urls = [{ template = "https://127.0.0.1:8888/search?q={searchTerms}"; }];
+            definedAliases = [ "@sx" ];
+          };
           brave = {
             name = "Brave";
             urls = [{ template = "https://search.brave.com/search?q={searchTerms}"; }];

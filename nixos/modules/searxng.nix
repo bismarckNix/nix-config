@@ -14,7 +14,7 @@
 
       server = {
         bind_address = "127.0.0.1";
-        port = 8888;
+        port = 8889;
         secret_key = "@SEARXNG_SECRET@";
         limiter = false;
         image_proxy = true;
@@ -26,6 +26,7 @@
         autocomplete_min = 2;
         default_lang = "auto";
         formats = [ "html" ];
+        favicon_resolver = "duckduckgo";
       };
 
       ui = {
@@ -49,6 +50,28 @@
         { name = "mojeek";     disabled = false; }
         { name = "duckduckgo"; disabled = false;  }
       ];
+
+      faviconsSettings = {
+        favicons = {
+          cfg_schema = 1;
+          cache = {
+            db_url = "/var/cache/searxng/faviconcache.db";
+            LIMIT_TOTAL_BYTES = 536870912;
+          };
+        };
+      };
     };
   };
+
+  # HTTPS
+  services.caddy = {
+    enable = true;
+    virtualHosts."https://127.0.0.1:8888".extraConfig = ''
+      tls internal
+      reverse_proxy 127.0.0.1:8889
+    '';
+  };
+
+  # Favicon cache
+  systemd.services.searx.serviceConfig.CacheDirectory = "searx";
 }
