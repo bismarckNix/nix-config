@@ -10,6 +10,7 @@
     ./nh.nix
     ./nix.nix
     ./sddm-lancer.nix
+    ./searxng.nix
     ./services.nix
     ./sops.nix
     ./syncthing.nix

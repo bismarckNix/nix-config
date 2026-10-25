@@ -15,6 +15,7 @@ in {
 
     secrets = lib.genAttrs secretNames (_: { }) // {
       github_token.owner = user;
+      searx_secret = { };
     };
 
     templates = {
@@ -25,8 +26,17 @@ in {
         content = "access-tokens = github.com=${config.sops.placeholder.github_token}";
         owner = user;
       };
+
+      "searx.env" = {
+        content = ''
+          SEARXNG_SECRET=${config.sops.placeholder.searx_secret}
+        '';
+        restartUnits = [ "searx.service" "searx-init.service" ];
+      };
     };
   };
+
+  services.searx.environmentFile = config.sops.templates."searx.env".path;
 
   networking.networkmanager.ensureProfiles = {
     environmentFiles = [ config.sops.templates."nm-wifi.env".path ];
