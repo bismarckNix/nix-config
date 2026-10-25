@@ -65,7 +65,59 @@
         "zen.view.compact.hide-tabbar" = true;
         "zen.view.compact.hide-toolbar" = true;
         "zen.view.experimental-no-window-controls" = true;
+
+        "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };
+
+      userContent = ''
+        @-moz-document url-prefix("https://127.0.0.1:8888") {
+          html, body {
+            background: transparent !important;
+          }
+
+          /* Transparency */
+          :root,
+          html.theme-dark,
+          html.theme-light {
+            --color-base-background: transparent !important;
+            --color-base-background-mobile: transparent !important;
+            --color-header-background: transparent !important;
+            --color-footer-background: transparent !important;
+            --color-sidebar-background: transparent !important;
+            --color-search-background: #1f1f1f !important;
+            --color-result-background: transparent !important;
+          }
+
+          /* Darker results cards */
+          #answers {
+            background: #1f1f1f !important;
+            border-radius: 12px !important;
+          }
+
+          #answers .answer,
+          #answers .answer * {
+            background: transparent !important;
+          }
+
+          #infoboxes .infobox,
+          .infobox {
+            background: #1f1f1f !important;
+          }
+
+          /* Opaque search bar */
+          #q {
+            background: #1f1f1f !important;
+          }
+
+          /* Image results rounding */
+          .result-images img,
+          .result-images .image_thumbnail,
+          .result-images-source {
+            border-radius: 12px !important;
+            overflow: hidden;
+          }
+        }
+      '';
 
       pinsForce = true;
       pins = {
