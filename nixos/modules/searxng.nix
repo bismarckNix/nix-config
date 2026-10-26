@@ -22,8 +22,8 @@
 
       search = {
         safe_search = 0;
-        autocomplete = "duckduckgo";
-        autocomplete_min = 3;
+        autocomplete = "";
+        autocomplete_min = 999;
         default_lang = "auto";
         formats = [ "html" ];
         favicon_resolver = "duckduckgo";
@@ -44,7 +44,7 @@
       };
 
       engines = [
-        { name = "brave";          disabled = false; weight = 2.0; }
+        { name = "brave";          disabled = false; weight = 2.0; max_page = 10; }
         { name = "duckduckgo";     disabled = false; weight = 1.0; }
         { name = "wikipedia";      disabled = false; }
         { name = "yep";            disabled = false; weight = 0.5; }
