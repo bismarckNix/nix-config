@@ -16,6 +16,7 @@ in {
     secrets = lib.genAttrs secretNames (_: { }) // {
       github_token.owner = user;
       searx_secret = { };
+      caddy_root_key.owner = config.services.caddy.user;
     };
 
     templates = {

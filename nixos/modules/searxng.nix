@@ -81,6 +81,16 @@
   # HTTPS
   services.caddy = {
     enable = true;
+    globalConfig = ''
+      pki {
+        ca local {
+          root {
+            cert ${../../certs/caddy-root.crt}
+            key ${config.sops.secrets.caddy_root_key.path}
+          }
+        }
+      }
+    '';
     virtualHosts."https://127.0.0.1:8888".extraConfig = ''
       tls internal
       reverse_proxy 127.0.0.1:8889
