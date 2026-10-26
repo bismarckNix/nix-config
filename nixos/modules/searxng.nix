@@ -47,17 +47,15 @@
       outgoing = {
         request_timeout = 4.0;
         max_request_timeout = 10.0;
-        proxies = {
-          "all://" = [ "socks5h://127.0.0.1:9050" ];
-        };
       };
 
       engines = [
-        { name = "brave";          disabled = false; weight = 2.0; max_page = 2; using_tor_proxy = true; }
+        { name = "brave";          disabled = false; weight = 2.0; max_page = 2; }
         { name = "duckduckgo";     disabled = false; weight = 1.5; }
         { name = "wikipedia";      disabled = false; }
+        { name = "wikidata";       disabled = false; }
+        { name = "qwant";          disabled = false; }
         { name = "mwmbl";          disabled = false; weight = 0.5; }
-        { name = "yacy";           disabled = false; weight = 0.5; base_url = "https://yacy.searchlab.eu"; timeout = 10.0; }
 
         { name = "nixos wiki";        disabled = false; }
         { name = "arch linux wiki";   disabled = false; }
@@ -65,7 +63,7 @@
         { name = "stackoverflow";     disabled = false; }
         { name = "mdn";               disabled = false; }
 
-        { name = "google-cse";        disabled = true; }
+        { name = "google cse";        disabled = true; }
       ];
 
       faviconsSettings = {

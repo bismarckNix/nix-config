@@ -42,11 +42,6 @@
       notifications.wall.enable = true;
     };
 
-    tor = {
-      enable = true;
-      client.enable = true;
-    };
-
     upower.enable = true;
 
     xserver = {
