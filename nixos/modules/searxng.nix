@@ -47,10 +47,13 @@
       outgoing = {
         request_timeout = 4.0;
         max_request_timeout = 10.0;
+        proxies = {
+          "all://" = [ "socks5h://127.0.0.1:9050" ];
+        };
       };
 
       engines = [
-        { name = "brave";          disabled = false; weight = 2.0; max_page = 2; }
+        { name = "brave";          disabled = false; weight = 2.0; max_page = 2; using_tor_proxy = true; }
         { name = "duckduckgo";     disabled = false; weight = 1.5; }
         { name = "wikipedia";      disabled = false; }
         { name = "mwmbl";          disabled = false; weight = 0.5; }
