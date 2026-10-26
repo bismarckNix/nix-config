@@ -54,7 +54,6 @@
         { name = "duckduckgo";     disabled = false; weight = 1.5; }
         { name = "wikipedia";      disabled = false; }
         { name = "wikidata";       disabled = false; }
-        { name = "qwant";          disabled = false; }
         { name = "mwmbl";          disabled = false; weight = 0.5; }
 
         { name = "nixos wiki";        disabled = false; }
