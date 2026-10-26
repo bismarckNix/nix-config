@@ -16,6 +16,7 @@
       nerd-fonts.departure-mono
       nerd-fonts.fira-code
       nerd-fonts.hack
+      nerd-fonts.iosevka
       nerd-fonts.jetbrains-mono
       noto-fonts
       noto-fonts-color-emoji
