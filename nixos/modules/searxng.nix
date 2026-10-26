@@ -27,13 +27,19 @@
         default_lang = "auto";
         formats = [ "html" ];
         favicon_resolver = "duckduckgo";
+
+        suspended_times = {
+          SearxEngineTooManyRequests = 300;
+          SearxEngineCaptcha = 3600;
+          SearxEngineAccessDenied = 3600;
+        };
       };
 
       ui = {
         default_theme = "simple";
         theme_args.simple_style = "dark";
         center_alignment = true;
-        infinite_scroll = true;
+        infinite_scroll = false;
         query_in_title = true;
         static_use_hash = true;
       };
@@ -44,17 +50,19 @@
       };
 
       engines = [
-        { name = "brave";          disabled = false; weight = 2.0; max_page = 10; }
-        { name = "duckduckgo";     disabled = false; weight = 1.0; }
+        { name = "brave";          disabled = false; weight = 2.0; max_page = 2; }
+        { name = "duckduckgo";     disabled = false; weight = 1.5; }
         { name = "wikipedia";      disabled = false; }
-        { name = "yep";            disabled = false; weight = 0.5; }
         { name = "mwmbl";          disabled = false; weight = 0.5; }
+        { name = "yacy";           disabled = false; weight = 0.5; base_url = "https://yacy.searchlab.eu"; timeout = 10.0; }
 
         { name = "nixos wiki";        disabled = false; }
         { name = "arch linux wiki";   disabled = false; }
         { name = "github";            disabled = false; }
         { name = "stackoverflow";     disabled = false; }
         { name = "mdn";               disabled = false; }
+
+        { name = "google-cse";        disabled = true; }
       ];
 
       faviconsSettings = {

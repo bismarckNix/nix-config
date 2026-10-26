@@ -19,11 +19,11 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
           installation_mode = "force_installed";
         };
-        Certificates.Install = [ "${../../certs/caddy-root.crt}" ];
       };
 
       AutofillAddressEnabled = true;
       AutofillCreditCardEnabled = false;
+      Certificates.Install = [ "${../../certs/caddy-root.crt}" ];
       DisableAppUpdate = true;
       DisableFeedbackCommands = true;
       DisableFirefoxStudies = true;
