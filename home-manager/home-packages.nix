@@ -44,6 +44,7 @@
     ardour
     darktable
     gimp3
+    gnumake
     (pkgs.symlinkJoin {
       name = "krita-wayland";
       paths = [ pkgs.krita ];
@@ -57,6 +58,7 @@
     kdePackages.kdenlive
     libreoffice
     lmms-full
+    nodejs
     obsidian
     python3
     rustup
