@@ -50,7 +50,7 @@
       };
 
       engines = [
-        { name = "brave";          disabled = false; weight = 2.0; max_page = 2; }
+        { name = "brave";          disabled = true; weight = 2.0; max_page = 2; }
         { name = "duckduckgo";     disabled = false; weight = 1.5; }
         { name = "wikipedia";      disabled = false; }
         { name = "wikidata";       disabled = false; }
