@@ -84,6 +84,7 @@
     sd
     sops
     tealdeer
+    usbutils
     wget
     xh
 
