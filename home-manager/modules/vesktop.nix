@@ -16,7 +16,6 @@
       settings = {
         plugins = {
           AddAttachments.enabled = true;
-          BetterFolders.enabled = true;
           CallTimer.enabled = true;
           CrashHandler.enabled = true;
           Decor.enabled = true;
