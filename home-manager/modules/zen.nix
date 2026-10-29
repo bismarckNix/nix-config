@@ -152,9 +152,9 @@
           isEssential = true;
           position = 105;
         };
-        "Claude" = {
+        "ChatGPT" = {
           id = "UUID-6";
-          url = "https://claude.ai";
+          url = "https://chatgpt.com";
           isEssential = true;
           position = 106;
         };
