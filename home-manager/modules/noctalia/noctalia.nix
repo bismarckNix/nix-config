@@ -38,7 +38,7 @@
             accordion = false;
             accordion_direction = "end";
             enabled = true;
-            fill = "surface_variant";
+            fill = "surface_container";
             id = "g1";
             members = [ "launcher" "line" "date" "line" "clock" ];
             opacity = 0.7;
