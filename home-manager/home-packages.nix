@@ -58,6 +58,7 @@
     kdePackages.kdenlive
     libreoffice
     lmms-full
+    mise
     nodejs
     obsidian
     python3
