@@ -72,6 +72,7 @@
     inputs.freesmlauncher.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Tools
+    android-tools
     duf
     dust
     entr
