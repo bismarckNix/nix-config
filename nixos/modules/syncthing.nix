@@ -20,13 +20,14 @@
       devices = {
         nixos.id = "O7F23NA-DZW7S4Y-3XYKUTR-PU3FSVW-FSSFZMR-YH63SAD-DN33T3I-APHREAJ";
         nix-thinkpad.id = "E3Q6AFX-DI5BUH5-JZBUXQP-KTTUMKP-23QEDXF-LSWKKLC-P24PM24-USYPMAS";
+        A024.id = "IJUIV7Y-7JJYE66-TWAEZY3-GN4PJYI-ULFWXO3-CPFVKLF-5TAQIVS-LHPBTQD";
         RMX3636.id = "3XRUSX5-FYRHF4M-YL2TI2L-UE2UJ3G-SC4REUL-COS73I6-5OU27LY-C2IYSQW";
       };
 
       folders = {
         "vault" = {
           path = "/home/${user}/.synced-vault";
-          devices = [ "nixos" "nix-thinkpad" "RMX3636" ];
+          devices = [ "nixos" "nix-thinkpad" "A024" "RMX3636" ];
           type = "sendreceive";
           fsWatcherEnabled = true;
             fsWatcherDelayS = 10;
@@ -54,7 +55,7 @@
         };
         "music" = {
           path = "/home/${user}/Music";
-          devices = [ "nixos" "nix-thinkpad" "RMX3636" ];
+          devices = [ "nixos" "nix-thinkpad" "A024" "RMX3636" ];
           type = "sendreceive";
           fsWatcherEnabled = true;
             fsWatcherDelayS = 10;
