@@ -48,7 +48,7 @@
             accordion = false;
             accordion_direction = "end";
             enabled = true;
-            fill = "surface_variant";
+            fill = "surface_container";
             id = "g2";
             members = [ "control-center" "line" "session" ];
             opacity = 0.7;
@@ -58,7 +58,7 @@
             accordion = false;
             accordion_direction = "end";
             enabled = true;
-            fill = "surface_variant";
+            fill = "surface_container";
             id = "g3";
             members = [ "output_volume" "line" "input_volume" ];
             opacity = 0.7;
@@ -255,9 +255,6 @@
         };
         "noctalia/wallhaven" = {
           browser_placement = "floating";
-        };
-        "noctalia/umbriel-companion" = {
-          panel_placement = "floating";
         };
         "yuuto/calculator" = {
           panel_placement = "floating";
