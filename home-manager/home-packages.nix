@@ -86,6 +86,7 @@
     sd
     sops
     tealdeer
+    unzip
     usbutils
     wget
     xh
