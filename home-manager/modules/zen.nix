@@ -184,7 +184,7 @@
 
       search = {
         force = true;
-        default = "searxng";
+        default = "brave";
         engines = {
           searxng = {
             name = "SearXNG";
