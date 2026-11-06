@@ -133,7 +133,12 @@
     pear-desktop
     smassh
     system-config-printer
-    inputs.riff.packages.${pkgs.stdenv.hostPlatform.system}.default
+    (inputs.riff.packages.${pkgs.stdenv.hostPlatform.system}.default.overrideAttrs (old: {
+      installPhase = builtins.replaceStrings
+        [ "--add-flags $out/share/riff/package.json" ]
+        [ "--add-flags $out/share/riff" ]
+        old.installPhase;
+    }))
   ];
 
   nixpkgs.overlays = [
