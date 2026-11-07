@@ -10,6 +10,11 @@
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
         };
+        "CanvasBlocker@kkapsner.de" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/CanvasBlocker@kkapsner.de/latest.xpi";
+          installation_mode = "force_installed";
+          private_browsing = true;
+        };
         # Zen Internet 
         "{91aa3897-2634-4a8a-9092-279db23a7689}" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/zen-internet/latest.xpi";
@@ -34,9 +39,16 @@
       OfferToSaveLogins = false;
       EnableTrackingProtection = {
         Value = true;
-        Locked = true;
-        Cryptomining = true;
+        Locked = false;
+
+        Category = "strict";
         Fingerprinting = true;
+        SuspectedFingerprinting = true;
+        Cryptomining = true;
+        EmailTracking = true;
+
+        BaselineExceptions = true;
+        ConvenienceExceptions = true;
       };
       DNSOverHTTPS = {
         Enabled = true;
@@ -53,6 +65,15 @@
       ];
 
       settings = {
+        "privacy.resistFingerprinting" = false;
+        "privacy.resistFingerprinting.pbmode" = false;
+
+        "privacy.fingerprintingProtection" = true;
+        "privacy.fingerprintingProtection.pbmode" = true;
+
+        "privacy.fingerprintingProtection.overrides" =
+          "+AllTargets,-CSSPrefersColorScheme";
+
         "browser.tabs.allow_transparent_browser" = true;
         "zen.widget.linux.transparency" = true;
         "zen.view.grey-out-inactive-windows" = false;
