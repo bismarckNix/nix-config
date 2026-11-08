@@ -3,6 +3,7 @@
 
   programs.artcraft = {
     fullSuite.enable = true;
+    studio.enable = false;
 
     craft-launcher = {
       trayIcon = false;
