@@ -2,7 +2,6 @@
   imports = [
     ./hardware-configuration.nix
     ./local-packages.nix
-    ../../nixos/llamacpp.nix
     ../../nixos/systemd-boot.nix
     ../../nixos/packages.nix
     ../../nixos/nvidia.nix
