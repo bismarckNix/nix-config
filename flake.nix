@@ -28,6 +28,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    flclash = {
+      url = "path:///home/bismarck/flakes/flclash-nix";
+    };
+
     freesmlauncher = {
       url = "github:FreesmTeam/FreesmLauncher";
       inputs.nixpkgs.follows = "nixpkgs";

@@ -5,6 +5,7 @@
     ./boot.nix
     ./docker.nix
     ./env.nix
+    ./flclash.nix
     ./fonts.nix
     ./net.nix
     ./nh.nix
