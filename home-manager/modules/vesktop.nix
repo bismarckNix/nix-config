@@ -30,7 +30,7 @@
           YoutubeAdblock.enabled = true;
         };
 
-        enabledThemes = [ "discord-system24.css" ];
+        enabledThemes = [ "noctalia-material.theme.css" ];
       };
 
       themes = {
