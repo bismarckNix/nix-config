@@ -1,15 +1,8 @@
-{ inputs, options, pkgs, ... }: {
+{ inputs, options, pkgs, user, ... }: {
   programs = {
     appimage = {
       enable = true;
       binfmt = true;
-    };
-
-    clash-verge = {
-      enable = true;
-      serviceMode = true;
-      tunMode = true;
-      autoStart = true;
     };
 
     steam = {
