@@ -186,7 +186,7 @@
     // Apps
     // ###################################################################################################################
 
-      Mod+Shift+V   hotkey-overlay-title="Open Proxy Client: Clash Verge"     { spawn "clash-verge"; }
+      Mod+Shift+V   hotkey-overlay-title="Open Proxy Client: FLClash"         { spawn "flclash"; }
       Mod+E         hotkey-overlay-title="Open Browser: Zen Beta"             { spawn "zen-beta"; }
       Mod+A         hotkey-overlay-title="Open File Manager: Nemo"            { spawn "nemo"; }
       Mod+Shift+E   hotkey-overlay-title="Open File Manager: Yazi"            { spawn-sh "kitty --class yazi yazi"; }
