@@ -6,7 +6,6 @@
     studio.enable = false;
 
     craft-launcher = {
-      trayIcon = false;
       notifyUpdates = true;
     };
 
