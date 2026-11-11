@@ -9,19 +9,25 @@
         "uBlock0@raymondhill.net" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/ublock-origin/latest.xpi";
           installation_mode = "force_installed";
+          private_browsing = true;
         };
         "CanvasBlocker@kkapsner.de" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/CanvasBlocker@kkapsner.de/latest.xpi";
           installation_mode = "force_installed";
           private_browsing = true;
         };
-        # Zen Internet 
-        "{91aa3897-2634-4a8a-9092-279db23a7689}" = {
-          install_url = "https://addons.mozilla.org/firefox/downloads/latest/zen-internet/latest.xpi";
+        "foxyproxy@eric.h.jung" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/foxyproxy-standard/latest.xpi";
           installation_mode = "force_installed";
+          private_browsing = true;
         };
         "addon@darkreader.org" = {
           install_url = "https://addons.mozilla.org/firefox/downloads/latest/darkreader/latest.xpi";
+          installation_mode = "force_installed";
+        };
+        # Zen Internet 
+        "{91aa3897-2634-4a8a-9092-279db23a7689}" = {
+          install_url = "https://addons.mozilla.org/firefox/downloads/latest/zen-internet/latest.xpi";
           installation_mode = "force_installed";
         };
       };
@@ -65,6 +71,7 @@
       ];
 
       settings = {
+        # Fingerprint protection
         "privacy.resistFingerprinting" = false;
         "privacy.resistFingerprinting.pbmode" = false;
 
@@ -74,18 +81,19 @@
         "privacy.fingerprintingProtection.overrides" =
           "+AllTargets,-CSSPrefersColorScheme";
 
+        # Zen Zero
         "browser.tabs.allow_transparent_browser" = true;
         "zen.widget.linux.transparency" = true;
         "zen.view.grey-out-inactive-windows" = false;
+        "zen.view.compact.hide-tabbar" = true;
+        "zen.view.compact.hide-toolbar" = true;
+        "zen.view.experimental-no-window-controls" = true;
+
         "mod.sameerasw.zen_transparent_sidebar_enabled" = true;
         "mod.sameerasw.zen_transparent_glance_enabled" = true;
         "mod.sameerasw.zen_tab_switch_anim" = true;
         "mod.sameerasw.zen_urlbar_zoom_anim" = true;
         "mod.sameerasw.zen_trackpad_anim" = true;
-
-        "zen.view.compact.hide-tabbar" = true;
-        "zen.view.compact.hide-toolbar" = true;
-        "zen.view.experimental-no-window-controls" = true;
 
         "toolkit.legacyUserProfileCustomizations.stylesheets" = true;
       };

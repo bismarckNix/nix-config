@@ -5,7 +5,7 @@
       nativeBuildInputs = (prev.nativeBuildInputs or []) ++ [ pkgs.makeWrapper ];
       postFixup = (prev.postFixup or "") + ''
         wrapProgram $out/bin/vesktop \
-          --add-flags "--disable-features=WebRtcAllowInputVolumeAdjustment"
+          --add-flags "--disable-features=WebRtcAllowInputVolumeAdjustment --proxy-server=http://127.0.0.1:7890"
       '';
     });
     settings = {
