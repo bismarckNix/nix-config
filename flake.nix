@@ -29,7 +29,7 @@
     };
 
     flclash = {
-      url = "path:///home/bismarck/flakes/flclash-nix";
+      url = "git+file:///home/bismarck/flakes/flclash-nix";
     };
 
     freesmlauncher = {
@@ -48,7 +48,7 @@
     };
 
     millennium = {
-      url = "github:SteamClientHomebrew/Millennium?dir=packages/nix";
+      url = "github:SteamClientHomebrew/Millennium/v3.6.2?dir=packages/nix";
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
