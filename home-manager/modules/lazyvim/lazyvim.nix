@@ -30,6 +30,10 @@
           installRuntimeDependencies = true;
         };
       };
+
+      ui.treesitter-context.enable = true;
+      dap.core.enable = true;
+      test.core.enable = true;
     };
 
     extraPackages = with pkgs; [ curl nixd alejandra statix ];
@@ -61,6 +65,34 @@
           }
         }
       '';
+
+      diffview = ''
+        return {
+          {
+            "sindrets/diffview.nvim",
+            cmd = {
+              "DiffviewOpen",
+              "DiffviewFileHistory",
+            },
+            dependencies = {
+              "nvim-lua/plenary.nvim",
+            },
+            keys = {
+              {
+                "<leader>gD",
+                "<cmd>DiffviewOpen<cr>",
+                desc = "Open Diffview",
+              },
+              {
+                "<leader>gH",
+                "<cmd>DiffviewFileHistory %<cr>",
+                desc = "File History",
+              },
+            },
+          },
+        }
+      '';
+
       image = ''
         return {
           { "3rd/image.nvim",
@@ -69,6 +101,30 @@
               processor = "magick_cli",
             }
           }
+        }
+      '';
+
+      oil = ''
+        return {
+          {
+            "stevearc/oil.nvim",
+            lazy = false,
+            dependencies = {
+              { "nvim-mini/mini.icons", opts = {} },
+            },
+            opts = {
+              view_options = {
+                show_hidden = true,
+              },
+            },
+            keys = {
+              {
+                "-",
+                "<cmd>Oil<cr>",
+                desc = "Open parent directory",
+              },
+            },
+          },
         }
       '';
     };
