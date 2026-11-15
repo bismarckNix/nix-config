@@ -30,6 +30,7 @@
 
     flclash = {
       url = "git+file:///home/bismarck/flakes/flclash-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
 
     freesmlauncher = {
