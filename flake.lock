@@ -28,11 +28,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794411594,
-        "narHash": "sha256-mscba7L3bqOgeZZwD9knIxdxgWKQU70J3rfYWRQDN0Y=",
+        "lastModified": 1794733396,
+        "narHash": "sha256-ZE1P4uBS/+Q1WOYHbmLZoiHysAUi9sPFtjgOIBXl1Qo=",
         "ref": "refs/heads/master",
-        "rev": "e0bacc9138cdb98730cb02efc3b48730658e33d3",
-        "revCount": 90,
+        "rev": "567dc01e599c22c5dcd17109199f9391d51a214d",
+        "revCount": 92,
         "type": "git",
         "url": "file:///home/bismarck/flakes/artcraft-flake"
       },
@@ -196,11 +196,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794278858,
-        "narHash": "sha256-rkrJwLgLSHBnXfgoSKIDa+2LLGdTqynsV3GAxOTGhUU=",
+        "lastModified": 1794715309,
+        "narHash": "sha256-awkBBs5ctFKgEYjpNGpi3t/VqF589n5EWfdinRb2gNI=",
         "owner": "nix-community",
         "repo": "home-manager",
-        "rev": "82ce401aa350502897c3f2e85f384d61cd3b0b6d",
+        "rev": "a1293da7dd8e497e08d26173f97e2976b36a31ea",
         "type": "github"
       },
       "original": {
@@ -382,11 +382,11 @@
     },
     "nixpkgs_2": {
       "locked": {
-        "lastModified": 1794386569,
-        "narHash": "sha256-x9sADJvoVG0L6RejZB+/BB4YiGZFBZrfTlhF4uBq1tQ=",
+        "lastModified": 1794537146,
+        "narHash": "sha256-Wpz/7x/YWnDIBu7yj6ixe8j6fIMsidd9Y+o1PqPF3iM=",
         "owner": "nixos",
         "repo": "nixpkgs",
-        "rev": "d4f25a3e562008648d45bcf2d70bcc7422cad84e",
+        "rev": "d5cc6833999746cffdfe0598f7bc801a57b887a9",
         "type": "github"
       },
       "original": {
@@ -426,11 +426,11 @@
         ]
       },
       "locked": {
-        "lastModified": 1794606167,
-        "narHash": "sha256-CGtC09QT2O4R9baWqOdpti4yCI2rNYLy7If7u5py4+8=",
+        "lastModified": 1794679941,
+        "narHash": "sha256-tRr7ic5oTxuXQskfS4lnHQo6N3AMJ9F+x2kqbccXDM8=",
         "owner": "rootscripts",
         "repo": "riff",
-        "rev": "ac68b13b1ee444c4b1ebd506f77da9bd1d83217a",
+        "rev": "5cf6a1845cae53c1097f3ac6e83b6e4b5211d118",
         "type": "github"
       },
       "original": {
@@ -536,11 +536,11 @@
         "xdg-desktop-portal-umbriel": "xdg-desktop-portal-umbriel"
       },
       "locked": {
-        "lastModified": 1794581480,
-        "narHash": "sha256-TTXrp5JD91NEcMpX4ChH/J/AtP0g8h3L+DCCgfVYt70=",
+        "lastModified": 1794712577,
+        "narHash": "sha256-nLcyRJOZ1eMphbtmwkxg0gl+VVmCfIWCZM/EyjcUyrQ=",
         "owner": "noctalia-dev",
         "repo": "umbriel",
-        "rev": "33a782dc750e78f0ef2d21fd9d3df33229ae06f9",
+        "rev": "ae3472d7546d45576a3540969786ddc83bb1ac08",
         "type": "github"
       },
       "original": {
