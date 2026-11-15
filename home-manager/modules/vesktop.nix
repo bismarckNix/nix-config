@@ -8,6 +8,7 @@
           --add-flags "--disable-features=WebRtcAllowInputVolumeAdjustment --proxy-server=http://127.0.0.1:7890"
       '';
     });
+    mutableSettings = true;
     settings = {
       arRPC = true;
     };
