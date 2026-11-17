@@ -31,6 +31,7 @@
     })
     udiskie
     xarchiver
+    inputs.luciole.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Browsers
     tor-browser
