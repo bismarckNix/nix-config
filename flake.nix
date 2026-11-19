@@ -58,6 +58,11 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
+    niri = {
+      url = "github:epireyn/niri-flake";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
+
     riff = {
       url = "github:rootscripts/riff";
       inputs.nixpkgs.follows = "nixpkgs";

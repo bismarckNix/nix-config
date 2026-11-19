@@ -11,6 +11,4 @@
   ./startup.nix
   ./window-rules.nix
   ];
-
-  wayland.windowManager.niri.enable = true;  
 }
