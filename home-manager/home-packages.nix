@@ -70,6 +70,8 @@
     vscodium
 
     # Games
+    lutris
+    wine
     inputs.freesmlauncher.packages.${pkgs.stdenv.hostPlatform.system}.default
 
     # Tools
