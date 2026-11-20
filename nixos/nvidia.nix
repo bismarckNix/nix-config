@@ -39,5 +39,8 @@
   #   };
   # };
 
-  environment.sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
+  environment = {
+    systemPackages = with pkgs; [ vulkan-tools ];
+    sessionVariables.LD_LIBRARY_PATH = [ "/run/opengl-driver/lib" ];
+  };
 }
