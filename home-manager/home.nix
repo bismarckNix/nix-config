@@ -1,4 +1,4 @@
-{ homeStateVersion, inputs, user, ... }: {
+{ homeStateVersion, inputs, pkgs, lib, user, ... }: {
   imports = [
     ./modules
     ./home-packages.nix
@@ -10,6 +10,12 @@
     username = user;
     homeDirectory = "/home/${user}";
     stateVersion = homeStateVersion;
+
+    sessionVariables = {
+      LD_LIBRARY_PATH = lib.makeLibraryPath (with pkgs; [
+        icu
+      ]);
+    };
   };
 
   nixpkgs.config = {
