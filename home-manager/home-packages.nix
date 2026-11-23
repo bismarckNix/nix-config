@@ -101,6 +101,7 @@
     cacert
     ddcutil
     gcc
+    glib
     gpu-screen-recorder
     grim
     hyprpicker
@@ -119,6 +120,7 @@
     xwayland-satellite
     yt-dlp
     zbar
+    zenity
 
     # Plugins
     helm
